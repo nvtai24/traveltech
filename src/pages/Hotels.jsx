@@ -161,7 +161,7 @@ const Hotels = () => {
                 {/* CTA Button */}
                 <div>
                   <Link
-                    to={`/booking/hotels/${hotel.id}`}
+                    to={`/booking/hotels/${hotel.slug}`}
                     className="btn btn-primary text-lg px-8 py-3 inline-flex items-center"
                   >
                     Xem chi tiết & Đặt phòng
@@ -324,7 +324,7 @@ const Hotels = () => {
               {currentHotels.map((hotel) => (
                 <Link
                   key={hotel.id}
-                  to={`/booking/hotels/${hotel.id}`}
+                  to={`/booking/hotels/${hotel.slug}`}
                   className="group bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
                   {/* Hotel Image */}

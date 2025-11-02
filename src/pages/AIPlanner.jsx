@@ -1,7 +1,29 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { restaurants } from "../data/restaurants";
+import { hotels } from "../data/hotels";
 
 const AIPlanner = () => {
+  // Map destination values to actual city names in data
+  const destinationMapping = {
+    hanoi: "Hà Nội",
+    halong: "Hạ Long",
+    sapa: "Sa Pa",
+    hue: "Huế",
+    hoian: "Hội An",
+    danang: "Đà Nẵng",
+    nhatrang: "Nha Trang",
+    dalat: "Đà Lạt",
+    hcmc: "TP. Hồ Chí Minh",
+    hochiminh: "TP. Hồ Chí Minh",
+    phuquoc: "Phú Quốc",
+    cantho: "Cần Thơ",
+    vungtau: "Vũng Tàu",
+    haiphong: "Hải Phòng",
+    quyinhon: "Quy Nhơn",
+    mytho: "Mỹ Tho",
+  };
+
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     destination: "",
@@ -100,11 +122,1012 @@ const AIPlanner = () => {
     }
   };
 
+  // Restaurant and hotel data by destination
+  const getRestaurantsByDestination = (destination, budgetLevel) => {
+    // Map budget levels to price ranges
+    const priceRanges = {
+      budget: { min: 0, max: 150000 },
+      balanced: { min: 150000, max: 500000 },
+      premium: { min: 500000, max: Infinity },
+    };
+
+    const priceRange = priceRanges[budgetLevel];
+
+    // Convert destination from form value to city name
+    const cityName = destinationMapping[destination] || destination;
+
+    // Filter restaurants from restaurants.js by destination and price range
+    const filteredRestaurants = restaurants
+      .filter((r) => r.location.city === cityName)
+      .filter(
+        (r) =>
+          r.averagePrice >= priceRange.min && r.averagePrice <= priceRange.max
+      )
+      .slice(0, 3); // Get max 3 restaurants
+
+    // Map to match the structure we need
+    const mappedRestaurants = filteredRestaurants.map((r) => ({
+      id: r.id,
+      slug: r.slug,
+      name: r.name,
+      cuisine: r.cuisine,
+      priceRange: formatPrice(r.averagePrice),
+      rating: r.rating,
+      location: r.location.address.split(",")[0], // Get first part of address
+    }));
+
+    // If no restaurants found, return empty array (will use defaults in generatePlan)
+    return mappedRestaurants.length > 0 ? mappedRestaurants : [];
+  };
+
+  const formatPrice = (price) => {
+    if (price < 100000) return `${Math.floor(price / 1000)}k`;
+    if (price < 1000000) return `${Math.floor(price / 1000)}k`;
+    return `${(price / 1000000).toFixed(1)}tr`;
+  };
+
+  const getHotelsByDestination = (destination, budgetLevel) => {
+    // Map budget levels to price ranges (per night)
+    const priceRanges = {
+      budget: { min: 0, max: 800000 },
+      balanced: { min: 800000, max: 3000000 },
+      premium: { min: 3000000, max: Infinity },
+    };
+
+    const priceRange = priceRanges[budgetLevel];
+
+    // Convert destination from form value to city name
+    const cityName = destinationMapping[destination] || destination;
+
+    // Filter hotels from hotels.js by destination and price range
+    const filteredHotels = hotels
+      .filter((h) => h.location.city === cityName)
+      .filter(
+        (h) =>
+          h.startingPrice >= priceRange.min && h.startingPrice <= priceRange.max
+      )
+      .slice(0, 2); // Get max 2 hotels
+
+    // Map to match the structure we need
+    const mappedHotels = filteredHotels.map((h) => ({
+      id: h.id,
+      slug: h.slug,
+      name: h.name,
+      stars: getCategoryStars(h.category, budgetLevel),
+      pricePerNight: h.priceRange.split(" - ")[0].replace(/,/g, ""),
+      rating: h.rating,
+      amenities: h.amenities
+        .filter((a) => a.available)
+        .slice(0, 3)
+        .map((a) => a.name),
+    }));
+
+    // If no hotels found, return empty array (will use defaults in generatePlan)
+    return mappedHotels.length > 0 ? mappedHotels : [];
+  };
+
+  const getCategoryStars = (category, budgetLevel) => {
+    if (category === "Resort")
+      return budgetLevel === "budget" ? 3 : budgetLevel === "balanced" ? 4 : 5;
+    if (category === "Hotel")
+      return budgetLevel === "budget" ? 2 : budgetLevel === "balanced" ? 4 : 5;
+    if (category === "Villa")
+      return budgetLevel === "budget" ? 3 : budgetLevel === "balanced" ? 4 : 5;
+    return 3;
+  };
+
+  // Fallback function if no restaurants found (currently using empty array fallback)
+  const _getDefaultRestaurants = (budgetLevel) => {
+    const defaultData = {
+      "Hà Nội": {
+        budget: [
+          {
+            name: "Phở Thìn",
+            cuisine: "Phở truyền thống",
+            priceRange: "40-60k",
+            rating: 4.5,
+            location: "Lò Đúc",
+            slug: "pho-gia-truyen-bat-dan",
+          },
+          {
+            name: "Bún Chả Đắc Kim",
+            cuisine: "Bún chả Hà Nội",
+            priceRange: "50-70k",
+            rating: 4.6,
+            location: "Hàng Mành",
+            slug: "bun-cha-huong-lien",
+          },
+          {
+            name: "Bánh Mì 25",
+            cuisine: "Bánh mì",
+            priceRange: "25-35k",
+            rating: 4.3,
+            location: "Hoàn Kiếm",
+            slug: "quan-an-pho-co-hanoi",
+          },
+        ],
+        balanced: [
+          {
+            name: "Nhà Hàng Madame Hiền",
+            cuisine: "Việt Nam",
+            priceRange: "150-250k",
+            rating: 4.7,
+            location: "Hoàn Kiếm",
+          },
+          {
+            name: "Essence Restaurant",
+            cuisine: "Á - Âu",
+            priceRange: "200-350k",
+            rating: 4.5,
+            location: "Hai Bà Trưng",
+          },
+          {
+            name: "Chả Cá Lã Vọng",
+            cuisine: "Chả cá đặc sản",
+            priceRange: "180-280k",
+            rating: 4.4,
+            location: "Hồ Hoàn Kiếm",
+          },
+        ],
+        premium: [
+          {
+            name: "La Verticale",
+            cuisine: "Fine Dining Pháp",
+            priceRange: "500-800k",
+            rating: 4.8,
+            location: "Hoàn Kiếm",
+          },
+          {
+            name: "Home Hanoi Restaurant",
+            cuisine: "Cao cấp Việt Nam",
+            priceRange: "450-700k",
+            rating: 4.7,
+            location: "Tràng Tiền",
+          },
+          {
+            name: "Maison Sen",
+            cuisine: "Fusion Á-Âu",
+            priceRange: "600-900k",
+            rating: 4.9,
+            location: "Hồ Tây",
+          },
+        ],
+      },
+      "Hạ Long": {
+        budget: [
+          {
+            name: "Hải Sản Bình Dân",
+            cuisine: "Hải sản tươi",
+            priceRange: "80-120k",
+            rating: 4.3,
+            location: "Bãi Cháy",
+          },
+          {
+            name: "Bánh Đa Cua",
+            cuisine: "Đặc sản Hạ Long",
+            priceRange: "50-80k",
+            rating: 4.4,
+            location: "Chợ Hạ Long",
+          },
+          {
+            name: "Quán Ốc Sài Gòn",
+            cuisine: "Ốc các loại",
+            priceRange: "60-100k",
+            rating: 4.2,
+            location: "Hùng Thắng",
+          },
+        ],
+        balanced: [
+          {
+            name: "Quán Nhà Hàng Sapa",
+            cuisine: "Hải sản",
+            priceRange: "200-350k",
+            rating: 4.5,
+            location: "Bãi Cháy",
+          },
+          {
+            name: "Emeralda Restaurant",
+            cuisine: "Á - Âu",
+            priceRange: "250-400k",
+            rating: 4.6,
+            location: "Hạ Long",
+          },
+          {
+            name: "Hải Sản Vịnh Hạ Long",
+            cuisine: "Hải sản cao cấp",
+            priceRange: "300-500k",
+            rating: 4.7,
+            location: "Cảng tàu",
+          },
+        ],
+        premium: [
+          {
+            name: "Au Lac Legend Cruise",
+            cuisine: "Fine Dining",
+            priceRange: "600-1000k",
+            rating: 4.9,
+            location: "Du thuyền 5 sao",
+          },
+          {
+            name: "Paradise Suites Restaurant",
+            cuisine: "Fusion Seafood",
+            priceRange: "700-1200k",
+            rating: 4.8,
+            location: "Bãi Cháy",
+          },
+          {
+            name: "Vinpearl Ha Long",
+            cuisine: "Cao cấp quốc tế",
+            priceRange: "800-1500k",
+            rating: 4.9,
+            location: "Vinpearl Resort",
+          },
+        ],
+      },
+      "Hội An": {
+        budget: [
+          {
+            name: "Cao Lầu Bà Lễ",
+            cuisine: "Cao lầu đặc sản",
+            priceRange: "30-50k",
+            rating: 4.5,
+            location: "Phố Cổ",
+          },
+          {
+            name: "Bánh Mì Phượng",
+            cuisine: "Bánh mì",
+            priceRange: "20-35k",
+            rating: 4.6,
+            location: "Hoàng Diệu",
+          },
+          {
+            name: "Mì Quảng Bà Mua",
+            cuisine: "Mì Quảng",
+            priceRange: "35-55k",
+            rating: 4.4,
+            location: "Trần Cao Vân",
+          },
+        ],
+        balanced: [
+          {
+            name: "Morning Glory",
+            cuisine: "Việt Nam",
+            priceRange: "150-250k",
+            rating: 4.7,
+            location: "Nguyễn Thái Học",
+          },
+          {
+            name: "Madam Khánh",
+            cuisine: "Banh mi & Com ga",
+            priceRange: "100-180k",
+            rating: 4.6,
+            location: "Phố cổ",
+          },
+          {
+            name: "Nu Eatery",
+            cuisine: "Fusion Việt",
+            priceRange: "200-350k",
+            rating: 4.8,
+            location: "Nguyễn Phúc Chu",
+          },
+        ],
+        premium: [
+          {
+            name: "The Market Restaurant",
+            cuisine: "Fine Dining",
+            priceRange: "500-800k",
+            rating: 4.9,
+            location: "An Hội",
+          },
+          {
+            name: "Taste of Hoi An",
+            cuisine: "Haute Cuisine",
+            priceRange: "600-900k",
+            rating: 4.8,
+            location: "Riverside",
+          },
+          {
+            name: "Mango Rooms",
+            cuisine: "Fusion Cao cấp",
+            priceRange: "450-700k",
+            rating: 4.7,
+            location: "Nguyễn Thái Học",
+          },
+        ],
+      },
+      "Đà Lạt": {
+        budget: [
+          {
+            name: "Phở Hùng",
+            cuisine: "Phở",
+            priceRange: "35-50k",
+            rating: 4.4,
+            location: "Phù Đổng Thiên Vương",
+          },
+          {
+            name: "Bánh Tráng Nướng",
+            cuisine: "Đặc sản Đà Lạt",
+            priceRange: "20-40k",
+            rating: 4.5,
+            location: "Chợ Đà Lạt",
+          },
+          {
+            name: "Nem Nướng Đà Lạt",
+            cuisine: "Nem nướng",
+            priceRange: "40-60k",
+            rating: 4.3,
+            location: "Hai Bà Trưng",
+          },
+        ],
+        balanced: [
+          {
+            name: "Gió Restaurant",
+            cuisine: "Việt Nam",
+            priceRange: "180-300k",
+            rating: 4.7,
+            location: "Trần Phú",
+          },
+          {
+            name: "Le Chalet Dalat",
+            cuisine: "Á - Âu",
+            priceRange: "200-350k",
+            rating: 4.6,
+            location: "Hồ Xuân Hương",
+          },
+          {
+            name: "Da Quy Restaurant",
+            cuisine: "Lẩu & BBQ",
+            priceRange: "150-280k",
+            rating: 4.5,
+            location: "Phan Đình Phùng",
+          },
+        ],
+        premium: [
+          {
+            name: "Le Rabelais",
+            cuisine: "Fine Dining Pháp",
+            priceRange: "600-1000k",
+            rating: 4.9,
+            location: "Dalat Palace",
+          },
+          {
+            name: "Artichoke Restaurant",
+            cuisine: "Fusion Cao cấp",
+            priceRange: "500-800k",
+            rating: 4.8,
+            location: "Hồ Xuân Hương",
+          },
+          {
+            name: "Ana Mandara Restaurant",
+            cuisine: "Haute Cuisine",
+            priceRange: "700-1200k",
+            rating: 4.9,
+            location: "Ana Mandara Resort",
+          },
+        ],
+      },
+      "Nha Trang": {
+        budget: [
+          {
+            name: "Quán Hải Sản Lam",
+            cuisine: "Hải sản",
+            priceRange: "80-150k",
+            rating: 4.4,
+            location: "Bãi Dương",
+          },
+          {
+            name: "Bánh Canh Chả Cá",
+            cuisine: "Đặc sản Nha Trang",
+            priceRange: "40-70k",
+            rating: 4.5,
+            location: "Nguyễn Thiện Thuật",
+          },
+          {
+            name: "Bún Chả Cá",
+            cuisine: "Bún chả cá",
+            priceRange: "50-80k",
+            rating: 4.3,
+            location: "Hoàng Hoa Thám",
+          },
+        ],
+        balanced: [
+          {
+            name: "Lanterns Vietnamese",
+            cuisine: "Việt Nam",
+            priceRange: "200-350k",
+            rating: 4.7,
+            location: "Nguyễn Thiện Thuật",
+          },
+          {
+            name: "Sailing Club",
+            cuisine: "Beachfront Dining",
+            priceRange: "250-450k",
+            rating: 4.6,
+            location: "Trần Phú",
+          },
+          {
+            name: "Galangal Restaurant",
+            cuisine: "Fusion",
+            priceRange: "220-380k",
+            rating: 4.5,
+            location: "Bình Lộc",
+          },
+        ],
+        premium: [
+          {
+            name: "Six Senses Restaurant",
+            cuisine: "Fine Dining",
+            priceRange: "800-1500k",
+            rating: 4.9,
+            location: "Six Senses Resort",
+          },
+          {
+            name: "Altitude Rooftop Bar",
+            cuisine: "Cao cấp quốc tế",
+            priceRange: "600-1000k",
+            rating: 4.8,
+            location: "Havana Hotel",
+          },
+          {
+            name: "La Plage",
+            cuisine: "Fusion Seafood",
+            priceRange: "700-1200k",
+            rating: 4.9,
+            location: "Intercontinental",
+          },
+        ],
+      },
+      "Phú Quốc": {
+        budget: [
+          {
+            name: "Chợ Đêm Phú Quốc",
+            cuisine: "Hải sản BBQ",
+            priceRange: "100-180k",
+            rating: 4.4,
+            location: "Dương Đông",
+          },
+          {
+            name: "Bánh Canh Ghẹ",
+            cuisine: "Đặc sản",
+            priceRange: "50-80k",
+            rating: 4.5,
+            location: "Chợ Dương Đông",
+          },
+          {
+            name: "Nhà Hàng Năm Phương",
+            cuisine: "Hải sản",
+            priceRange: "120-200k",
+            rating: 4.3,
+            location: "Long Beach",
+          },
+        ],
+        balanced: [
+          {
+            name: "The Spice House",
+            cuisine: "Á - Âu",
+            priceRange: "250-400k",
+            rating: 4.7,
+            location: "An Thới",
+          },
+          {
+            name: "Crab House",
+            cuisine: "Hải sản cao cấp",
+            priceRange: "300-500k",
+            rating: 4.6,
+            location: "Sunset Sanato",
+          },
+          {
+            name: "Rory's Beach Bar",
+            cuisine: "Beachfront",
+            priceRange: "200-350k",
+            rating: 4.5,
+            location: "Long Beach",
+          },
+        ],
+        premium: [
+          {
+            name: "Shell & Oyster",
+            cuisine: "Fine Dining",
+            priceRange: "700-1200k",
+            rating: 4.9,
+            location: "JW Marriott",
+          },
+          {
+            name: "Red Rum",
+            cuisine: "Fusion Seafood",
+            priceRange: "800-1400k",
+            rating: 4.8,
+            location: "Intercontinental",
+          },
+          {
+            name: "Altitude Beach Club",
+            cuisine: "Luxury Dining",
+            priceRange: "900-1600k",
+            rating: 4.9,
+            location: "Premier Village",
+          },
+        ],
+      },
+      "Sa Pa": {
+        budget: [
+          {
+            name: "Quán Cơm Nấm",
+            cuisine: "Đặc sản Sapa",
+            priceRange: "50-80k",
+            rating: 4.3,
+            location: "Chợ Sapa",
+          },
+          {
+            name: "Thắng Cố Sapa",
+            cuisine: "Thắng cố",
+            priceRange: "60-100k",
+            rating: 4.4,
+            location: "Cầu Mây",
+          },
+          {
+            name: "Bánh Mì BBQ",
+            cuisine: "Bánh mì nướng",
+            priceRange: "30-50k",
+            rating: 4.2,
+            location: "Trung tâm",
+          },
+        ],
+        balanced: [
+          {
+            name: "Red Dao House",
+            cuisine: "Việt Nam",
+            priceRange: "150-250k",
+            rating: 4.6,
+            location: "Phan Si Păng",
+          },
+          {
+            name: "Hill Station Deli",
+            cuisine: "Fusion",
+            priceRange: "180-300k",
+            rating: 4.7,
+            location: "Fansipan",
+          },
+          {
+            name: "Little Sapa Restaurant",
+            cuisine: "Á - Âu",
+            priceRange: "200-350k",
+            rating: 4.5,
+            location: "Trung tâm",
+          },
+        ],
+        premium: [
+          {
+            name: "La Terrasse",
+            cuisine: "Fine Dining Pháp",
+            priceRange: "500-800k",
+            rating: 4.8,
+            location: "Victoria Sapa",
+          },
+          {
+            name: "Noble & Swan",
+            cuisine: "Haute Cuisine",
+            priceRange: "600-1000k",
+            rating: 4.9,
+            location: "MGallery Hotel",
+          },
+          {
+            name: "Orchid Restaurant",
+            cuisine: "Fusion Cao cấp",
+            priceRange: "550-900k",
+            rating: 4.7,
+            location: "Topas Ecolodge",
+          },
+        ],
+      },
+    };
+
+    return defaultData[budgetLevel] || defaultData.balanced;
+  };
+
+  const _getDefaultHotels = (budgetLevel) => {
+    const defaultData = {
+      "Hà Nội": {
+        budget: [
+          {
+            name: "Old Quarter View Hanoi Hostel",
+            stars: 2,
+            pricePerNight: "250-350k",
+            rating: 4.3,
+            amenities: ["WiFi miễn phí", "Ăn sáng", "Gần phố cổ"],
+          },
+          {
+            name: "Hanoi Backpackers Hostel",
+            stars: 2,
+            pricePerNight: "200-300k",
+            rating: 4.4,
+            amenities: ["WiFi", "Rooftop bar", "Tour desk"],
+          },
+        ],
+        balanced: [
+          {
+            name: "Essence Hanoi Hotel",
+            stars: 4,
+            pricePerNight: "800-1200k",
+            rating: 4.6,
+            amenities: ["Rooftop pool", "Spa", "Nhà hàng", "Gym"],
+          },
+          {
+            name: "La Siesta Premium Hanoi",
+            stars: 4,
+            pricePerNight: "900-1400k",
+            rating: 4.7,
+            amenities: ["Bể bơi", "Spa", "Free minibar", "Butler service"],
+          },
+        ],
+        premium: [
+          {
+            name: "Sofitel Legend Metropole",
+            stars: 5,
+            pricePerNight: "5000-8000k",
+            rating: 4.9,
+            amenities: [
+              "Hồ bơi",
+              "Spa cao cấp",
+              "3 nhà hàng",
+              "Heritage suites",
+            ],
+          },
+          {
+            name: "Capella Hanoi",
+            stars: 5,
+            pricePerNight: "6000-10000k",
+            rating: 4.9,
+            amenities: [
+              "Butler 24/7",
+              "Opera house view",
+              "Fine dining",
+              "Auriga Spa",
+            ],
+          },
+        ],
+      },
+      "Hạ Long": {
+        budget: [
+          {
+            name: "Halong Boutique Hotel",
+            stars: 2,
+            pricePerNight: "300-450k",
+            rating: 4.2,
+            amenities: ["WiFi", "View vịnh", "Ăn sáng"],
+          },
+          {
+            name: "Cat Ba Central Hotel",
+            stars: 2,
+            pricePerNight: "250-400k",
+            rating: 4.3,
+            amenities: ["Gần bến tàu", "WiFi", "Tour booking"],
+          },
+        ],
+        balanced: [
+          {
+            name: "Halong Pearl Hotel",
+            stars: 4,
+            pricePerNight: "1000-1500k",
+            rating: 4.6,
+            amenities: ["Hồ bơi", "Spa", "View vịnh", "Nhà hàng"],
+          },
+          {
+            name: "Wyndham Legend Halong",
+            stars: 4,
+            pricePerNight: "1200-1800k",
+            rating: 4.7,
+            amenities: ["Bể bơi vô cực", "Kids club", "3 nhà hàng"],
+          },
+        ],
+        premium: [
+          {
+            name: "Vinpearl Resort & Spa Ha Long",
+            stars: 5,
+            pricePerNight: "3500-6000k",
+            rating: 4.8,
+            amenities: ["Private beach", "Water park", "Golf", "5 nhà hàng"],
+          },
+          {
+            name: "FLC Halong Bay Resort",
+            stars: 5,
+            pricePerNight: "4000-7000k",
+            rating: 4.9,
+            amenities: ["18-hole golf", "Private marina", "Casino", "Spa"],
+          },
+        ],
+      },
+      "Hội An": {
+        budget: [
+          {
+            name: "Hoi An Backpackers Hostel",
+            stars: 2,
+            pricePerNight: "200-350k",
+            rating: 4.4,
+            amenities: ["Pool", "Bar", "WiFi", "Gần phố cổ"],
+          },
+          {
+            name: "Little Hoi An Central Boutique",
+            stars: 3,
+            pricePerNight: "400-600k",
+            rating: 4.3,
+            amenities: ["Rooftop pool", "Bike rental", "Ăn sáng"],
+          },
+        ],
+        balanced: [
+          {
+            name: "Lasenta Boutique Hotel",
+            stars: 4,
+            pricePerNight: "1200-1800k",
+            rating: 4.7,
+            amenities: ["Infinity pool", "Spa", "Riverside", "Free minibar"],
+          },
+          {
+            name: "Allegro Hoi An",
+            stars: 4,
+            pricePerNight: "1000-1600k",
+            rating: 4.6,
+            amenities: ["Pool", "Free bikes", "Cooking class", "Beachfront"],
+          },
+        ],
+        premium: [
+          {
+            name: "Four Seasons Nam Hai",
+            stars: 5,
+            pricePerNight: "12000-20000k",
+            rating: 4.9,
+            amenities: ["3 hồ bơi", "Private villas", "Beach club", "The Spa"],
+          },
+          {
+            name: "Anantara Hoi An Resort",
+            stars: 5,
+            pricePerNight: "8000-15000k",
+            rating: 4.9,
+            amenities: [
+              "Riverside",
+              "Cooking academy",
+              "Spa",
+              "Butler service",
+            ],
+          },
+        ],
+      },
+      "Đà Lạt": {
+        budget: [
+          {
+            name: "Dalat Friendly Hostel",
+            stars: 2,
+            pricePerNight: "150-250k",
+            rating: 4.3,
+            amenities: ["Dorm & Private", "Free breakfast", "Tour desk"],
+          },
+          {
+            name: "Cozy Nook Dalat",
+            stars: 3,
+            pricePerNight: "350-550k",
+            rating: 4.4,
+            amenities: ["Central location", "WiFi", "Coffee shop"],
+          },
+        ],
+        balanced: [
+          {
+            name: "Dalat Wonder Resort",
+            stars: 4,
+            pricePerNight: "1200-1800k",
+            rating: 4.6,
+            amenities: ["Hồ bơi", "View valley", "Restaurant", "Spa"],
+          },
+          {
+            name: "Swiss-Belresort Tuyen Lam",
+            stars: 4,
+            pricePerNight: "1400-2000k",
+            rating: 4.7,
+            amenities: ["Lake view", "Bungalows", "BBQ", "Mountain biking"],
+          },
+        ],
+        premium: [
+          {
+            name: "Dalat Palace Heritage Hotel",
+            stars: 5,
+            pricePerNight: "4000-7000k",
+            rating: 4.9,
+            amenities: [
+              "Golf course",
+              "Le Rabelais restaurant",
+              "Spa",
+              "Heritage",
+            ],
+          },
+          {
+            name: "Ana Mandara Villas Dalat",
+            stars: 5,
+            pricePerNight: "5000-9000k",
+            rating: 4.8,
+            amenities: [
+              "French villas",
+              "Private gardens",
+              "Fine dining",
+              "Spa",
+            ],
+          },
+        ],
+      },
+      "Nha Trang": {
+        budget: [
+          {
+            name: "Mojzo Inn Nha Trang",
+            stars: 2,
+            pricePerNight: "250-400k",
+            rating: 4.3,
+            amenities: ["Rooftop pool", "Bar", "Beach 5min", "WiFi"],
+          },
+          {
+            name: "An An Hotel",
+            stars: 3,
+            pricePerNight: "400-600k",
+            rating: 4.4,
+            amenities: ["City view", "Breakfast", "Beach nearby"],
+          },
+        ],
+        balanced: [
+          {
+            name: "Novotel Nha Trang",
+            stars: 4,
+            pricePerNight: "1500-2200k",
+            rating: 4.6,
+            amenities: ["Beachfront", "3 pools", "Kids club", "Spa"],
+          },
+          {
+            name: "Mia Resort Nha Trang",
+            stars: 4,
+            pricePerNight: "2000-3000k",
+            rating: 4.7,
+            amenities: ["Private beach", "Spa", "Sandals Restaurant", "Villas"],
+          },
+        ],
+        premium: [
+          {
+            name: "Six Senses Ninh Van Bay",
+            stars: 5,
+            pricePerNight: "15000-25000k",
+            rating: 4.9,
+            amenities: [
+              "Private villas",
+              "Spa",
+              "5 restaurants",
+              "Water sports",
+            ],
+          },
+          {
+            name: "Anam QT Nha Trang",
+            stars: 5,
+            pricePerNight: "8000-14000k",
+            rating: 4.8,
+            amenities: [
+              "Indochine style",
+              "3 pools",
+              "Fine dining",
+              "The Anam Spa",
+            ],
+          },
+        ],
+      },
+      "Phú Quốc": {
+        budget: [
+          {
+            name: "Phú Quốc Backpackers",
+            stars: 2,
+            pricePerNight: "300-450k",
+            rating: 4.3,
+            amenities: ["Pool", "Bar", "Beach access", "Tours"],
+          },
+          {
+            name: "Green Hotel Phu Quoc",
+            stars: 3,
+            pricePerNight: "500-700k",
+            rating: 4.4,
+            amenities: ["Garden view", "Bike rental", "Beach 2min"],
+          },
+        ],
+        balanced: [
+          {
+            name: "Salinda Resort Phu Quoc",
+            stars: 4,
+            pricePerNight: "2000-3000k",
+            rating: 4.7,
+            amenities: ["Beachfront", "Infinity pool", "Spa", "3 restaurants"],
+          },
+          {
+            name: "La Veranda Resort",
+            stars: 4,
+            pricePerNight: "2500-3500k",
+            rating: 4.6,
+            amenities: ["Colonial style", "Beach club", "Spa", "Fine dining"],
+          },
+        ],
+        premium: [
+          {
+            name: "JW Marriott Phu Quoc",
+            stars: 5,
+            pricePerNight: "8000-15000k",
+            rating: 4.9,
+            amenities: ["Private beach", "Water park", "6 restaurants", "Spa"],
+          },
+          {
+            name: "Intercontinental Phu Quoc",
+            stars: 5,
+            pricePerNight: "10000-18000k",
+            rating: 4.9,
+            amenities: ["Long Beach", "5 pools", "INK 360", "Kids club"],
+          },
+        ],
+      },
+      "Sa Pa": {
+        budget: [
+          {
+            name: "Sapa Backpackers",
+            stars: 2,
+            pricePerNight: "200-350k",
+            rating: 4.2,
+            amenities: ["Mountain view", "Bar", "Trekking tours", "WiFi"],
+          },
+          {
+            name: "Little Sapa Hotel",
+            stars: 3,
+            pricePerNight: "450-650k",
+            rating: 4.3,
+            amenities: ["Valley view", "Restaurant", "Tour desk"],
+          },
+        ],
+        balanced: [
+          {
+            name: "Amazing Hotel Sapa",
+            stars: 4,
+            pricePerNight: "1200-1800k",
+            rating: 4.6,
+            amenities: ["Valley view", "Spa", "Restaurant", "Fireplace rooms"],
+          },
+          {
+            name: "Pao's Sapa Leisure Hotel",
+            stars: 4,
+            pricePerNight: "1500-2200k",
+            rating: 4.7,
+            amenities: ["Panoramic view", "Spa", "Heated pool", "Fine dining"],
+          },
+        ],
+        premium: [
+          {
+            name: "Topas Ecolodge",
+            stars: 5,
+            pricePerNight: "4000-7000k",
+            rating: 4.8,
+            amenities: ["Mountain villas", "Infinity pool", "Spa", "Trekking"],
+          },
+          {
+            name: "Victoria Sapa Resort",
+            stars: 5,
+            pricePerNight: "5000-9000k",
+            rating: 4.9,
+            amenities: [
+              "Colonial style",
+              "Heated pool",
+              "Spa",
+              "La Terrasse restaurant",
+            ],
+          },
+        ],
+      },
+    };
+
+    return defaultData[budgetLevel] || defaultData.balanced;
+  };
+
   const generatePlan = async () => {
     setIsGenerating(true);
 
     // Simulate AI processing
     await new Promise((resolve) => setTimeout(resolve, 3000));
+
+    const destination = formData.destination;
 
     setGeneratedPlan({
       destination: formData.destination,
@@ -159,6 +1182,8 @@ const AIPlanner = () => {
               "Tối: Món địa phương",
             ],
             accommodation: "Khách sạn 2-3 sao hoặc Hostel",
+            restaurants: getRestaurantsByDestination(destination, "budget"),
+            hotels: getHotelsByDestination(destination, "budget"),
             dayBudget: `${800}k - ${1200}k`,
           })),
           tips: [
@@ -196,6 +1221,8 @@ const AIPlanner = () => {
               "Tối: Đặc sản vùng",
             ],
             accommodation: "Khách sạn 3-4 sao trung tâm",
+            restaurants: getRestaurantsByDestination(destination, "balanced"),
+            hotels: getHotelsByDestination(destination, "balanced"),
             dayBudget: `${1500}k - ${2500}k`,
           })),
           tips: [
@@ -233,6 +1260,8 @@ const AIPlanner = () => {
               "Tối: Ẩm thực đặc biệt",
             ],
             accommodation: "Resort/Khách sạn 5 sao",
+            restaurants: getRestaurantsByDestination(destination, "premium"),
+            hotels: getHotelsByDestination(destination, "premium"),
             dayBudget: `${3000}k - ${5000}k`,
           })),
           tips: [
@@ -1354,6 +2383,124 @@ const AIPlanner = () => {
                                 </ul>
                               </div>
                             </div>
+
+                            {/* Restaurant Recommendations */}
+                            {day.restaurants && day.restaurants.length > 0 && (
+                              <div className="mb-4">
+                                <p className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                                  <i className="fas fa-concierge-bell text-red-600"></i>
+                                  Nhà hàng đề xuất
+                                </p>
+                                <div className="grid md:grid-cols-3 gap-3">
+                                  {day.restaurants.map((restaurant, i) => (
+                                    <Link
+                                      key={i}
+                                      to={
+                                        restaurant.slug
+                                          ? `/booking/restaurants/${restaurant.slug}`
+                                          : "#"
+                                      }
+                                      className="bg-gradient-to-br from-orange-50 to-red-50 rounded-lg p-3 border border-orange-200 hover:shadow-lg hover:scale-105 transition-all cursor-pointer block"
+                                    >
+                                      <h6 className="font-bold text-gray-900 text-sm mb-1">
+                                        {restaurant.name}
+                                      </h6>
+                                      <p className="text-xs text-gray-600 mb-2">
+                                        {restaurant.cuisine}
+                                      </p>
+                                      <div className="flex items-center justify-between text-xs">
+                                        <span className="flex items-center gap-1 text-green-600 font-medium">
+                                          <i className="fas fa-money-bill-wave"></i>
+                                          {restaurant.priceRange}
+                                        </span>
+                                        <span className="flex items-center gap-1 text-yellow-600">
+                                          <i className="fas fa-star"></i>
+                                          {restaurant.rating}
+                                        </span>
+                                      </div>
+                                      <p className="text-xs text-gray-500 mt-2 flex items-center gap-1">
+                                        <i className="fas fa-map-marker-alt"></i>
+                                        {restaurant.location}
+                                      </p>
+                                      <div className="mt-2 text-xs text-blue-600 font-medium flex items-center gap-1">
+                                        <span>Xem chi tiết</span>
+                                        <i className="fas fa-arrow-right"></i>
+                                      </div>
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+
+                            {/* Hotel Recommendations */}
+                            {day.hotels && day.hotels.length > 0 && (
+                              <div className="mb-4">
+                                <p className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                                  <i className="fas fa-hotel text-indigo-600"></i>
+                                  Khách sạn đề xuất
+                                </p>
+                                <div className="grid md:grid-cols-2 gap-3">
+                                  {day.hotels.map((hotel, i) => (
+                                    <Link
+                                      key={i}
+                                      to={
+                                        hotel.slug
+                                          ? `/booking/hotels/${hotel.slug}`
+                                          : "#"
+                                      }
+                                      className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-200 hover:shadow-lg hover:scale-105 transition-all cursor-pointer block"
+                                    >
+                                      <div className="flex items-start justify-between mb-2">
+                                        <h6 className="font-bold text-gray-900 text-sm flex-1">
+                                          {hotel.name}
+                                        </h6>
+                                        <span className="text-yellow-500 text-xs flex items-center gap-0.5 ml-2">
+                                          {Array.from({
+                                            length: hotel.stars,
+                                          }).map((_, idx) => (
+                                            <i
+                                              key={idx}
+                                              className="fas fa-star"
+                                            ></i>
+                                          ))}
+                                        </span>
+                                      </div>
+                                      <div className="flex items-center justify-between mb-2">
+                                        <span className="text-xs text-green-600 font-bold flex items-center gap-1">
+                                          <i className="fas fa-tag"></i>
+                                          {hotel.pricePerNight}/đêm
+                                        </span>
+                                        <span className="text-xs text-gray-600 flex items-center gap-1">
+                                          <i className="fas fa-star text-yellow-500"></i>
+                                          {hotel.rating}
+                                        </span>
+                                      </div>
+                                      <div className="flex flex-wrap gap-1 mb-2">
+                                        {hotel.amenities
+                                          .slice(0, 3)
+                                          .map((amenity, idx) => (
+                                            <span
+                                              key={idx}
+                                              className="text-xs bg-white/70 px-2 py-1 rounded-full text-gray-700"
+                                            >
+                                              {amenity}
+                                            </span>
+                                          ))}
+                                        {hotel.amenities.length > 3 && (
+                                          <span className="text-xs bg-white/70 px-2 py-1 rounded-full text-gray-600">
+                                            +{hotel.amenities.length - 3}
+                                          </span>
+                                        )}
+                                      </div>
+                                      <div className="text-xs text-blue-600 font-medium flex items-center gap-1">
+                                        <span>Xem chi tiết</span>
+                                        <i className="fas fa-arrow-right"></i>
+                                      </div>
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
 
                             <div className="pt-3 border-t border-blue-200">
                               <p className="text-sm text-gray-700 flex items-center gap-2">

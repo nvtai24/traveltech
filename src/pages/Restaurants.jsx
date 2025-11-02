@@ -177,7 +177,7 @@ const Restaurants = () => {
                 {/* CTA Button */}
                 <div className="flex items-center space-x-4">
                   <Link
-                    to={`/booking/restaurants/${restaurant.id}`}
+                    to={`/booking/restaurants/${restaurant.slug}`}
                     className="btn btn-primary text-lg px-8 py-3 inline-flex items-center"
                   >
                     Xem chi tiết & Đặt bàn
@@ -411,7 +411,7 @@ const Restaurants = () => {
                         <p className="text-xs text-gray-500">/người</p>
                       </div>
                       <Link
-                        to={`/booking/restaurants/${restaurant.id}`}
+                        to={`/booking/restaurants/${restaurant.slug}`}
                         className="btn btn-primary"
                       >
                         Xem chi tiết

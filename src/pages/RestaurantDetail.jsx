@@ -1,19 +1,53 @@
 import React, { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { getRestaurantById } from "../data/restaurants";
+import { getRestaurantBySlug, getRestaurantById } from "../data/restaurants";
 import RestaurantBookingModal from "../components/RestaurantBookingModal";
 import ChatBox from "../components/ChatBox";
 
 const RestaurantDetail = () => {
-  const { id } = useParams();
+  const { slug } = useParams(); // Lấy slug từ URL
   const navigate = useNavigate();
-  const restaurant = getRestaurantById(id);
+
+  // Debug: Log slug
+  console.log("[RestaurantDetail] Slug from URL:", slug);
+
+  // Try to find by slug first, fallback to id for backwards compatibility
+  let restaurant = getRestaurantBySlug(slug);
+  console.log("[RestaurantDetail] Found by slug:", !!restaurant);
+
+  if (!restaurant) {
+    restaurant = getRestaurantById(slug); // Try as ID if slug doesn't work
+    console.log("[RestaurantDetail] Found by ID:", !!restaurant);
+  }
+
+  if (restaurant) {
+    console.log("[RestaurantDetail] Restaurant name:", restaurant.name);
+    console.log(
+      "[RestaurantDetail] Has menuCategories:",
+      !!restaurant.menuCategories
+    );
+    if (restaurant.menuCategories && restaurant.menuCategories.length > 0) {
+      console.log(
+        "[RestaurantDetail] First category:",
+        restaurant.menuCategories[0].name
+      );
+      console.log(
+        "[RestaurantDetail] First category has dishes:",
+        !!restaurant.menuCategories[0].dishes
+      );
+      console.log(
+        "[RestaurantDetail] First category has items:",
+        !!restaurant.menuCategories[0].items
+      );
+    }
+  }
 
   const [selectedImage, setSelectedImage] = useState(0);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("overview"); // overview, menu, reviews, features
 
   if (!restaurant) {
+    console.log("[RestaurantDetail] Restaurant not found, showing error page");
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -21,6 +55,7 @@ const RestaurantDetail = () => {
           <h2 className="text-2xl font-bold text-gray-700 mb-2">
             Không tìm thấy nhà hàng
           </h2>
+          <p className="text-gray-600 mb-4">Slug: {slug}</p>
           <button
             onClick={() => navigate("/booking/restaurants")}
             className="btn btn-primary mt-4"
@@ -198,7 +233,19 @@ const RestaurantDetail = () => {
               <div className="flex items-center text-sm text-gray-600 space-x-4 pt-4 border-t">
                 <div className="flex items-center">
                   <i className="fas fa-clock mr-2 text-primary-600"></i>
-                  <span>{restaurant.openingHours}</span>
+                  <span>
+                    {typeof restaurant.openingHours === "string"
+                      ? restaurant.openingHours
+                      : restaurant.openingHours?.weekday
+                      ? `Ngày thường: ${restaurant.openingHours.weekday}${
+                          restaurant.openingHours.weekend
+                            ? ` | Cuối tuần: ${restaurant.openingHours.weekend}`
+                            : ""
+                        }`
+                      : restaurant.openingHours?.monday
+                      ? `${restaurant.openingHours.monday} (hàng ngày)`
+                      : "Liên hệ để biết giờ mở cửa"}
+                  </span>
                 </div>
               </div>
             </div>
@@ -287,45 +334,58 @@ const RestaurantDetail = () => {
                 {/* Menu Tab */}
                 {activeTab === "menu" && (
                   <div className="space-y-8">
-                    {restaurant.menuCategories.map((category) => (
-                      <div key={category.id}>
-                        <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                          {category.name}
-                        </h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          {category.dishes.map((dish) => (
-                            <div
-                              key={dish.id}
-                              className="border border-gray-200 rounded-xl p-4 hover:border-primary-300 transition-colors relative"
-                            >
-                              {dish.popular && (
-                                <div className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
-                                  Phổ biến
-                                </div>
-                              )}
-                              <div className="flex gap-4">
-                                <img
-                                  src={dish.image}
-                                  alt={dish.name}
-                                  className="w-24 h-24 object-cover rounded-lg"
-                                />
-                                <div className="flex-1">
-                                  <h3 className="font-semibold text-gray-900 mb-1">
-                                    {dish.name}
-                                  </h3>
-                                  <p className="text-sm text-gray-600 mb-2">
-                                    {dish.description}
-                                  </p>
-                                  <p className="text-lg font-bold text-primary-600">
-                                    {formatPrice(dish.price)}
-                                  </p>
+                    {restaurant.menuCategories.map((category) => {
+                      // Support both 'dishes' and 'items' for backwards compatibility
+                      const menuItems = category.dishes || category.items || [];
+                      return (
+                        <div key={category.id || category.name}>
+                          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+                            {category.name}
+                          </h2>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {menuItems.map((dish, idx) => (
+                              <div
+                                key={dish.id || dish.name || idx}
+                                className="border border-gray-200 rounded-xl p-4 hover:border-primary-300 transition-colors relative"
+                              >
+                                {dish.popular && (
+                                  <div className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+                                    Phổ biến
+                                  </div>
+                                )}
+                                <div className="flex gap-4">
+                                  {dish.image && (
+                                    <img
+                                      src={dish.image}
+                                      alt={dish.name}
+                                      className="w-24 h-24 object-cover rounded-lg"
+                                      onError={(e) => {
+                                        e.target.style.display = "none";
+                                      }}
+                                    />
+                                  )}
+                                  <div className="flex-1">
+                                    <h3 className="font-semibold text-gray-900 mb-1">
+                                      {dish.name}
+                                    </h3>
+                                    {dish.description && (
+                                      <p className="text-sm text-gray-600 mb-2">
+                                        {dish.description}
+                                      </p>
+                                    )}
+                                    <p className="text-lg font-bold text-primary-600">
+                                      {typeof dish.price === "number"
+                                        ? formatPrice(dish.price)
+                                        : dish.price}
+                                    </p>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          ))}
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 )}
 

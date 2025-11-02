@@ -15,10 +15,10 @@ export const restaurants = [
     priceRange: "$$",
     averagePrice: 350000,
     images: [
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800",
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
       "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800",
       "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800",
-      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+      "https://images.unsplash.com/photo-1517248135467-4c7e1ca5b7c8?w=800",
       "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=800",
     ],
     description:
@@ -222,10 +222,10 @@ export const restaurants = [
     priceRange: "$",
     averagePrice: 150000,
     images: [
-      "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800",
+      "https://images.unsplash.com/photo-1517248135467-4c7e1ca5b7c8?w=800",
       "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800",
       "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800",
+      "https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800",
     ],
     description:
       "Quán ăn truyền thống giữa lòng phố cổ Hà Nội, chuyên các món ăn đặc sản Hà Thành như phở, bún chả, chả cá Lã Vọng. Không gian nhỏ nhắn, ấm cúng với phong cách cổ điển, mang đậm nét văn hóa Việt Nam.",
@@ -375,10 +375,10 @@ export const restaurants = [
     priceRange: "$$",
     averagePrice: 400000,
     images: [
-      "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800",
       "https://images.unsplash.com/photo-1544025162-d76694265947?w=800",
-      "https://images.unsplash.com/photo-1529385101632-76a9e9dd6c0e?w=800",
+      "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800",
       "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=800",
+      "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800",
     ],
     description:
       "Nhà hàng BBQ buffet cao cấp với vườn xanh mát, chuyên các món nướng Hàn Quốc, Nhật Bản và Việt Nam. Menu buffet đa dạng với hơn 100 món, bao gồm thịt bò Mỹ, hải sản tươi sống và rau củ hữu cơ.",
@@ -440,7 +440,7 @@ export const restaurants = [
             price: 299000,
             description: "Buffet tiêu chuẩn với đa dạng món nướng và lẩu",
             image:
-              "https://images.unsplash.com/photo-1529385101632-76a9e9dd6c0e?w=400",
+              "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=400",
           },
         ],
       },
@@ -1308,9 +1308,9 @@ export const restaurants = [
     priceRange: "$$$$",
     averagePrice: 1800000,
     images: [
-      "https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=800",
-      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
-      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800",
+      "https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=800&q=80",
+      "https://images.unsplash.com/photo-1583394293214-28ded15ee548?w=800&q=80",
+      "https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?w=800&q=80",
     ],
     description:
       "Nhà hàng fine dining trên tầng 51 tòa Bitexco với view 360 độ Sài Gòn. Ẩm thực fusion sáng tạo kết hợp Âu - Á, wine pairing cao cấp, không gian sang trọng bậc nhất. Cần đặt bàn trước.",
@@ -1585,19 +1585,1779 @@ export const restaurants = [
       responseTime: "Trong vòng 5 phút",
     },
   },
+  // Hội An Restaurants
+  {
+    id: "15",
+    name: "Morning Glory Restaurant",
+    slug: "morning-glory-hoian",
+    cuisine: "Món Việt",
+    location: {
+      city: "Hội An",
+      address: "106 Nguyễn Thái Học, Phố Cổ Hội An",
+      coordinates: { lat: 15.8801, lng: 108.338 },
+    },
+    rating: 4.7,
+    reviewCount: 892,
+    priceRange: "80,000 - 200,000",
+    averagePrice: 140000,
+    images: [
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
+    ],
+    description:
+      "Nhà hàng nổi tiếng tại phố cổ Hội An, chuyên các món ăn truyền thống Việt Nam và đặc sản Hội An. Không gian ấm cúng, menu đa dạng.",
+    features: [
+      { icon: "fa-utensils", text: "Đặc sản Hội An" },
+      { icon: "fa-home", text: "Phố cổ" },
+      { icon: "fa-wifi", text: "WiFi miễn phí" },
+      { icon: "fa-language", text: "Menu đa ngôn ngữ" },
+    ],
+    openingHours: {
+      monday: "07:00 - 22:00",
+      tuesday: "07:00 - 22:00",
+      wednesday: "07:00 - 22:00",
+      thursday: "07:00 - 22:00",
+      friday: "07:00 - 22:00",
+      saturday: "07:00 - 22:00",
+      sunday: "07:00 - 22:00",
+    },
+    menuCategories: [
+      {
+        id: "1",
+        name: "Đặc sản Hội An",
+        dishes: [
+          {
+            id: "1",
+            name: "Cao Lầu",
+            price: 60000,
+            description: "Món mì đặc trưng Hội An",
+            image:
+              "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400",
+          },
+          {
+            id: "2",
+            name: "Bánh Bao Bánh Vạc",
+            price: 50000,
+            description: "Há cảo Hội An",
+            image:
+              "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=400",
+          },
+          {
+            id: "3",
+            name: "Mì Quảng",
+            price: 55000,
+            description: "Mì Quảng truyền thống",
+            image:
+              "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400",
+          },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Sarah Johnson",
+        userAvatar: "https://i.pravatar.cc/150?img=45",
+        rating: 5,
+        date: "2024-11-01",
+        comment:
+          "Best Cao Lau in Hoi An! Authentic flavors and great atmosphere.",
+        helpful: 67,
+      },
+    ],
+    policies: {
+      reservation: "Không bắt buộc, khuyến khích đặt trước giờ cao điểm",
+      cancellation: "Linh hoạt",
+      children: "Thân thiện với gia đình",
+    },
+    contact: {
+      phone: "0235 2241 555",
+      email: "info@morninggloryhoian.com",
+      website: "morninggloryhoian.com",
+    },
+    hostInfo: {
+      name: "Ms. Trinh Diem Vy",
+      avatar: "https://i.pravatar.cc/150?img=33",
+      verified: true,
+      responseRate: "98%",
+      responseTime: "Trong vòng 1 giờ",
+    },
+  },
+  {
+    id: "16",
+    name: "Bánh Mì Phượng",
+    slug: "banh-mi-phuong-hoian",
+    cuisine: "Món Việt",
+    location: {
+      city: "Hội An",
+      address: "2B Phan Châu Trinh, Phố Cổ Hội An",
+      coordinates: { lat: 15.8794, lng: 108.327 },
+    },
+    rating: 4.6,
+    reviewCount: 1523,
+    priceRange: "20,000 - 50,000",
+    averagePrice: 35000,
+    images: [
+      "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800",
+      "https://images.unsplash.com/photo-1558855370-89eec3e80b29?w=800",
+    ],
+    description:
+      "Tiệm bánh mì nổi tiếng được Anthony Bourdain ca ngợi. Bánh mì giòn rụm, nhân đầy đặn với giá bình dân.",
+    features: [
+      { icon: "fa-utensils", text: "Bánh mì nổi tiếng" },
+      { icon: "fa-dollar-sign", text: "Giá rẻ" },
+      { icon: "fa-map-marker-alt", text: "Gần phố cổ" },
+    ],
+    openingHours: {
+      monday: "06:30 - 21:30",
+      tuesday: "06:30 - 21:30",
+      wednesday: "06:30 - 21:30",
+      thursday: "06:30 - 21:30",
+      friday: "06:30 - 21:30",
+      saturday: "06:30 - 21:30",
+      sunday: "06:30 - 21:30",
+    },
+    menuCategories: [
+      {
+        id: "1",
+        name: "Bánh mì",
+        dishes: [
+          {
+            id: "1",
+            name: "Bánh Mì Thập Cẩm",
+            price: 25000,
+            description: "Nhân đầy đủ",
+            image:
+              "https://images.unsplash.com/photo-1558855370-89eec3e80b29?w=400",
+          },
+          {
+            id: "2",
+            name: "Bánh Mì Pate",
+            price: 20000,
+            description: "Pate tự làm",
+            image:
+              "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400",
+          },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Michael Chen",
+        userAvatar: "https://i.pravatar.cc/150?img=12",
+        rating: 5,
+        date: "2024-10-30",
+        comment: "Anthony Bourdain was right! Best banh mi ever!",
+        helpful: 234,
+      },
+    ],
+    policies: {
+      reservation: "Không nhận đặt bàn",
+      cancellation: "N/A",
+      children: "Phù hợp mọi lứa tuổi",
+    },
+    contact: {
+      phone: "0235 3846 007",
+      email: "",
+      website: "",
+    },
+    hostInfo: {
+      name: "Bà Phượng",
+      avatar: "https://i.pravatar.cc/150?img=48",
+      verified: true,
+      responseRate: "85%",
+      responseTime: "Không cố định",
+    },
+  },
+  {
+    id: "17",
+    name: "Nu Eatery",
+    slug: "nu-eatery-hoian",
+    cuisine: "Món Việt",
+    location: {
+      city: "Hội An",
+      address: "10 Nguyễn Thị Minh Khai, Hội An",
+      coordinates: { lat: 15.8785, lng: 108.3291 },
+    },
+    rating: 4.8,
+    reviewCount: 456,
+    priceRange: "200,000 - 500,000",
+    averagePrice: 350000,
+    images: [
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800",
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800",
+    ],
+    description:
+      "Nhà hàng hiện đại phục vụ ẩm thực Việt Nam đương đại với nguyên liệu organic. Không gian sang trọng, menu sáng tạo.",
+    features: [
+      { icon: "fa-leaf", text: "Organic" },
+      { icon: "fa-award", text: "Fine dining" },
+      { icon: "fa-wine-glass", text: "Wine pairing" },
+      { icon: "fa-wifi", text: "WiFi" },
+    ],
+    openingHours: {
+      monday: "11:00 - 22:00",
+      tuesday: "Đóng cửa",
+      wednesday: "11:00 - 22:00",
+      thursday: "11:00 - 22:00",
+      friday: "11:00 - 22:00",
+      saturday: "11:00 - 22:00",
+      sunday: "11:00 - 22:00",
+    },
+    menuCategories: [
+      {
+        name: "Signature dishes",
+        items: [
+          {
+            name: "Tôm Hùm Nướng",
+            price: "850k",
+            description: "Hùm tươi nướng bơ tỏi",
+          },
+          {
+            name: "Bò Úc Wagyu",
+            price: "950k",
+            description: "Wagyu A5 imported",
+          },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Emma Watson",
+        userAvatar: "https://i.pravatar.cc/150?img=23",
+        rating: 5,
+        date: "2024-10-28",
+        comment:
+          "Modern Vietnamese cuisine at its finest! Beautiful presentation.",
+        helpful: 89,
+      },
+    ],
+    policies: {
+      reservation: "Khuyến khích đặt trước",
+      cancellation: "Hủy miễn phí trước 24h",
+      children: "Phù hợp từ 10 tuổi",
+    },
+    contact: {
+      phone: "0235 3927 555",
+      email: "info@nueatery.com",
+      website: "nueatery.com",
+    },
+    hostInfo: {
+      name: "Chef Thanh Nguyen",
+      avatar: "https://i.pravatar.cc/150?img=52",
+      verified: true,
+      responseRate: "100%",
+      responseTime: "Trong vòng 30 phút",
+    },
+  },
+  // Phú Quốc Restaurants
+  {
+    id: "18",
+    name: "Nhà Hàng Hải Sản Phú Quốc",
+    slug: "hai-san-phu-quoc",
+    cuisine: "Hải sản",
+    location: {
+      city: "Phú Quốc",
+      address: "Bãi Trường, Phú Quốc",
+      coordinates: { lat: 10.2208, lng: 103.9678 },
+    },
+    rating: 4.5,
+    reviewCount: 678,
+    priceRange: "150,000 - 400,000",
+    averagePrice: 275000,
+    images: [
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+      "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?w=800",
+    ],
+    description:
+      "Nhà hàng hải sản tươi sống ngay bãi biển Bãi Trường. Hải sản được đánh bắt hàng ngày, chế biến theo yêu cầu.",
+    features: [
+      { icon: "fa-fish", text: "Hải sản tươi sống" },
+      { icon: "fa-umbrella-beach", text: "View biển" },
+      { icon: "fa-parking", text: "Bãi đỗ xe" },
+      { icon: "fa-wifi", text: "WiFi" },
+    ],
+    openingHours: {
+      monday: "10:00 - 22:00",
+      tuesday: "10:00 - 22:00",
+      wednesday: "10:00 - 22:00",
+      thursday: "10:00 - 22:00",
+      friday: "10:00 - 22:00",
+      saturday: "10:00 - 22:00",
+      sunday: "10:00 - 22:00",
+    },
+    menuCategories: [
+      {
+        name: "Hải sản",
+        items: [
+          {
+            name: "Ghẹ Hấp Bia",
+            price: "350k/kg",
+            description: "Ghẹ tươi hấp bia gừng",
+          },
+          {
+            name: "Tôm Hùm Nướng Pho Mai",
+            price: "850k/kg",
+            description: "Hùm tươi nướng",
+          },
+          {
+            name: "Cá Mú Hấp",
+            price: "450k/kg",
+            description: "Cá mú tươi hấp Hồng Kông",
+          },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Nguyễn Văn Hải",
+        userAvatar: "https://i.pravatar.cc/150?img=15",
+        rating: 5,
+        date: "2024-10-29",
+        comment: "Hải sản tươi ngon, view biển đẹp. Giá hợp lý!",
+        helpful: 45,
+      },
+    ],
+    policies: {
+      reservation: "Nhận đặt bàn trước",
+      cancellation: "Linh hoạt",
+      children: "Thân thiện gia đình",
+    },
+    contact: {
+      phone: "0297 3999 888",
+      email: "info@haisanphuquoc.vn",
+      website: "",
+    },
+    hostInfo: {
+      name: "Anh Tuấn",
+      avatar: "https://i.pravatar.cc/150?img=61",
+      verified: true,
+      responseRate: "95%",
+      responseTime: "Trong vòng 2 giờ",
+    },
+  },
+  {
+    id: "19",
+    name: "Quán Ăn Phú Quốc",
+    slug: "quan-an-phu-quoc",
+    cuisine: "Món Việt",
+    location: {
+      city: "Phú Quốc",
+      address: "30 Tháng 4, Dương Đông, Phú Quốc",
+      coordinates: { lat: 10.2272, lng: 103.9707 },
+    },
+    rating: 4.4,
+    reviewCount: 234,
+    priceRange: "50,000 - 150,000",
+    averagePrice: 100000,
+    images: [
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+    ],
+    description:
+      "Quán ăn bình dân phục vụ các món đặc sản Phú Quốc với giá phải chăng. Không gian đơn giản, hương vị đậm đà.",
+    features: [
+      { icon: "fa-utensils", text: "Đặc sản địa phương" },
+      { icon: "fa-dollar-sign", text: "Giá bình dân" },
+      { icon: "fa-users", text: "Đông khách" },
+    ],
+    openingHours: {
+      monday: "07:00 - 21:00",
+      tuesday: "07:00 - 21:00",
+      wednesday: "07:00 - 21:00",
+      thursday: "07:00 - 21:00",
+      friday: "07:00 - 21:00",
+      saturday: "07:00 - 21:00",
+      sunday: "07:00 - 21:00",
+    },
+    menuCategories: [
+      {
+        name: "Đặc sản",
+        items: [
+          {
+            name: "Bánh Canh Ghẹ",
+            price: "50k",
+            description: "Bánh canh ghẹ đặc sản",
+          },
+          {
+            name: "Gỏi Cá Trích",
+            price: "80k",
+            description: "Đặc sản Phú Quốc",
+          },
+          {
+            name: "Bún Kèn",
+            price: "45k",
+            description: "Bún kèn truyền thống",
+          },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Trần Thị Mai",
+        userAvatar: "https://i.pravatar.cc/150?img=28",
+        rating: 4,
+        date: "2024-10-27",
+        comment: "Món ăn ngon, giá rẻ. Phù hợp với du khách tiết kiệm.",
+        helpful: 23,
+      },
+    ],
+    policies: {
+      reservation: "Không nhận đặt bàn",
+      cancellation: "N/A",
+      children: "Phù hợp mọi lứa tuổi",
+    },
+    contact: {
+      phone: "0297 3888 777",
+      email: "",
+      website: "",
+    },
+    hostInfo: {
+      name: "Chị Lan",
+      avatar: "https://i.pravatar.cc/150?img=38",
+      verified: true,
+      responseRate: "80%",
+      responseTime: "Không cố định",
+    },
+  },
+  {
+    id: "20",
+    name: "The Spice House at Cassia Cottage",
+    slug: "spice-house-phu-quoc",
+    cuisine: "Món Á",
+    location: {
+      city: "Phú Quốc",
+      address: "Mũi Ông Đội, Phú Quốc",
+      coordinates: { lat: 10.1653, lng: 103.9985 },
+    },
+    rating: 4.9,
+    reviewCount: 342,
+    priceRange: "400,000 - 900,000",
+    averagePrice: 650000,
+    images: [
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800",
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800",
+    ],
+    description:
+      "Nhà hàng cao cấp trong khu resort Cassia Cottage, phục vụ ẩm thực Á - Âu fusion với view biển tuyệt đẹp.",
+    features: [
+      { icon: "fa-award", text: "Fine dining" },
+      { icon: "fa-umbrella-beach", text: "Beach view" },
+      { icon: "fa-wine-glass", text: "Wine selection" },
+      { icon: "fa-wifi", text: "WiFi" },
+    ],
+    openingHours: {
+      monday: "11:00 - 23:00",
+      tuesday: "11:00 - 23:00",
+      wednesday: "11:00 - 23:00",
+      thursday: "11:00 - 23:00",
+      friday: "11:00 - 23:00",
+      saturday: "11:00 - 23:00",
+      sunday: "11:00 - 23:00",
+    },
+    menuCategories: [
+      {
+        name: "Signature",
+        items: [
+          {
+            name: "Lobster Thermidor",
+            price: "1,200k",
+            description: "French style lobster",
+          },
+          { name: "Wagyu Beef", price: "1,500k", description: "A5 Wagyu 200g" },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "James Anderson",
+        userAvatar: "https://i.pravatar.cc/150?img=71",
+        rating: 5,
+        date: "2024-10-25",
+        comment:
+          "Exceptional food and stunning sunset views. Worth every penny!",
+        helpful: 67,
+      },
+    ],
+    policies: {
+      reservation: "Bắt buộc đặt trước",
+      cancellation: "Hủy miễn phí trước 48h",
+      deposit: "Cọc 50%",
+      children: "Phù hợp từ 12 tuổi",
+    },
+    contact: {
+      phone: "0297 6268 999",
+      email: "dining@cassiacottage.com",
+      website: "cassiacottage.com",
+    },
+    hostInfo: {
+      name: "Chef David Lee",
+      avatar: "https://i.pravatar.cc/150?img=69",
+      verified: true,
+      responseRate: "100%",
+      responseTime: "Trong vòng 15 phút",
+    },
+  },
+  // Sa Pa Restaurants
+  {
+    id: "21",
+    name: "Nhà Hàng H'Mông",
+    slug: "hmong-restaurant-sapa",
+    cuisine: "Món Việt",
+    location: {
+      city: "Sa Pa",
+      address: "Fansipan Plaza, Sa Pa",
+      coordinates: { lat: 22.3364, lng: 103.8438 },
+    },
+    rating: 4.6,
+    reviewCount: 456,
+    priceRange: "80,000 - 200,000",
+    averagePrice: 140000,
+    images: [
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
+    ],
+    description:
+      "Nhà hàng chuyên món ăn dân tộc H'Mông và đặc sản vùng cao Sa Pa. Không gian truyền thống, ấm cúng.",
+    features: [
+      { icon: "fa-utensils", text: "Đặc sản Sa Pa" },
+      { icon: "fa-fire", text: "Lẩu cá hồi" },
+      { icon: "fa-mug-hot", text: "Rượu ngô" },
+      { icon: "fa-wifi", text: "WiFi" },
+    ],
+    openingHours: {
+      monday: "08:00 - 22:00",
+      tuesday: "08:00 - 22:00",
+      wednesday: "08:00 - 22:00",
+      thursday: "08:00 - 22:00",
+      friday: "08:00 - 22:00",
+      saturday: "08:00 - 22:00",
+      sunday: "08:00 - 22:00",
+    },
+    menuCategories: [
+      {
+        name: "Đặc sản",
+        items: [
+          {
+            name: "Lẩu Cá Hồi",
+            price: "280k",
+            description: "Cá hồi Sa Pa tươi",
+          },
+          {
+            name: "Thịt Trâu Gác Bếp",
+            price: "180k",
+            description: "Đặc sản H'Mông",
+          },
+          {
+            name: "Thịt Lợn Cắp Nách",
+            price: "150k",
+            description: "Món truyền thống",
+          },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Phạm Minh Tuấn",
+        userAvatar: "https://i.pravatar.cc/150?img=32",
+        rating: 5,
+        date: "2024-10-30",
+        comment: "Lẩu cá hồi tuyệt vời! Thịt trâu gác bếp rất đặc biệt.",
+        helpful: 56,
+      },
+    ],
+    policies: {
+      reservation: "Nhận đặt bàn",
+      cancellation: "Linh hoạt",
+      children: "Thân thiện gia đình",
+    },
+    contact: {
+      phone: "0214 3871 234",
+      email: "hmongrestaurant@gmail.com",
+      website: "",
+    },
+    hostInfo: {
+      name: "Anh Sơn",
+      avatar: "https://i.pravatar.cc/150?img=54",
+      verified: true,
+      responseRate: "92%",
+      responseTime: "Trong vòng 1 giờ",
+    },
+  },
+  // Hạ Long Restaurants
+  {
+    id: "22",
+    name: "Nhà Hàng Hải Sản Hạ Long",
+    slug: "hai-san-ha-long",
+    cuisine: "Hải sản",
+    location: {
+      city: "Hạ Long",
+      address: "Bãi Cháy, TP. Hạ Long, Quảng Ninh",
+      coordinates: { lat: 20.9517, lng: 107.0439 },
+    },
+    rating: 4.6,
+    reviewCount: 892,
+    priceRange: "150,000 - 400,000",
+    averagePrice: 275000,
+    images: [
+      "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?w=800",
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+    ],
+    description:
+      "Nhà hàng hải sản tươi sống với view Vịnh Hạ Long tuyệt đẹp. Chuyên các món hải sản đặc sản vùng biển Quảng Ninh.",
+    features: [
+      { icon: "fa-fish", text: "Hải sản tươi sống" },
+      { icon: "fa-umbrella-beach", text: "View vịnh" },
+      { icon: "fa-parking", text: "Bãi đỗ xe" },
+      { icon: "fa-wifi", text: "WiFi" },
+    ],
+    openingHours: {
+      monday: "10:00 - 22:00",
+      tuesday: "10:00 - 22:00",
+      wednesday: "10:00 - 22:00",
+      thursday: "10:00 - 22:00",
+      friday: "10:00 - 22:00",
+      saturday: "10:00 - 22:00",
+      sunday: "10:00 - 22:00",
+    },
+    menuCategories: [
+      {
+        name: "Hải sản",
+        items: [
+          {
+            name: "Cua Hương Hấp",
+            price: "400k/kg",
+            description: "Cua hương Hạ Long",
+          },
+          {
+            name: "Sò Huyết Nướng",
+            price: "120k",
+            description: "Sò tươi nướng mỡ hành",
+          },
+          {
+            name: "Mực Hấp Gừng",
+            price: "250k/kg",
+            description: "Mực tươi Hạ Long",
+          },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Trần Văn Hải",
+        userAvatar: "https://i.pravatar.cc/150?img=15",
+        rating: 5,
+        date: "2024-10-31",
+        comment: "Hải sản tươi ngon, view đẹp. Cua hương rất ngon!",
+        helpful: 78,
+      },
+    ],
+    policies: {
+      reservation: "Nhận đặt bàn trước",
+      cancellation: "Linh hoạt",
+      children: "Thân thiện gia đình",
+    },
+    contact: {
+      phone: "0203 3842 888",
+      email: "haisanhalong@gmail.com",
+      website: "",
+    },
+    hostInfo: {
+      name: "Anh Dũng",
+      avatar: "https://i.pravatar.cc/150?img=61",
+      verified: true,
+      responseRate: "96%",
+      responseTime: "Trong vòng 1 giờ",
+    },
+  },
+  {
+    id: "23",
+    name: "Quán Ăn Bình Dân Hạ Long",
+    slug: "quan-an-binh-dan-ha-long",
+    cuisine: "Món Việt",
+    location: {
+      city: "Hạ Long",
+      address: "Hùng Thắng, Hạ Long, Quảng Ninh",
+      coordinates: { lat: 20.957, lng: 107.0432 },
+    },
+    rating: 4.3,
+    reviewCount: 234,
+    priceRange: "50,000 - 120,000",
+    averagePrice: 85000,
+    images: [
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+    ],
+    description:
+      "Quán ăn bình dân phục vụ các món ăn Việt Nam và đặc sản Quảng Ninh với giá cả phải chăng.",
+    features: [
+      { icon: "fa-utensils", text: "Đặc sản địa phương" },
+      { icon: "fa-dollar-sign", text: "Giá bình dân" },
+      { icon: "fa-users", text: "Đông khách" },
+    ],
+    openingHours: {
+      monday: "06:00 - 21:00",
+      tuesday: "06:00 - 21:00",
+      wednesday: "06:00 - 21:00",
+      thursday: "06:00 - 21:00",
+      friday: "06:00 - 21:00",
+      saturday: "06:00 - 21:00",
+      sunday: "06:00 - 21:00",
+    },
+    menuCategories: [
+      {
+        name: "Đặc sản",
+        items: [
+          {
+            name: "Nem Cua Bể",
+            price: "80k",
+            description: "Đặc sản Quảng Ninh",
+          },
+          {
+            name: "Chả Mực Hạ Long",
+            price: "100k",
+            description: "Chả mực tươi",
+          },
+          { name: "Bún Sứa", price: "50k", description: "Món ăn truyền thống" },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Lê Thị Mai",
+        userAvatar: "https://i.pravatar.cc/150?img=28",
+        rating: 4,
+        date: "2024-10-29",
+        comment: "Món ăn ngon, giá rẻ. Nem cua bể rất đặc biệt.",
+        helpful: 34,
+      },
+    ],
+    policies: {
+      reservation: "Không nhận đặt bàn",
+      cancellation: "N/A",
+      children: "Phù hợp mọi lứa tuổi",
+    },
+    contact: {
+      phone: "0203 3625 777",
+      email: "",
+      website: "",
+    },
+    hostInfo: {
+      name: "Chị Hoa",
+      avatar: "https://i.pravatar.cc/150?img=38",
+      verified: true,
+      responseRate: "85%",
+      responseTime: "Không cố định",
+    },
+  },
+  // Huế Restaurants
+  {
+    id: "24",
+    name: "Nhà Hàng Cung Đình Huế",
+    slug: "cung-dinh-hue",
+    cuisine: "Món Việt",
+    location: {
+      city: "Huế",
+      address: "3 Nguyễn Sinh Cung, Huế",
+      coordinates: { lat: 16.4637, lng: 107.5909 },
+    },
+    rating: 4.7,
+    reviewCount: 1234,
+    priceRange: "200,000 - 500,000",
+    averagePrice: 350000,
+    images: [
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800",
+      "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800",
+    ],
+    description:
+      "Nhà hàng chuyên ẩm thực cung đình Huế với không gian sang trọng. Phục vụ các món ăn hoàng gia theo công thức truyền thống.",
+    features: [
+      { icon: "fa-crown", text: "Ẩm thực cung đình" },
+      { icon: "fa-award", text: "Cao cấp" },
+      { icon: "fa-music", text: "Nhạc cung đình" },
+      { icon: "fa-wifi", text: "WiFi" },
+    ],
+    openingHours: {
+      monday: "10:00 - 22:00",
+      tuesday: "10:00 - 22:00",
+      wednesday: "10:00 - 22:00",
+      thursday: "10:00 - 22:00",
+      friday: "10:00 - 22:00",
+      saturday: "10:00 - 22:00",
+      sunday: "10:00 - 22:00",
+    },
+    menuCategories: [
+      {
+        name: "Món cung đình",
+        items: [
+          { name: "Cơm Hến", price: "80k", description: "Đặc sản Huế" },
+          { name: "Bún Bò Huế", price: "70k", description: "Món truyền thống" },
+          { name: "Bánh Khoái", price: "90k", description: "Bánh xèo Huế" },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Emma Watson",
+        userAvatar: "https://i.pravatar.cc/150?img=23",
+        rating: 5,
+        date: "2024-10-30",
+        comment:
+          "Authentic Hue royal cuisine! Beautiful presentation and atmosphere.",
+        helpful: 92,
+      },
+    ],
+    policies: {
+      reservation: "Khuyến khích đặt trước",
+      cancellation: "Hủy miễn phí trước 24h",
+      children: "Phù hợp mọi lứa tuổi",
+    },
+    contact: {
+      phone: "0234 3888 777",
+      email: "info@cungdinhhue.vn",
+      website: "cungdinhhue.vn",
+    },
+    hostInfo: {
+      name: "Chef Phạm Tuấn",
+      avatar: "https://i.pravatar.cc/150?img=52",
+      verified: true,
+      responseRate: "99%",
+      responseTime: "Trong vòng 30 phút",
+    },
+  },
+  {
+    id: "25",
+    name: "Quán Bún Bò Huế Đông Ba",
+    slug: "bun-bo-hue-dong-ba",
+    cuisine: "Món Việt",
+    location: {
+      city: "Huế",
+      address: "Chợ Đông Ba, Huế",
+      coordinates: { lat: 16.4696, lng: 107.5895 },
+    },
+    rating: 4.5,
+    reviewCount: 567,
+    priceRange: "30,000 - 60,000",
+    averagePrice: 45000,
+    images: [
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
+    ],
+    description:
+      "Quán bún bò Huế nổi tiếng tại chợ Đông Ba với hương vị đậm đà, chính gốc. Giá bình dân, đông khách.",
+    features: [
+      { icon: "fa-utensils", text: "Đặc sản Huế" },
+      { icon: "fa-dollar-sign", text: "Giá rẻ" },
+      { icon: "fa-users", text: "Nổi tiếng" },
+    ],
+    openingHours: {
+      monday: "06:00 - 14:00",
+      tuesday: "06:00 - 14:00",
+      wednesday: "06:00 - 14:00",
+      thursday: "06:00 - 14:00",
+      friday: "06:00 - 14:00",
+      saturday: "06:00 - 14:00",
+      sunday: "06:00 - 14:00",
+    },
+    menuCategories: [
+      {
+        name: "Bún bò",
+        items: [
+          {
+            name: "Bún Bò Huế Đặc Biệt",
+            price: "50k",
+            description: "Đầy đủ topping",
+          },
+          { name: "Bún Bò Chả", price: "45k", description: "Bún bò với chả" },
+          {
+            name: "Bún Bò Giò Heo",
+            price: "55k",
+            description: "Bún bò giò heo",
+          },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Michael Chen",
+        userAvatar: "https://i.pravatar.cc/150?img=12",
+        rating: 5,
+        date: "2024-10-28",
+        comment: "Best Bun Bo Hue I've ever had! Must try when in Hue!",
+        helpful: 156,
+      },
+    ],
+    policies: {
+      reservation: "Không nhận đặt bàn",
+      cancellation: "N/A",
+      children: "Phù hợp mọi lứa tuổi",
+    },
+    contact: {
+      phone: "0234 3822 555",
+      email: "",
+      website: "",
+    },
+    hostInfo: {
+      name: "Bà Hương",
+      avatar: "https://i.pravatar.cc/150?img=48",
+      verified: true,
+      responseRate: "90%",
+      responseTime: "Không cố định",
+    },
+  },
+  // Cần Thơ Restaurants
+  {
+    id: "26",
+    name: "Nhà Hàng Sông Nước",
+    slug: "song-nuoc-can-tho",
+    cuisine: "Món Việt",
+    location: {
+      city: "Cần Thơ",
+      address: "Bờ sông Hậu, Ninh Kiều, Cần Thơ",
+      coordinates: { lat: 10.034, lng: 105.722 },
+    },
+    rating: 4.6,
+    reviewCount: 678,
+    priceRange: "100,000 - 250,000",
+    averagePrice: 175000,
+    images: [
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
+    ],
+    description:
+      "Nhà hàng bên bờ sông Hậu chuyên các món ăn miền Tây Nam Bộ. View sông đẹp, không gian thoáng mát.",
+    features: [
+      { icon: "fa-fish", text: "Cá sông tươi" },
+      { icon: "fa-water", text: "View sông" },
+      { icon: "fa-utensils", text: "Đặc sản miền Tây" },
+      { icon: "fa-wifi", text: "WiFi" },
+    ],
+    openingHours: {
+      monday: "09:00 - 22:00",
+      tuesday: "09:00 - 22:00",
+      wednesday: "09:00 - 22:00",
+      thursday: "09:00 - 22:00",
+      friday: "09:00 - 22:00",
+      saturday: "09:00 - 22:00",
+      sunday: "09:00 - 22:00",
+    },
+    menuCategories: [
+      {
+        name: "Đặc sản",
+        items: [
+          { name: "Lẩu Mắm", price: "200k", description: "Lẩu mắm miền Tây" },
+          {
+            name: "Cá Lóc Nướng Trui",
+            price: "180k",
+            description: "Đặc sản Cần Thơ",
+          },
+          {
+            name: "Bánh Xèo Miền Tây",
+            price: "120k",
+            description: "Bánh xèo lá dứa",
+          },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Nguyễn Văn An",
+        userAvatar: "https://i.pravatar.cc/150?img=32",
+        rating: 5,
+        date: "2024-10-31",
+        comment: "Lẩu mắm ngon tuyệt! View sông rất đẹp vào buổi chiều.",
+        helpful: 45,
+      },
+    ],
+    policies: {
+      reservation: "Nhận đặt bàn",
+      cancellation: "Linh hoạt",
+      children: "Thân thiện gia đình",
+    },
+    contact: {
+      phone: "0292 3811 888",
+      email: "songnuoc@gmail.com",
+      website: "",
+    },
+    hostInfo: {
+      name: "Anh Tú",
+      avatar: "https://i.pravatar.cc/150?img=54",
+      verified: true,
+      responseRate: "95%",
+      responseTime: "Trong vòng 1 giờ",
+    },
+  },
+  {
+    id: "27",
+    name: "Quán Cơm Miền Tây",
+    slug: "com-mien-tay-can-tho",
+    cuisine: "Món Việt",
+    location: {
+      city: "Cần Thơ",
+      address: "Chợ Cần Thơ, Ninh Kiều",
+      coordinates: { lat: 10.0342, lng: 105.7278 },
+    },
+    rating: 4.3,
+    reviewCount: 234,
+    priceRange: "40,000 - 80,000",
+    averagePrice: 60000,
+    images: [
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+    ],
+    description:
+      "Quán cơm bình dân phục vụ các món ăn miền Tây với giá cả phải chăng. Đông khách địa phương.",
+    features: [
+      { icon: "fa-utensils", text: "Cơm bình dân" },
+      { icon: "fa-dollar-sign", text: "Giá rẻ" },
+      { icon: "fa-users", text: "Đông khách" },
+    ],
+    openingHours: {
+      monday: "06:00 - 20:00",
+      tuesday: "06:00 - 20:00",
+      wednesday: "06:00 - 20:00",
+      thursday: "06:00 - 20:00",
+      friday: "06:00 - 20:00",
+      saturday: "06:00 - 20:00",
+      sunday: "06:00 - 20:00",
+    },
+    menuCategories: [
+      {
+        name: "Cơm",
+        items: [
+          { name: "Cơm Tấm", price: "40k", description: "Cơm tấm sườn bì" },
+          { name: "Cá Kho Tộ", price: "50k", description: "Cá kho miền Tây" },
+          { name: "Canh Chua", price: "45k", description: "Canh chua cá lóc" },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Trần Thị Lan",
+        userAvatar: "https://i.pravatar.cc/150?img=28",
+        rating: 4,
+        date: "2024-10-27",
+        comment: "Cơm ngon, giá rẻ. Phục vụ nhanh.",
+        helpful: 23,
+      },
+    ],
+    policies: {
+      reservation: "Không nhận đặt bàn",
+      cancellation: "N/A",
+      children: "Phù hợp mọi lứa tuổi",
+    },
+    contact: {
+      phone: "0292 3755 666",
+      email: "",
+      website: "",
+    },
+    hostInfo: {
+      name: "Chị Bảy",
+      avatar: "https://i.pravatar.cc/150?img=38",
+      verified: true,
+      responseRate: "80%",
+      responseTime: "Không cố định",
+    },
+  },
+  // Vũng Tàu Restaurants
+  {
+    id: "28",
+    name: "Nhà Hàng Hải Sản Vũng Tàu",
+    slug: "hai-san-vung-tau",
+    cuisine: "Hải sản",
+    location: {
+      city: "Vũng Tàu",
+      address: "Bãi Trước, Vũng Tàu",
+      coordinates: { lat: 10.346, lng: 107.0843 },
+    },
+    rating: 4.5,
+    reviewCount: 789,
+    priceRange: "150,000 - 400,000",
+    averagePrice: 275000,
+    images: [
+      "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?w=800",
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+    ],
+    description:
+      "Nhà hàng hải sản tươi sống view biển Bãi Trước. Hải sản đa dạng, giá hợp lý.",
+    features: [
+      { icon: "fa-fish", text: "Hải sản tươi" },
+      { icon: "fa-umbrella-beach", text: "View biển" },
+      { icon: "fa-parking", text: "Bãi đỗ xe" },
+      { icon: "fa-wifi", text: "WiFi" },
+    ],
+    openingHours: {
+      monday: "09:00 - 22:00",
+      tuesday: "09:00 - 22:00",
+      wednesday: "09:00 - 22:00",
+      thursday: "09:00 - 22:00",
+      friday: "09:00 - 22:00",
+      saturday: "09:00 - 22:00",
+      sunday: "09:00 - 22:00",
+    },
+    menuCategories: [
+      {
+        name: "Hải sản",
+        items: [
+          {
+            name: "Ghẹ Rang Me",
+            price: "350k/kg",
+            description: "Ghẹ tươi Vũng Tàu",
+          },
+          { name: "Cá Mú Hấp", price: "400k/kg", description: "Cá mú tươi" },
+          {
+            name: "Ốc Hương Xào",
+            price: "180k",
+            description: "Ốc hương xào bơ tỏi",
+          },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Lê Văn Hùng",
+        userAvatar: "https://i.pravatar.cc/150?img=15",
+        rating: 5,
+        date: "2024-10-30",
+        comment: "Hải sản tươi ngon, view biển đẹp. Giá hợp lý!",
+        helpful: 67,
+      },
+    ],
+    policies: {
+      reservation: "Nhận đặt bàn",
+      cancellation: "Linh hoạt",
+      children: "Thân thiện gia đình",
+    },
+    contact: {
+      phone: "0254 3856 888",
+      email: "haisanvungtau@gmail.com",
+      website: "",
+    },
+    hostInfo: {
+      name: "Anh Tâm",
+      avatar: "https://i.pravatar.cc/150?img=61",
+      verified: true,
+      responseRate: "96%",
+      responseTime: "Trong vòng 1 giờ",
+    },
+  },
+  {
+    id: "29",
+    name: "Bánh Khọt Gốc Vũng Tàu",
+    slug: "banh-khot-vung-tau",
+    cuisine: "Món Việt",
+    location: {
+      city: "Vũng Tàu",
+      address: "14 Xô Viết Nghệ Tĩnh, Vũng Tàu",
+      coordinates: { lat: 10.3456, lng: 107.0892 },
+    },
+    rating: 4.6,
+    reviewCount: 456,
+    priceRange: "30,000 - 80,000",
+    averagePrice: 55000,
+    images: [
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
+    ],
+    description:
+      "Quán bánh khọt nổi tiếng Vũng Tàu, bánh giòn tan, nhân tôm tươi. Đặc sản không thể bỏ qua.",
+    features: [
+      { icon: "fa-utensils", text: "Đặc sản Vũng Tàu" },
+      { icon: "fa-dollar-sign", text: "Giá bình dân" },
+      { icon: "fa-users", text: "Nổi tiếng" },
+    ],
+    openingHours: {
+      monday: "07:00 - 21:00",
+      tuesday: "07:00 - 21:00",
+      wednesday: "07:00 - 21:00",
+      thursday: "07:00 - 21:00",
+      friday: "07:00 - 21:00",
+      saturday: "07:00 - 21:00",
+      sunday: "07:00 - 21:00",
+    },
+    menuCategories: [
+      {
+        name: "Đặc sản",
+        items: [
+          {
+            name: "Bánh Khọt Tôm",
+            price: "60k",
+            description: "10 bánh khọt tôm",
+          },
+          {
+            name: "Bánh Khọt Thập Cẩm",
+            price: "70k",
+            description: "Đầy đủ topping",
+          },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Sarah Lee",
+        userAvatar: "https://i.pravatar.cc/150?img=25",
+        rating: 5,
+        date: "2024-10-29",
+        comment: "Delicious Banh Khot! Crispy and full of shrimp. Must try!",
+        helpful: 89,
+      },
+    ],
+    policies: {
+      reservation: "Không nhận đặt bàn",
+      cancellation: "N/A",
+      children: "Phù hợp mọi lứa tuổi",
+    },
+    contact: {
+      phone: "0254 3522 777",
+      email: "",
+      website: "",
+    },
+    hostInfo: {
+      name: "Chị Sáu",
+      avatar: "https://i.pravatar.cc/150?img=48",
+      verified: true,
+      responseRate: "88%",
+      responseTime: "Không cố định",
+    },
+  },
+  // Quy Nhơn Restaurants
+  {
+    id: "30",
+    name: "Nhà Hàng Hải Sản Quy Nhơn",
+    slug: "hai-san-quy-nhon",
+    cuisine: "Hải sản",
+    location: {
+      city: "Quy Nhơn",
+      address: "Bãi Xép, Quy Nhơn, Bình Định",
+      coordinates: { lat: 13.783, lng: 109.2198 },
+    },
+    rating: 4.5,
+    reviewCount: 567,
+    priceRange: "150,000 - 350,000",
+    averagePrice: 250000,
+    images: [
+      "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?w=800",
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+    ],
+    description:
+      "Nhà hàng hải sản tươi sống tại Bãi Xép với view biển đẹp. Chuyên các món hải sản đặc sản Quy Nhơn.",
+    features: [
+      { icon: "fa-fish", text: "Hải sản tươi" },
+      { icon: "fa-umbrella-beach", text: "View biển" },
+      { icon: "fa-parking", text: "Bãi đỗ xe" },
+      { icon: "fa-wifi", text: "WiFi" },
+    ],
+    openingHours: {
+      monday: "09:00 - 22:00",
+      tuesday: "09:00 - 22:00",
+      wednesday: "09:00 - 22:00",
+      thursday: "09:00 - 22:00",
+      friday: "09:00 - 22:00",
+      saturday: "09:00 - 22:00",
+      sunday: "09:00 - 22:00",
+    },
+    menuCategories: [
+      {
+        name: "Hải sản",
+        items: [
+          {
+            name: "Nhum Nướng",
+            price: "200k",
+            description: "Nhum biển Quy Nhơn",
+          },
+          { name: "Tôm Hùm Nướng", price: "700k/kg", description: "Hùm tươi" },
+          {
+            name: "Ghẹ Xào",
+            price: "300k/kg",
+            description: "Ghẹ tươi Quy Nhơn",
+          },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Phạm Văn Nam",
+        userAvatar: "https://i.pravatar.cc/150?img=22",
+        rating: 5,
+        date: "2024-10-31",
+        comment: "Nhum nướng rất ngon! View biển tuyệt đẹp.",
+        helpful: 56,
+      },
+    ],
+    policies: {
+      reservation: "Nhận đặt bàn",
+      cancellation: "Linh hoạt",
+      children: "Thân thiện gia đình",
+    },
+    contact: {
+      phone: "0256 3822 888",
+      email: "haisanquynhon@gmail.com",
+      website: "",
+    },
+    hostInfo: {
+      name: "Anh Bình",
+      avatar: "https://i.pravatar.cc/150?img=55",
+      verified: true,
+      responseRate: "94%",
+      responseTime: "Trong vòng 1 giờ",
+    },
+  },
+  {
+    id: "31",
+    name: "Bánh Xèo Tôm Nhảy",
+    slug: "banh-xeo-tom-nhay-quy-nhon",
+    cuisine: "Món Việt",
+    location: {
+      city: "Quy Nhơn",
+      address: "Nguyễn Huệ, Quy Nhơn",
+      coordinates: { lat: 13.7754, lng: 109.2196 },
+    },
+    rating: 4.4,
+    reviewCount: 345,
+    priceRange: "40,000 - 90,000",
+    averagePrice: 65000,
+    images: [
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
+    ],
+    description:
+      "Quán bánh xèo nổi tiếng với tôm nhảy còn tươi. Đặc sản Quy Nhơn không thể bỏ qua.",
+    features: [
+      { icon: "fa-utensils", text: "Đặc sản Quy Nhơn" },
+      { icon: "fa-dollar-sign", text: "Giá bình dân" },
+      { icon: "fa-users", text: "Nổi tiếng" },
+    ],
+    openingHours: {
+      monday: "07:00 - 21:00",
+      tuesday: "07:00 - 21:00",
+      wednesday: "07:00 - 21:00",
+      thursday: "07:00 - 21:00",
+      friday: "07:00 - 21:00",
+      saturday: "07:00 - 21:00",
+      sunday: "07:00 - 21:00",
+    },
+    menuCategories: [
+      {
+        name: "Đặc sản",
+        items: [
+          {
+            name: "Bánh Xèo Tôm Nhảy",
+            price: "70k",
+            description: "Tôm tươi còn nhảy",
+          },
+          { name: "Bánh Căn", price: "50k", description: "Bánh căn Bình Định" },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Lisa Brown",
+        userAvatar: "https://i.pravatar.cc/150?img=31",
+        rating: 4,
+        date: "2024-10-28",
+        comment: "Fresh shrimp still jumping! Unique experience. Tasty!",
+        helpful: 78,
+      },
+    ],
+    policies: {
+      reservation: "Không nhận đặt bàn",
+      cancellation: "N/A",
+      children: "Phù hợp mọi lứa tuổi",
+    },
+    contact: {
+      phone: "0256 3711 555",
+      email: "",
+      website: "",
+    },
+    hostInfo: {
+      name: "Chị Năm",
+      avatar: "https://i.pravatar.cc/150?img=42",
+      verified: true,
+      responseRate: "85%",
+      responseTime: "Không cố định",
+    },
+  },
+  // Hải Phòng Restaurants
+  {
+    id: "32",
+    name: "Nhà Hàng Hải Sản Đồ Sơn",
+    slug: "hai-san-do-son",
+    cuisine: "Hải sản",
+    location: {
+      city: "Hải Phòng",
+      address: "Bãi biển Đồ Sơn, Hải Phòng",
+      coordinates: { lat: 20.7056, lng: 106.7934 },
+    },
+    rating: 4.5,
+    reviewCount: 678,
+    priceRange: "150,000 - 350,000",
+    averagePrice: 250000,
+    images: [
+      "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?w=800",
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+    ],
+    description:
+      "Nhà hàng hải sản tươi sống tại Đồ Sơn với view biển đẹp. Chuyên các món hải sản đặc sản Hải Phòng.",
+    features: [
+      { icon: "fa-fish", text: "Hải sản tươi" },
+      { icon: "fa-umbrella-beach", text: "View biển" },
+      { icon: "fa-parking", text: "Bãi đỗ xe" },
+      { icon: "fa-wifi", text: "WiFi" },
+    ],
+    openingHours: {
+      monday: "09:00 - 22:00",
+      tuesday: "09:00 - 22:00",
+      wednesday: "09:00 - 22:00",
+      thursday: "09:00 - 22:00",
+      friday: "09:00 - 22:00",
+      saturday: "09:00 - 22:00",
+      sunday: "09:00 - 22:00",
+    },
+    menuCategories: [
+      {
+        name: "Hải sản",
+        items: [
+          {
+            name: "Sam Biển Nướng",
+            price: "200k",
+            description: "Đặc sản Đồ Sơn",
+          },
+          {
+            name: "Ghẹ Rang Muối",
+            price: "350k/kg",
+            description: "Ghẹ tươi Hải Phòng",
+          },
+          {
+            name: "Cua Huyết Hấp",
+            price: "280k/kg",
+            description: "Cua huyết đặc sản",
+          },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Hoàng Văn Đức",
+        userAvatar: "https://i.pravatar.cc/150?img=15",
+        rating: 5,
+        date: "2024-10-31",
+        comment: "Sam biển nướng rất ngon! View biển tuyệt đẹp.",
+        helpful: 67,
+      },
+    ],
+    policies: {
+      reservation: "Nhận đặt bàn",
+      cancellation: "Linh hoạt",
+      children: "Thân thiện gia đình",
+    },
+    contact: {
+      phone: "0225 3861 888",
+      email: "haisandoson@gmail.com",
+      website: "",
+    },
+    hostInfo: {
+      name: "Anh Hải",
+      avatar: "https://i.pravatar.cc/150?img=61",
+      verified: true,
+      responseRate: "95%",
+      responseTime: "Trong vòng 1 giờ",
+    },
+  },
+  {
+    id: "33",
+    name: "Quán Bánh Đa Cua",
+    slug: "banh-da-cua-hai-phong",
+    cuisine: "Món Việt",
+    location: {
+      city: "Hải Phòng",
+      address: "Lạch Tray, Ngô Quyền, Hải Phòng",
+      coordinates: { lat: 20.8651, lng: 106.6838 },
+    },
+    rating: 4.6,
+    reviewCount: 892,
+    priceRange: "40,000 - 80,000",
+    averagePrice: 60000,
+    images: [
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
+    ],
+    description:
+      "Quán bánh đa cua nổi tiếng Hải Phòng với hương vị đậm đà, chính gốc. Đặc sản không thể bỏ qua.",
+    features: [
+      { icon: "fa-utensils", text: "Đặc sản Hải Phòng" },
+      { icon: "fa-dollar-sign", text: "Giá bình dân" },
+      { icon: "fa-users", text: "Nổi tiếng" },
+    ],
+    openingHours: {
+      monday: "06:00 - 20:00",
+      tuesday: "06:00 - 20:00",
+      wednesday: "06:00 - 20:00",
+      thursday: "06:00 - 20:00",
+      friday: "06:00 - 20:00",
+      saturday: "06:00 - 20:00",
+      sunday: "06:00 - 20:00",
+    },
+    menuCategories: [
+      {
+        name: "Đặc sản",
+        items: [
+          {
+            name: "Bánh Đa Cua Đỏ",
+            price: "50k",
+            description: "Bánh đa cua Hải Phòng",
+          },
+          {
+            name: "Bánh Đa Cua Ghẹ",
+            price: "60k",
+            description: "Bánh đa cua ghẹ đặc biệt",
+          },
+          {
+            name: "Nem Cua Bể",
+            price: "70k",
+            description: "Nem cua đặc sản",
+          },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Phạm Thị Lan",
+        userAvatar: "https://i.pravatar.cc/150?img=28",
+        rating: 5,
+        date: "2024-10-30",
+        comment: "Bánh đa cua ngon nhất Hải Phòng! Nước dùng đậm đà, cua tươi.",
+        helpful: 123,
+      },
+    ],
+    policies: {
+      reservation: "Không nhận đặt bàn",
+      cancellation: "N/A",
+      children: "Phù hợp mọi lứa tuổi",
+    },
+    contact: {
+      phone: "0225 3745 666",
+      email: "",
+      website: "",
+    },
+    hostInfo: {
+      name: "Chị Ba",
+      avatar: "https://i.pravatar.cc/150?img=38",
+      verified: true,
+      responseRate: "88%",
+      responseTime: "Không cố định",
+    },
+  },
+  // Mỹ Tho Restaurants
+  {
+    id: "34",
+    name: "Nhà Hàng Cồn Tân Phong",
+    slug: "con-tan-phong-my-tho",
+    cuisine: "Món Việt",
+    location: {
+      city: "Mỹ Tho",
+      address: "Cồn Tân Phong, Mỹ Tho, Tiền Giang",
+      coordinates: { lat: 10.342, lng: 106.3555 },
+    },
+    rating: 4.5,
+    reviewCount: 567,
+    priceRange: "80,000 - 200,000",
+    averagePrice: 140000,
+    images: [
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
+    ],
+    description:
+      "Nhà hàng trên cồn nổi tiếng tại Mỹ Tho, chuyên các món ăn miền Tây và trái cây vườn. Không gian xanh mát, yên tĩnh.",
+    features: [
+      { icon: "fa-utensils", text: "Đặc sản miền Tây" },
+      { icon: "fa-apple-alt", text: "Trái cây vườn" },
+      { icon: "fa-tree", text: "Không gian vườn" },
+      { icon: "fa-wifi", text: "WiFi" },
+    ],
+    openingHours: {
+      monday: "08:00 - 20:00",
+      tuesday: "08:00 - 20:00",
+      wednesday: "08:00 - 20:00",
+      thursday: "08:00 - 20:00",
+      friday: "08:00 - 20:00",
+      saturday: "08:00 - 20:00",
+      sunday: "08:00 - 20:00",
+    },
+    menuCategories: [
+      {
+        name: "Đặc sản",
+        items: [
+          {
+            name: "Cá Lóc Nướng Trui",
+            price: "180k",
+            description: "Cá lóc tươi vùng sông",
+          },
+          {
+            name: "Gỏi Cuốn Tôm Thịt",
+            price: "100k",
+            description: "Gỏi cuốn tươi ngon",
+          },
+          {
+            name: "Hủ Tiếu Mỹ Tho",
+            price: "60k",
+            description: "Hủ tiếu đặc sản",
+          },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Nguyễn Văn Bình",
+        userAvatar: "https://i.pravatar.cc/150?img=32",
+        rating: 5,
+        date: "2024-10-31",
+        comment: "Không gian yên tĩnh, đồ ăn ngon. Trái cây vườn rất tươi!",
+        helpful: 78,
+      },
+    ],
+    policies: {
+      reservation: "Nhận đặt bàn",
+      cancellation: "Linh hoạt",
+      children: "Thân thiện gia đình",
+    },
+    contact: {
+      phone: "0273 3877 888",
+      email: "contanphong@gmail.com",
+      website: "",
+    },
+    hostInfo: {
+      name: "Anh Năm",
+      avatar: "https://i.pravatar.cc/150?img=54",
+      verified: true,
+      responseRate: "94%",
+      responseTime: "Trong vòng 1 giờ",
+    },
+  },
+  {
+    id: "35",
+    name: "Hủ Tiếu Mỹ Tho 24",
+    slug: "hu-tieu-my-tho-24",
+    cuisine: "Món Việt",
+    location: {
+      city: "Mỹ Tho",
+      address: "24 Nguyễn Trung Trực, Mỹ Tho",
+      coordinates: { lat: 10.3605, lng: 106.3598 },
+    },
+    rating: 4.4,
+    reviewCount: 456,
+    priceRange: "30,000 - 60,000",
+    averagePrice: 45000,
+    images: [
+      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
+      "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
+    ],
+    description:
+      "Quán hủ tiếu Mỹ Tho nổi tiếng với nước dùng ngọt thanh từ xương heo. Giá bình dân, đông khách.",
+    features: [
+      { icon: "fa-utensils", text: "Đặc sản Mỹ Tho" },
+      { icon: "fa-dollar-sign", text: "Giá rẻ" },
+      { icon: "fa-users", text: "Nổi tiếng" },
+    ],
+    openingHours: {
+      monday: "05:30 - 14:00",
+      tuesday: "05:30 - 14:00",
+      wednesday: "05:30 - 14:00",
+      thursday: "05:30 - 14:00",
+      friday: "05:30 - 14:00",
+      saturday: "05:30 - 14:00",
+      sunday: "05:30 - 14:00",
+    },
+    menuCategories: [
+      {
+        name: "Hủ tiếu",
+        items: [
+          {
+            name: "Hủ Tiếu Mỹ Tho Đặc Biệt",
+            price: "50k",
+            description: "Đầy đủ topping",
+          },
+          {
+            name: "Hủ Tiếu Khô",
+            price: "45k",
+            description: "Hủ tiếu khô truyền thống",
+          },
+          {
+            name: "Hủ Tiếu Nước",
+            price: "40k",
+            description: "Hủ tiếu nước thanh",
+          },
+        ],
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        userName: "Lisa Chen",
+        userAvatar: "https://i.pravatar.cc/150?img=25",
+        rating: 4,
+        date: "2024-10-29",
+        comment:
+          "Authentic My Tho Hu Tieu! Sweet broth and fresh ingredients. Must try!",
+        helpful: 89,
+      },
+    ],
+    policies: {
+      reservation: "Không nhận đặt bàn",
+      cancellation: "N/A",
+      children: "Phù hợp mọi lứa tuổi",
+    },
+    contact: {
+      phone: "0273 3522 444",
+      email: "",
+      website: "",
+    },
+    hostInfo: {
+      name: "Chị Tư",
+      avatar: "https://i.pravatar.cc/150?img=42",
+      verified: true,
+      responseRate: "82%",
+      responseTime: "Không cố định",
+    },
+  },
 ];
 
 // Filter data
 export const cities = [
   "Tất cả",
   "Hà Nội",
-  "TP. Hồ Chí Minh",
-  "Đà Nẵng",
-  "Đà Lạt",
-  "Nha Trang",
+  "Hạ Long",
+  "Hải Phòng",
+  "Sa Pa",
+  "Huế",
   "Hội An",
-  "Phú Quốc",
+  "Đà Nẵng",
+  "Nha Trang",
+  "Quy Nhơn",
+  "Đà Lạt",
+  "TP. Hồ Chí Minh",
   "Vũng Tàu",
+  "Cần Thơ",
+  "Mỹ Tho",
+  "Phú Quốc",
 ];
 
 export const cuisines = [
@@ -1621,7 +3381,12 @@ export const priceRanges = [
 
 // Helper functions
 export const getRestaurantById = (id) => {
-  return restaurants.find((restaurant) => restaurant.id === id);
+  return restaurants.find(
+    (restaurant) =>
+      restaurant.id == id ||
+      restaurant.id === String(id) ||
+      restaurant.id === Number(id)
+  );
 };
 
 export const getRestaurantBySlug = (slug) => {

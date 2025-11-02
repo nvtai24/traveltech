@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { getHotelById } from "../data/hotels";
+import { getHotelBySlug, getHotelById } from "../data/hotels";
 import BookingModal from "../components/BookingModal";
 import ChatBox from "../components/ChatBox";
 
 const HotelDetail = () => {
-  const { id } = useParams();
+  const { slug } = useParams(); // Lấy slug từ URL
   const navigate = useNavigate();
-  const hotel = getHotelById(id);
+  // Try to find by slug first, fallback to id for backwards compatibility
+  let hotel = getHotelBySlug(slug);
+  if (!hotel) {
+    hotel = getHotelById(slug); // Try as ID if slug doesn't work
+  }
 
   const [selectedImage, setSelectedImage] = useState(0);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);

@@ -151,7 +151,7 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
-          path="/booking/hotels/:id"
+          path="/booking/hotels/:slug"
           element={
             <PageTransition>
               <HotelDetail />
@@ -167,7 +167,7 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
-          path="/booking/restaurants/:id"
+          path="/booking/restaurants/:slug"
           element={
             <PageTransition>
               <RestaurantDetail />
