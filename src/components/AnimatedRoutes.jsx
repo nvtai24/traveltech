@@ -9,9 +9,7 @@ import DestinationDetail from "../pages/DestinationDetail";
 import Tours from "../pages/Tours";
 import LocalBuddy from "../pages/LocalBuddy";
 import GuideDetail from "../pages/GuideDetail";
-import CommunityV2 from "../pages/CommunityV2";
 import Community from "../pages/Community";
-import CommunityBackup from "../pages/CommunityBackup";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 import TourDetail from "../pages/TourDetail";
@@ -96,24 +94,6 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <Community />
-            </PageTransition>
-          }
-        />
-
-        <Route
-          path="/community/v2"
-          element={
-            <PageTransition>
-              <CommunityV2 />
-            </PageTransition>
-          }
-        />
-
-        <Route
-          path="/community/old"
-          element={
-            <PageTransition>
-              <CommunityBackup />
             </PageTransition>
           }
         />

@@ -56,9 +56,9 @@ const DestinationDetail = () => {
     if (code === 0)
       return { icon: "fa-sun", name: "Nắng đẹp", color: "text-yellow-500" };
     if (code <= 3)
-      return { icon: "fa-cloud-sun", name: "Có mây", color: "text-gray-400" };
+      return { icon: "fa-cloud-sun", name: "Có mây", color: "text-orange-400" };
     if (code <= 48)
-      return { icon: "fa-cloud", name: "Nhiều mây", color: "text-gray-500" };
+      return { icon: "fa-cloud", name: "Nhiều mây", color: "text-skyblue-500" };
     if (code <= 67)
       return { icon: "fa-cloud-rain", name: "Mưa", color: "text-blue-500" };
     if (code <= 77)
