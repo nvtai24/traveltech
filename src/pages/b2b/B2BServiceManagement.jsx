@@ -114,24 +114,19 @@ const B2BServiceManagement = () => {
       {/* Header */}
       <div className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-4 sm:py-6">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div>
-                <div className="flex items-center space-x-3 mb-2">
-                  <Link
-                    to="/b2b"
-                    className="text-gray-400 hover:text-gray-600 transition-colors"
-                  >
-                    <i className="fas fa-arrow-left"></i>
-                  </Link>
-                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
-                    <i className="fas fa-concierge-bell mr-3 text-primary-600"></i>
-                    Quản lý Dịch vụ
-                  </h1>
-                </div>
-                <p className="ml-10 text-sm sm:text-base text-gray-600">
-                  Quản lý và cập nhật các dịch vụ của bạn
-                </p>
+          <div className="py-3 sm:py-4">
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-2 sm:gap-3">
+                <Link
+                  to="/b2b"
+                  className="text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                  <i className="fas fa-arrow-left"></i>
+                </Link>
+                <h1 className="text-lg sm:text-xl font-bold text-gray-900 flex items-center">
+                  <i className="fas fa-concierge-bell mr-2 text-primary-600 text-base sm:text-lg"></i>
+                  Quản lý Dịch vụ
+                </h1>
               </div>
               <button
                 onClick={() =>
@@ -139,10 +134,11 @@ const B2BServiceManagement = () => {
                     "Tính năng Thêm dịch vụ mới đang được phát triển. Vui lòng quay lại sau!"
                   )
                 }
-                className="w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl text-sm sm:text-base font-medium"
+                className="px-3 sm:px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-all text-xs sm:text-sm font-medium"
               >
-                <i className="fas fa-plus mr-2"></i>
-                Thêm dịch vụ mới
+                <i className="fas fa-plus mr-1 sm:mr-2"></i>
+                <span className="hidden sm:inline">Thêm dịch vụ</span>
+                <span className="sm:hidden">Thêm</span>
               </button>
             </div>
           </div>

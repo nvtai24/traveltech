@@ -126,24 +126,19 @@ const B2BNewsManagement = () => {
       {/* Header */}
       <div className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-4 sm:py-6">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div className="flex items-center space-x-3">
+          <div className="py-3 sm:py-4">
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-2 sm:gap-3">
                 <Link
                   to="/b2b"
                   className="text-gray-400 hover:text-gray-600 transition-colors"
                 >
                   <i className="fas fa-arrow-left"></i>
                 </Link>
-                <div>
-                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
-                    <i className="fas fa-newspaper mr-3 text-primary-600"></i>
-                    Quản lý Tin tức
-                  </h1>
-                  <p className="mt-1 sm:mt-2 text-sm sm:text-base text-gray-600">
-                    Tạo và quản lý nội dung tin tức
-                  </p>
-                </div>
+                <h1 className="text-lg sm:text-xl font-bold text-gray-900 flex items-center">
+                  <i className="fas fa-newspaper mr-2 text-primary-600 text-base sm:text-lg"></i>
+                  Quản lý Tin tức
+                </h1>
               </div>
               <button
                 onClick={() =>
@@ -151,10 +146,11 @@ const B2BNewsManagement = () => {
                     "Tính năng Tạo bài viết mới đang được phát triển. Vui lòng quay lại sau!"
                   )
                 }
-                className="w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl text-sm sm:text-base font-medium text-center"
+                className="px-3 sm:px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-all text-xs sm:text-sm font-medium"
               >
-                <i className="fas fa-plus mr-2"></i>
-                Tạo bài viết mới
+                <i className="fas fa-plus mr-1 sm:mr-2"></i>
+                <span className="hidden sm:inline">Tạo bài viết</span>
+                <span className="sm:hidden">Tạo</span>
               </button>
             </div>
           </div>
@@ -263,9 +259,9 @@ const B2BNewsManagement = () => {
               key={article.id}
               className="bg-white rounded-xl sm:rounded-2xl shadow-sm hover:shadow-md transition-all border border-gray-100 overflow-hidden"
             >
-              <div className="flex flex-col md:flex-row">
+              <div className="flex flex-col md:flex-row md:h-64">
                 {/* Image */}
-                <div className="md:w-64 lg:w-80 h-48 md:h-auto relative overflow-hidden">
+                <div className="md:w-72 lg:w-80 h-48 md:h-full flex-shrink-0 relative overflow-hidden bg-gray-100">
                   <img
                     src={article.image}
                     alt={article.title}
@@ -290,44 +286,48 @@ const B2BNewsManagement = () => {
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 p-4 sm:p-6">
-                  <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-2 sm:mb-3 line-clamp-2 hover:text-primary-600 transition-colors cursor-pointer">
-                    {article.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 line-clamp-2">
-                    {article.excerpt}
-                  </p>
+                <div className="flex-1 p-4 sm:p-6 flex flex-col min-h-0">
+                  <div className="flex-1 min-h-0">
+                    <h3 className="text-base sm:text-lg lg:text-xl font-bold text-gray-900 mb-2 line-clamp-2 hover:text-primary-600 transition-colors cursor-pointer">
+                      {article.title}
+                    </h3>
+                    <p className="text-sm sm:text-base text-gray-600 mb-3 line-clamp-2">
+                      {article.excerpt}
+                    </p>
 
-                  {/* Meta */}
-                  <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm text-gray-500 mb-4">
-                    <div className="flex items-center space-x-1">
-                      <i className="fas fa-user"></i>
-                      <span>{article.author}</span>
+                    {/* Meta */}
+                    <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs sm:text-sm text-gray-500">
+                      <div className="flex items-center space-x-1">
+                        <i className="fas fa-user"></i>
+                        <span>{article.author}</span>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <i className="fas fa-calendar"></i>
+                        <span>
+                          {new Date(article.createdAt).toLocaleDateString(
+                            "vi-VN"
+                          )}
+                        </span>
+                      </div>
+                      {article.status === "published" && (
+                        <>
+                          <div className="flex items-center space-x-1">
+                            <i className="fas fa-eye"></i>
+                            <span>
+                              {article.views.toLocaleString()} lượt xem
+                            </span>
+                          </div>
+                          <div className="flex items-center space-x-1">
+                            <i className="fas fa-heart"></i>
+                            <span>{article.likes} lượt thích</span>
+                          </div>
+                        </>
+                      )}
                     </div>
-                    <div className="flex items-center space-x-1">
-                      <i className="fas fa-calendar"></i>
-                      <span>
-                        {new Date(article.createdAt).toLocaleDateString(
-                          "vi-VN"
-                        )}
-                      </span>
-                    </div>
-                    {article.status === "published" && (
-                      <>
-                        <div className="flex items-center space-x-1">
-                          <i className="fas fa-eye"></i>
-                          <span>{article.views.toLocaleString()} lượt xem</span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <i className="fas fa-heart"></i>
-                          <span>{article.likes} lượt thích</span>
-                        </div>
-                      </>
-                    )}
                   </div>
 
                   {/* Actions */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-gray-100">
                     <button
                       onClick={() =>
                         alert(

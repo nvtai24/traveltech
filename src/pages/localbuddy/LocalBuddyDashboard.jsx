@@ -123,29 +123,24 @@ const LocalBuddyDashboard = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-green-50 to-blue-50">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-4 sm:py-6">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div>
-                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
-                  <i className="fas fa-user-friends mr-3 text-primary-600"></i>
-                  Local Buddy Dashboard
-                </h1>
-                <p className="mt-2 text-sm sm:text-base text-gray-600">
-                  Quản lý lịch trình và theo dõi hoạt động
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-2 sm:gap-3 w-full sm:w-auto">
+          <div className="py-3 sm:py-4">
+            <div className="flex items-center justify-between gap-3">
+              <h1 className="text-lg sm:text-xl font-bold text-gray-900 flex items-center">
+                <i className="fas fa-user-friends mr-2 text-primary-600 text-base sm:text-lg"></i>
+                Local Buddy Dashboard
+              </h1>
+              <div className="flex gap-2">
                 <button
                   onClick={() =>
                     alert(
                       "Tính năng Quản lý Lịch trình đang được phát triển. Vui lòng quay lại sau!"
                     )
                   }
-                  className="flex-1 sm:flex-none px-4 sm:px-6 py-2.5 sm:py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl text-sm sm:text-base font-medium text-center"
+                  className="px-3 sm:px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-all text-xs sm:text-sm font-medium"
                 >
-                  <i className="fas fa-calendar-alt mr-2"></i>
+                  <i className="fas fa-calendar-alt mr-1 sm:mr-2"></i>
                   <span className="hidden sm:inline">Lịch trình</span>
                   <span className="sm:hidden">Lịch</span>
                 </button>
@@ -155,9 +150,9 @@ const LocalBuddyDashboard = () => {
                       "Tính năng Chỉnh sửa Hồ sơ đang được phát triển. Vui lòng quay lại sau!"
                     )
                   }
-                  className="flex-1 sm:flex-none px-4 sm:px-6 py-2.5 sm:py-3 bg-white text-primary-600 border-2 border-primary-600 rounded-xl hover:bg-primary-50 transition-all text-sm sm:text-base font-medium text-center"
+                  className="px-3 sm:px-4 py-2 bg-white text-primary-600 border border-primary-600 rounded-lg hover:bg-primary-50 transition-all text-xs sm:text-sm font-medium"
                 >
-                  <i className="fas fa-user-edit mr-2"></i>
+                  <i className="fas fa-user-edit mr-1 sm:mr-2"></i>
                   <span className="hidden sm:inline">Hồ sơ</span>
                   <span className="sm:hidden">Sửa</span>
                 </button>

@@ -151,25 +151,18 @@ const B2BBookingManagement = () => {
       {/* Header */}
       <div className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-4 sm:py-6">
-            <div className="flex items-start sm:items-center justify-between gap-4">
-              <div className="flex items-center space-x-3">
-                <Link
-                  to="/b2b"
-                  className="text-gray-400 hover:text-gray-600 transition-colors"
-                >
-                  <i className="fas fa-arrow-left"></i>
-                </Link>
-                <div>
-                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
-                    <i className="fas fa-calendar-check mr-3 text-primary-600"></i>
-                    Quản lý Booking
-                  </h1>
-                  <p className="mt-1 sm:mt-2 text-sm sm:text-base text-gray-600">
-                    Theo dõi và quản lý các đặt chỗ
-                  </p>
-                </div>
-              </div>
+          <div className="py-3 sm:py-4">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <Link
+                to="/b2b"
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <i className="fas fa-arrow-left"></i>
+              </Link>
+              <h1 className="text-lg sm:text-xl font-bold text-gray-900 flex items-center">
+                <i className="fas fa-calendar-check mr-2 text-primary-600 text-base sm:text-lg"></i>
+                Quản lý Booking
+              </h1>
             </div>
           </div>
         </div>
