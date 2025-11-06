@@ -137,22 +137,30 @@ const LocalBuddyDashboard = () => {
                 </p>
               </div>
               <div className="flex flex-wrap gap-2 sm:gap-3 w-full sm:w-auto">
-                <Link
-                  to="/buddy/schedule"
+                <button
+                  onClick={() =>
+                    alert(
+                      "Tính năng Quản lý Lịch trình đang được phát triển. Vui lòng quay lại sau!"
+                    )
+                  }
                   className="flex-1 sm:flex-none px-4 sm:px-6 py-2.5 sm:py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl text-sm sm:text-base font-medium text-center"
                 >
                   <i className="fas fa-calendar-alt mr-2"></i>
                   <span className="hidden sm:inline">Lịch trình</span>
                   <span className="sm:hidden">Lịch</span>
-                </Link>
-                <Link
-                  to="/buddy/profile"
+                </button>
+                <button
+                  onClick={() =>
+                    alert(
+                      "Tính năng Chỉnh sửa Hồ sơ đang được phát triển. Vui lòng quay lại sau!"
+                    )
+                  }
                   className="flex-1 sm:flex-none px-4 sm:px-6 py-2.5 sm:py-3 bg-white text-primary-600 border-2 border-primary-600 rounded-xl hover:bg-primary-50 transition-all text-sm sm:text-base font-medium text-center"
                 >
                   <i className="fas fa-user-edit mr-2"></i>
                   <span className="hidden sm:inline">Hồ sơ</span>
                   <span className="sm:hidden">Sửa</span>
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -316,13 +324,17 @@ const LocalBuddyDashboard = () => {
                     <i className="fas fa-calendar-alt mr-2 text-primary-600"></i>
                     Tours sắp tới
                   </h3>
-                  <Link
-                    to="/buddy/schedule"
+                  <button
+                    onClick={() =>
+                      alert(
+                        "Tính năng Xem tất cả lịch trình đang được phát triển. Vui lòng quay lại sau!"
+                      )
+                    }
                     className="text-sm sm:text-base text-primary-600 hover:text-primary-700 font-medium"
                   >
                     Xem tất cả
                     <i className="fas fa-arrow-right ml-2"></i>
-                  </Link>
+                  </button>
                 </div>
               </div>
 
@@ -393,17 +405,38 @@ const LocalBuddyDashboard = () => {
                           <div className="flex flex-wrap gap-2 w-full sm:w-auto">
                             {tour.status === "pending" && (
                               <>
-                                <button className="flex-1 sm:flex-none px-3 py-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all text-xs sm:text-sm font-medium">
+                                <button
+                                  onClick={() =>
+                                    alert(
+                                      "Tính năng Xác nhận booking đang được phát triển. Vui lòng quay lại sau!"
+                                    )
+                                  }
+                                  className="flex-1 sm:flex-none px-3 py-1.5 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all text-xs sm:text-sm font-medium"
+                                >
                                   <i className="fas fa-check mr-1"></i>
                                   Xác nhận
                                 </button>
-                                <button className="flex-1 sm:flex-none px-3 py-1.5 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all text-xs sm:text-sm font-medium">
+                                <button
+                                  onClick={() =>
+                                    alert(
+                                      "Tính năng Từ chối booking đang được phát triển. Vui lòng quay lại sau!"
+                                    )
+                                  }
+                                  className="flex-1 sm:flex-none px-3 py-1.5 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all text-xs sm:text-sm font-medium"
+                                >
                                   <i className="fas fa-times mr-1"></i>
                                   Từ chối
                                 </button>
                               </>
                             )}
-                            <button className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all text-xs sm:text-sm font-medium">
+                            <button
+                              onClick={() =>
+                                alert(
+                                  "Tính năng Nhắn tin với khách hàng đang được phát triển. Vui lòng quay lại sau!"
+                                )
+                              }
+                              className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all text-xs sm:text-sm font-medium"
+                            >
                               <i className="fas fa-comment mr-1"></i>
                               Nhắn tin
                             </button>
@@ -468,13 +501,17 @@ const LocalBuddyDashboard = () => {
               </div>
 
               <div className="p-4 sm:p-6 border-t border-gray-100">
-                <Link
-                  to="/buddy/reviews"
+                <button
+                  onClick={() =>
+                    alert(
+                      "Tính năng Xem tất cả đánh giá đang được phát triển. Vui lòng quay lại sau!"
+                    )
+                  }
                   className="block w-full py-2 text-center text-primary-600 hover:text-primary-700 font-medium text-sm"
                 >
                   Xem tất cả đánh giá
                   <i className="fas fa-arrow-right ml-2"></i>
-                </Link>
+                </button>
               </div>
             </div>
           </div>

@@ -145,13 +145,17 @@ const B2BNewsManagement = () => {
                   </p>
                 </div>
               </div>
-              <Link
-                to="/b2b/news/create"
+              <button
+                onClick={() =>
+                  alert(
+                    "Tính năng Tạo bài viết mới đang được phát triển. Vui lòng quay lại sau!"
+                  )
+                }
                 className="w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl text-sm sm:text-base font-medium text-center"
               >
                 <i className="fas fa-plus mr-2"></i>
                 Tạo bài viết mới
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -324,31 +328,66 @@ const B2BNewsManagement = () => {
 
                   {/* Actions */}
                   <div className="flex flex-wrap gap-2">
-                    <button className="px-3 sm:px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-all text-sm font-medium">
+                    <button
+                      onClick={() =>
+                        alert(
+                          "Tính năng Chỉnh sửa bài viết đang được phát triển. Vui lòng quay lại sau!"
+                        )
+                      }
+                      className="px-3 sm:px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-all text-sm font-medium"
+                    >
                       <i className="fas fa-edit mr-1 sm:mr-2"></i>
                       <span className="hidden sm:inline">Chỉnh sửa</span>
                       <span className="sm:hidden">Sửa</span>
                     </button>
                     {article.status === "draft" && (
-                      <button className="px-3 sm:px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all text-sm font-medium">
+                      <button
+                        onClick={() =>
+                          alert(
+                            "Tính năng Đăng bài viết đang được phát triển. Vui lòng quay lại sau!"
+                          )
+                        }
+                        className="px-3 sm:px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all text-sm font-medium"
+                      >
                         <i className="fas fa-upload mr-1 sm:mr-2"></i>
                         <span className="hidden sm:inline">Đăng bài</span>
                         <span className="sm:hidden">Đăng</span>
                       </button>
                     )}
                     {article.status === "published" && (
-                      <button className="px-3 sm:px-4 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-all text-sm font-medium">
+                      <button
+                        onClick={() =>
+                          alert(
+                            "Tính năng Gỡ bài viết đang được phát triển. Vui lòng quay lại sau!"
+                          )
+                        }
+                        className="px-3 sm:px-4 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-all text-sm font-medium"
+                      >
                         <i className="fas fa-eye-slash mr-1 sm:mr-2"></i>
                         <span className="hidden sm:inline">Gỡ bài</span>
                         <span className="sm:hidden">Gỡ</span>
                       </button>
                     )}
-                    <button className="px-3 sm:px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all text-sm font-medium">
+                    <button
+                      onClick={() =>
+                        alert(
+                          "Tính năng Xem trước bài viết đang được phát triển. Vui lòng quay lại sau!"
+                        )
+                      }
+                      className="px-3 sm:px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all text-sm font-medium"
+                    >
                       <i className="fas fa-eye mr-1 sm:mr-2"></i>
                       <span className="hidden sm:inline">Xem trước</span>
                       <span className="sm:hidden">Xem</span>
                     </button>
-                    <button className="px-3 sm:px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-all text-sm font-medium">
+                    <button
+                      onClick={() =>
+                        alert(
+                          "Tính năng Xóa bài viết đang được phát triển. Vui lòng quay lại sau!"
+                        )
+                      }
+                      className="px-3 sm:px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-all text-sm font-medium"
+                    >
                       <i className="fas fa-trash mr-1 sm:mr-2"></i>
                       <span className="hidden sm:inline">Xóa</span>
                       <span className="sm:hidden">Xóa</span>

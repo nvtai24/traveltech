@@ -133,7 +133,14 @@ const B2BServiceManagement = () => {
                   Quản lý và cập nhật các dịch vụ của bạn
                 </p>
               </div>
-              <button className="w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl text-sm sm:text-base font-medium">
+              <button
+                onClick={() =>
+                  alert(
+                    "Tính năng Thêm dịch vụ mới đang được phát triển. Vui lòng quay lại sau!"
+                  )
+                }
+                className="w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl text-sm sm:text-base font-medium"
+              >
                 <i className="fas fa-plus mr-2"></i>
                 Thêm dịch vụ mới
               </button>
@@ -347,15 +354,36 @@ const B2BServiceManagement = () => {
 
                 {/* Actions */}
                 <div className="flex items-center space-x-2">
-                  <button className="flex-1 px-3 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-all text-sm font-medium">
+                  <button
+                    onClick={() =>
+                      alert(
+                        "Tính năng Chỉnh sửa dịch vụ đang được phát triển. Vui lòng quay lại sau!"
+                      )
+                    }
+                    className="flex-1 px-3 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-all text-sm font-medium"
+                  >
                     <i className="fas fa-edit mr-1 sm:mr-2"></i>
                     <span className="hidden sm:inline">Chỉnh sửa</span>
                     <span className="sm:hidden">Sửa</span>
                   </button>
-                  <button className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all">
+                  <button
+                    onClick={() =>
+                      alert(
+                        "Tính năng Xem thống kê dịch vụ đang được phát triển. Vui lòng quay lại sau!"
+                      )
+                    }
+                    className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all"
+                  >
                     <i className="fas fa-chart-line"></i>
                   </button>
-                  <button className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all">
+                  <button
+                    onClick={() =>
+                      alert(
+                        "Tính năng Tùy chọn khác đang được phát triển. Vui lòng quay lại sau!"
+                      )
+                    }
+                    className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all"
+                  >
                     <i className="fas fa-ellipsis-v"></i>
                   </button>
                 </div>

@@ -123,22 +123,30 @@ const B2BDashboard = () => {
                 </p>
               </div>
               <div className="flex flex-wrap gap-2 sm:gap-3 w-full sm:w-auto">
-                <Link
-                  to="/b2b/services"
+                <button
+                  onClick={() =>
+                    alert(
+                      "Tính năng Thêm dịch vụ đang được phát triển. Vui lòng quay lại sau!"
+                    )
+                  }
                   className="flex-1 sm:flex-none px-4 sm:px-6 py-2.5 sm:py-3 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all shadow-lg hover:shadow-xl text-sm sm:text-base font-medium text-center"
                 >
                   <i className="fas fa-plus mr-2"></i>
                   <span className="hidden sm:inline">Thêm dịch vụ</span>
                   <span className="sm:hidden">Dịch vụ</span>
-                </Link>
-                <Link
-                  to="/b2b/news/create"
+                </button>
+                <button
+                  onClick={() =>
+                    alert(
+                      "Tính năng Đăng tin tức đang được phát triển. Vui lòng quay lại sau!"
+                    )
+                  }
                   className="flex-1 sm:flex-none px-4 sm:px-6 py-2.5 sm:py-3 bg-white text-primary-600 border-2 border-primary-600 rounded-xl hover:bg-primary-50 transition-all text-sm sm:text-base font-medium text-center"
                 >
                   <i className="fas fa-newspaper mr-2"></i>
                   <span className="hidden sm:inline">Đăng tin</span>
                   <span className="sm:hidden">Tin</span>
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -336,9 +344,13 @@ const B2BDashboard = () => {
                 <i className="fas fa-arrow-right text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all"></i>
               </Link>
 
-              <Link
-                to="/b2b/analytics"
-                className="flex items-center justify-between p-3 sm:p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl hover:shadow-md transition-all group"
+              <button
+                onClick={() =>
+                  alert(
+                    "Tính năng Báo cáo & Phân tích đang được phát triển. Vui lòng quay lại sau!"
+                  )
+                }
+                className="w-full flex items-center justify-between p-3 sm:p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl hover:shadow-md transition-all group"
               >
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 sm:w-10 sm:h-10 bg-orange-500 rounded-lg flex items-center justify-center text-white">
@@ -349,7 +361,7 @@ const B2BDashboard = () => {
                   </span>
                 </div>
                 <i className="fas fa-arrow-right text-gray-400 group-hover:text-orange-600 group-hover:translate-x-1 transition-all"></i>
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -448,7 +460,14 @@ const B2BDashboard = () => {
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right">
-                      <button className="text-primary-600 hover:text-primary-700 font-medium text-sm">
+                      <button
+                        onClick={() =>
+                          alert(
+                            "Tính năng Chi tiết booking đang được phát triển. Vui lòng quay lại sau!"
+                          )
+                        }
+                        className="text-primary-600 hover:text-primary-700 font-medium text-sm"
+                      >
                         Chi tiết
                         <i className="fas fa-chevron-right ml-2"></i>
                       </button>
@@ -496,7 +515,14 @@ const B2BDashboard = () => {
                     {booking.amount.toLocaleString("vi-VN")}₫
                   </div>
                 </div>
-                <button className="w-full py-2 text-primary-600 hover:text-primary-700 font-medium text-sm border border-primary-200 rounded-lg hover:bg-primary-50 transition-all">
+                <button
+                  onClick={() =>
+                    alert(
+                      "Tính năng Chi tiết booking đang được phát triển. Vui lòng quay lại sau!"
+                    )
+                  }
+                  className="w-full py-2 text-primary-600 hover:text-primary-700 font-medium text-sm border border-primary-200 rounded-lg hover:bg-primary-50 transition-all"
+                >
                   Xem chi tiết
                 </button>
               </div>
