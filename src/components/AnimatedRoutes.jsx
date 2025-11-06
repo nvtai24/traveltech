@@ -19,6 +19,15 @@ import HotelDetail from "../pages/HotelDetail";
 import Restaurants from "../pages/Restaurants";
 import RestaurantDetail from "../pages/RestaurantDetail";
 
+// B2B Management Pages
+import B2BDashboard from "../pages/b2b/B2BDashboard";
+import B2BServiceManagement from "../pages/b2b/B2BServiceManagement";
+import B2BBookingManagement from "../pages/b2b/B2BBookingManagement";
+import B2BNewsManagement from "../pages/b2b/B2BNewsManagement";
+
+// Local Buddy Pages
+import LocalBuddyDashboard from "../pages/localbuddy/LocalBuddyDashboard";
+
 const AnimatedRoutes = () => {
   const location = useLocation();
 
@@ -151,6 +160,50 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <RestaurantDetail />
+            </PageTransition>
+          }
+        />
+
+        {/* B2B Management Routes */}
+        <Route
+          path="/b2b"
+          element={
+            <PageTransition>
+              <B2BDashboard />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/b2b/services"
+          element={
+            <PageTransition>
+              <B2BServiceManagement />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/b2b/bookings"
+          element={
+            <PageTransition>
+              <B2BBookingManagement />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/b2b/news"
+          element={
+            <PageTransition>
+              <B2BNewsManagement />
+            </PageTransition>
+          }
+        />
+
+        {/* Local Buddy Routes */}
+        <Route
+          path="/buddy/dashboard"
+          element={
+            <PageTransition>
+              <LocalBuddyDashboard />
             </PageTransition>
           }
         />

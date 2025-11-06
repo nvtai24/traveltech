@@ -72,15 +72,30 @@ const Header = () => {
     { name: "Trang chủ", path: "/", icon: "fas fa-home" },
     { name: "AI Planner", path: "/ai-planner", icon: "fas fa-robot" },
     { name: "Điểm đến", path: "/destinations", icon: "fas fa-map-marker-alt" },
-    // { name: "Tours", path: "/tours", icon: "fas fa-route" },
-    { name: "Cộng đồng", path: "/community", icon: "fas fa-users" },
     {
       name: "Dịch Vụ",
       path: "/services",
       icon: "fas fa-concierge-bell",
       isDropdown: true,
     },
+    // { name: "Tours", path: "/tours", icon: "fas fa-route" },
+    { name: "Cộng đồng", path: "/community", icon: "fas fa-users" },
     { name: "Giới thiệu", path: "/about", icon: "fas fa-info-circle" },
+  ];
+
+  const managementOptions = [
+    {
+      name: "B2B Dashboard",
+      path: "/b2b",
+      icon: "fas fa-chart-line",
+      description: "Quản lý dịch vụ & booking",
+    },
+    {
+      name: "Local Buddy",
+      path: "/buddy/dashboard",
+      icon: "fas fa-user-friends",
+      description: "Quản lý tours & lịch trình",
+    },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -176,6 +191,45 @@ const Header = () => {
 
           {/* CTA Button & Language Selector */}
           <div className="hidden lg:flex items-center space-x-3">
+            {/* Management Dropdown */}
+            <div className="relative group">
+              <button className="flex items-center px-3 py-2 rounded-lg text-sm font-medium text-gray-500 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200">
+                <i className="fas fa-cog mr-2"></i>
+                <span>Quản lý</span>
+                <i className="fas fa-chevron-down text-xs ml-1.5 group-hover:rotate-180 transition-transform"></i>
+              </button>
+
+              {/* Management Dropdown Menu */}
+              <div className="absolute top-full right-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                {managementOptions.map((option) => (
+                  <Link
+                    key={option.path}
+                    to={option.path}
+                    className={`flex items-start px-4 py-3 transition-colors ${
+                      location.pathname === option.path ||
+                      location.pathname.startsWith(option.path + "/")
+                        ? "bg-primary-50 text-primary-700"
+                        : "text-gray-700 hover:bg-gray-50"
+                    }`}
+                  >
+                    <i
+                      className={`${option.icon} text-base w-5 flex-shrink-0 mr-3 mt-0.5`}
+                    ></i>
+                    <div className="flex-1">
+                      <div className="text-sm font-medium">{option.name}</div>
+                      <div className="text-xs text-gray-500 mt-0.5">
+                        {option.description}
+                      </div>
+                    </div>
+                    {(location.pathname === option.path ||
+                      location.pathname.startsWith(option.path + "/")) && (
+                      <i className="fas fa-check text-primary-600 text-sm ml-2 mt-1"></i>
+                    )}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
             <Link to="/contact" className="btn btn-primary group">
               <i className="fas fa-envelope mr-2 group-hover:scale-110 transition-transform"></i>
               Liên hệ
@@ -292,6 +346,44 @@ const Header = () => {
                       </span>
                       {location.pathname === option.path && (
                         <i className="fas fa-check text-primary-600 text-sm ml-2"></i>
+                      )}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mobile Management Section */}
+              <div className="pt-3 border-t border-gray-200">
+                <div className="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                  Quản lý
+                </div>
+                <div className="space-y-1">
+                  {managementOptions.map((option) => (
+                    <Link
+                      key={option.path}
+                      to={option.path}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`flex items-start px-4 py-3 rounded-lg transition-all duration-200 ${
+                        location.pathname === option.path ||
+                        location.pathname.startsWith(option.path + "/")
+                          ? "bg-primary-100 text-primary-700"
+                          : "text-gray-600 hover:text-primary-600 hover:bg-primary-50"
+                      }`}
+                    >
+                      <i
+                        className={`${option.icon} text-lg w-6 flex-shrink-0 mr-3 mt-0.5`}
+                      ></i>
+                      <div className="flex-1">
+                        <div className="text-base font-medium">
+                          {option.name}
+                        </div>
+                        <div className="text-xs text-gray-500 mt-0.5">
+                          {option.description}
+                        </div>
+                      </div>
+                      {(location.pathname === option.path ||
+                        location.pathname.startsWith(option.path + "/")) && (
+                        <i className="fas fa-check text-primary-600 text-sm ml-2 mt-1"></i>
                       )}
                     </Link>
                   ))}
