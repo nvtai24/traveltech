@@ -186,6 +186,11 @@
     box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
   }
 
+  /* Marquee pause on hover */
+  .hover\:pause:hover {
+    animation-play-state: paused;
+  }
+
   /* Newsletter Modal Animations */
   .animate-fadeIn {
     animation: fadeIn 0.3s ease-out;
@@ -213,5 +218,29 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  /* Marquee Scrolling Text Animation */
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .marquee-container {
+    overflow: hidden;
+    position: relative;
+    display: flex;
   }
 }

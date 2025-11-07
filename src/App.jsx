@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import AnimatedRoutes from "./components/AnimatedRoutes";
 import ChatSupport from "./components/ChatSupport";
+import DemoBanner from "./components/DemoBanner";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <ScrollToTop />
       <div className="min-h-screen flex flex-col">
         <Header />
+        <DemoBanner />
         <main className="flex-grow pt-16 lg:pt-20">
           <AnimatedRoutes />
         </main>
