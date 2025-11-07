@@ -131,18 +131,6 @@ const DestinationDetail = () => {
                 <i className="fas fa-tag mr-2"></i>
                 {loc.category}
               </div>
-              {loc.openingHours && (
-                <div className="flex items-center">
-                  <i className="fas fa-clock mr-2"></i>
-                  {loc.openingHours}
-                </div>
-              )}
-              {loc.price && (
-                <div className="flex items-center">
-                  <i className="fas fa-ticket-alt mr-2"></i>
-                  {loc.price}
-                </div>
-              )}
             </div>
           </div>
         </div>

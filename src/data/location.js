@@ -88,9 +88,9 @@ export const locations = [
     coordinates: { lat: 21.0277644, lng: 105.8341598 },
     images: [
       "https://static.vinwonders.com/production/gioi-thieu-ve-ha-noi-banner.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/4/45/Hoan_Kiem_Lake_Hanoi.jpg",
+      "https://content.r9cdn.net/rimg/dimg/9f/f9/b80f2b97-city-34211-1648f9bdee7.jpg?width=1366&height=768&xhint=1744&yhint=910&crop=true",
     ],
-    videos: ["https://www.youtube.com/watch?v=sample"],
+    videos: ["https://www.youtube.com/watch?v=Goy-j3MQA6o"],
     audioStory: null,
     audioGuideScript:
       "Chào mừng bạn đến với Hà Nội, thủ đô ngàn năm văn hiến của Việt Nam. Năm một nghìn không trăm mười, vua Lý Thái Tổ đã dời đô về đây và đặt tên là Thăng Long, có nghĩa là rồng bay lên. Theo truyền thuyết, vua đã nhìn thấy một con rồng vàng bay lên từ sông Hồng, báo hiệu đây là vùng đất linh thiêng. Trải qua hơn một nghìn năm, Hà Nội đã trở thành trung tâm chính trị và văn hóa của cả đất nước. Phố cổ Hà Nội có ba mươi sáu phố phường, mỗi phố mang tên một nghề truyền thống. Hồ Hoàn Kiếm nổi tiếng với truyền thuyết thanh kiếm thần. Đó là nơi vua Lê Lợi trả lại thanh kiếm cho Rùa Thần, sau khi đánh thắng quân Minh. Văn Miếu Quốc Tử Giám là ngôi trường đại học đầu tiên của Việt Nam. Nơi đây lưu giữ tám mươi hai tấm bia tiến sĩ, được UNESCO công nhận là di sản tư liệu thế giới. Hãy để chính bạn khám phá sức quyến rũ của Hà Nội, từ những tách cà phê trứng thơm ngon, đến những gánh phở nóng hổi vào buổi sáng sớm.",
@@ -202,9 +202,11 @@ export const locations = [
     coordinates: { lat: 20.910051, lng: 107.183902 },
     images: [
       "https://wallpaperaccess.com/full/200944.jpg",
-      "https://dulichvietnam.com.vn/wp-content/uploads/2019/05/ha-long-bay.jpg",
+      "https://baithojunks.com/wp-content/uploads/2024/07/Treasure-Junk-Bai-Tu-Long-Bay-scaled.jpg",
+      "https://www.vietnamairlines.com/~/media/SEO-images/2025%20SEO/Traffic%20TA/MB/bai-tu-long-bay-vietnam/bai-tu-long-bay-vietnam-thumb.jpg",
+      "https://www.duthuyenhalong.com/media/uploads/froala_editor/images/bai%20tu%20long.jpg",
     ],
-    videos: [],
+    videos: ["https://www.youtube.com/watch?v=27VKW2YirWo"],
     audioStory: null,
     audioGuideScript:
       "Vịnh Hạ Long, một trong những kỳ quan thiên nhiên thế giới. Tên gọi Hạ Long có nghĩa là rồng hạ xuống. Theo truyền thuyết, một gia đình rồng đã xuống vịnh này để giúp người Việt chống giặc ngoại xâm. Những con rồng nhả ra ngọc và ngà, biến thành hàng nghìn hòn đảo đá vôi, tạo thành hàng rào thiên nhiên bảo vệ đất nước. Vịnh Hạ Long có hơn một nghìn sáu trăm hòn đảo lớn nhỏ, được hình thành qua năm trăm triệu năm tiến hóa địa chất. Nhiều hòn đảo có hình dáng độc đáo, như đảo Đầu Người, Hòn Gà Chọi, hay Hòn Rùa. Hang Sửng Sốt là một trong những hang động đẹp nhất vịnh. Hang được phát hiện bởi người Pháp vào năm một nghìn chín trăm lẻ một. Bên trong hang có những khối thạch nhũ lấp lánh, đủ màu sắc dưới ánh đèn. Năm một nghìn chín trăm chín mươi bốn và năm hai nghìn, UNESCO đã hai lần công nhận Vịnh Hạ Long là Di sản Thiên nhiên Thế giới. Đây không chỉ là nơi có cảnh quan tuyệt đẹp, mà còn là nhà của nhiều loài sinh vật quý hiếm, một hệ sinh thái độc đáo cần được bảo vệ.",
@@ -314,7 +316,7 @@ export const locations = [
     images: [
       "https://focusasiatravel.vn/wp-content/uploads/2018/09/Ph%E1%BB%91-C%E1%BB%95-H%E1%BB%99i-An1.jpg",
     ],
-    videos: [],
+    videos: ["https://www.youtube.com/watch?v=jAZ5s-8GRAo"],
     audioStory: null,
     audioGuideScript:
       "Hội An, thành phố cổ được UNESCO công nhận là Di sản Văn hóa Thế giới năm một nghìn chín trăm chín mươi chín. Từ thế kỷ mười sáu đến thế kỷ mười tám, Hội An là cảng thương mại quốc tế sầm uất nhất Đông Nam Á. Đây là nơi giao thương của thương nhân Nhật Bản, Trung Quốc, Hà Lan, và Bồ Đào Nha. Chùa Cầu là biểu tượng của Hội An. Chùa được xây dựng bởi người Nhật vào năm một nghìn năm trăm chín mươi ba, để nối liền khu phố Nhật và khu phố Trung Hoa. Theo truyền thuyết, Chùa Cầu được xây để trấn yếm một con quái vật. Con quái vật này có đầu ở Ấn Độ, thân ở Hội An, và đuôi ở Nhật Bản. Nó thường gây ra động đất. Những ngôi nhà cổ Hội An mang dấu ấn kiến trúc Việt, Trung, và Nhật hòa quyện độc đáo. Nhà cổ Tấn Ký được xây dựng cách đây hơn hai trăm năm, là ví dụ điển hình với cấu trúc gỗ quý hiếm và các chi tiết chạm khắc tinh xảo. Mỗi tháng âm lịch, vào ngày rằm, phố cổ tắt hết đèn điện, thắp lên hàng nghìn chiếc đèn lồng rực rỡ, tái hiện không khí thời xưa. Cao lầu là món ăn đặc sản của Hội An. Món này được làm từ nước giếng Bá Lễ, thịt lợn xá xíu, và rau sống, tạo nên hương vị không thể nhầm lẫn.",
@@ -395,10 +397,13 @@ export const locations = [
     price: "Miễn phí/Chi phí tour tùy lịch trình",
     coordinates: { lat: 22.3371, lng: 103.8448 },
     images: [
-      "https://dulichviet.com.vn/images/bandidau/ruong-bac-thang-sapa(4).jpg",
-      "https://i.imgur.com/6zKZ1Qm.jpg",
+      "https://www.vietnamairlines.com/~/media/SEO-images/2025%20SEO/Traffic%20TA/MB/sapa-vietnam/sapa-vietnam-thumb_1.jpg",
+      "https://www.vietnamairlines.com/~/media/SEO-images/2025%20SEO/Traffic%20TA/MB/sapa-vietnam/sapa%20is%20not%20just%20a%20destination%20its%20a%20feeling1.jpg?la=en",
+      "https://www.vietnamairlines.com/~/media/SEO-images/2025%20SEO/Traffic%20TA/MB/sapa-vietnam/standing%20at%20the%20summit%20is%20a%20moment%20of%20awe%20youll%20never%20forget_1.jpg?la=en://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80",
+      "https://www.vietnamairlines.com/~/media/SEO-images/2025%20SEO/Traffic%20TA/MB/sapa-vietnam/this%20trail%20isnt%20just%20a%20trek%20its%20a%20soulstirring%20adventure%20into%20the%20heart%20of%20sapas%20highlands1.jpg?la=en",
+      "https://www.vietnamairlines.com/~/media/SEO-images/2025%20SEO/Traffic%20TA/MB/sapa-vietnam/in%20sapa%20the%20daily%20life%20of%20ethnic%20minorities%20unfolds%20with%20timeless%20beauty1.jpg?la=en",
     ],
-    videos: ["https://www.youtube.com/watch?v=sample_sapa"],
+    videos: ["https://youtu.be/J1PN5A8ih8I?si=TIjCRvO2P6HYwpPX"],
     audioStory: null,
     faqs: [
       {
@@ -433,7 +438,7 @@ export const locations = [
     images: [
       "https://khamphahue.com.vn/Portals/0/Medias/Nam2022/T10/QuanTheDiTichCoDoHue-NgoMonHue_5_10_2022_13_48_46_416_CH.jpg",
     ],
-    videos: [],
+    videos: ["https://www.youtube.com/watch?v=T95g3mNPewA"],
     audioStory: null,
     faqs: [
       {
@@ -472,7 +477,7 @@ export const locations = [
     price: "Miễn phí/Chi phí dịch vụ tại điểm",
     coordinates: { lat: 16.0544, lng: 108.2022 },
     images: ["https://btnmt.1cdn.vn/2023/07/04/302-202307041611213.jpg"],
-    videos: [],
+    videos: ["https://www.youtube.com/watch?v=ITQN--CN1Wk"],
     audioStory: null,
     faqs: [
       {
@@ -577,7 +582,7 @@ export const locations = [
     images: [
       "https://static.vinwonders.com/production/how-many-days-in-phu-quoc-2.jpg",
     ],
-    videos: [],
+    videos: ["https://www.youtube.com/watch?v=QnGJHnXwIGo"],
     audioStory: null,
     faqs: [
       {
@@ -675,7 +680,7 @@ export const locations = [
     price: "Chi phí vào các vườn hoa và khu du lịch thường thấp (20k-150k)",
     coordinates: { lat: 11.9404, lng: 108.4583 },
     images: ["https://i.mie-eetoko.com/2A8A1490-1280x854.jpg"],
-    videos: [],
+    videos: ["https://www.youtube.com/watch?v=MILNjcJETQQ"],
     audioStory: null,
     faqs: [
       {
@@ -715,7 +720,7 @@ export const locations = [
     images: [
       "https://vietnamdiscovery.com/wp-content/uploads/2019/10/Trang-An-Complex-Featured.jpg",
     ],
-    videos: [],
+    videos: ["https://www.youtube.com/watch?v=IMPcowTHZuE"],
     audioStory: null,
     faqs: [
       {
@@ -811,9 +816,9 @@ export const locations = [
     price: "Chi phí dịch vụ thay đổi theo mùa",
     coordinates: { lat: 12.2388, lng: 109.1967 },
     images: [
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1280&q=80",
+      "https://pystravel.vn/_next/image?url=https%3A%2F%2Fbooking.pystravel.vn%2Fuploads%2Fposts%2Favatar%2F1743997192.jpg&w=3840&q=75",
     ],
-    videos: [],
+    videos: ["https://www.youtube.com/watch?v=rN81vxD-jcc"],
     audioStory: null,
     faqs: [
       { q: "Nên đi lặn ở đâu?", a: "Hòn Mun là điểm lặn nổi bật ở Nha Trang." },
@@ -847,9 +852,9 @@ export const locations = [
     price: "Chi phí tour hang động: 200k-1.5tr tùy loại tour",
     coordinates: { lat: 17.5208, lng: 106.2956 },
     images: [
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1280&q=80",
+      "https://nld.mediacdn.vn/291774122806476800/2024/11/18/dong-phong-nha-ke-bang-dep-den-choang-ngop-17319168370561406931222.jpg",
     ],
-    videos: [],
+    videos: ["https://www.youtube.com/watch?v=T_wdCzRPxWk"],
     audioStory: null,
     audioGuideScript:
       "Vườn Quốc gia Phong Nha Kẻ Bàng, vương quốc hang động của thế giới. Được UNESCO công nhận là Di sản Thiên nhiên Thế giới lần thứ nhất vào năm hai nghìn lẻ ba, và được mở rộng năm hai nghìn mười lăm. Đây là khu vực có hệ thống hang động karst lớn nhất và đẹp nhất hành tinh. Tên Phong Nha có nghĩa là hang động với gió và răng. Tên này mô tả những khối thạch nhũ nhọn như răng nanh, và luồng gió mát từ sâu trong hang thổi ra. Hang Sơn Đoòng được thám hiểm lần đầu vào năm hai nghìn lẻ chín, bởi đội khảo sát hang động Hoàng gia Anh. Đây là hang động tự nhiên lớn nhất thế giới được biết đến. Hang rộng tới hai trăm mét, cao một trăm năm mươi mét, và dài hơn năm ki lô mét. Bên trong hang có cả một hệ sinh thái riêng, với rừng cây nguyên sinh, sông suối, và những mây trời lơ lửng. Người dân địa phương kể rằng, năm một nghìn chín trăm chín mươi một, ông Hồ Khanh, một người dân bản địa, đã phát hiện ra lối vào hang khi tìm kiếm gỗ quý trong rừng. Tiếng nước chảy vang dội và gió lạnh thổi ra khiến ông sợ hãi, không dám bước vào. Phải đến mười tám năm sau, ông mới dẫn đường cho đoàn thám hiểm quốc tế tìm lại hang động này. Động Phong Nha có chiều dài bảy nghìn bảy trăm hai mươi chín mét, là hang động được thám hiểm sớm nhất. Từ thế kỷ thứ chín, hang đã được người Chăm sử dụng làm nơi thờ cúng. Bên trong hang có hàng trăm khối thạch nhũ kỳ ảo, với những cái tên thơ mộng như Sư tử đá, Tiên cá, hay Phật Di Lặc. Vườn quốc gia này còn là nhà của hơn tám trăm loài động thực vật. Trong đó có nhiều loài quý hiếm như vượn chà vá chân vàng, sơn dương, và cây nghiến ba lá, loài thực vật có từ thời khủng long.",
@@ -890,7 +895,7 @@ export const locations = [
     images: [
       "https://valitravel.vn/wp-content/uploads/2022/10/kinh-nghiem-du-lich-cho-noi-cai-rang-moi-nhat-2022-1428.jpg",
     ],
-    videos: [],
+    videos: ["https://www.youtube.com/watch?v=juIIpOfrqog"],
     audioStory: null,
     faqs: [
       {
@@ -909,264 +914,261 @@ export const locations = [
     ],
   },
   {
-    id: "sapa",
-    name: "Sa Pa",
+    id: "haiphong",
+    name: "Hải Phòng",
     region: "Miền Bắc",
-    category: "Nature",
+    category: "City",
     description:
-      "Thị trấn miền núi nổi tiếng với ruộng bậc thang, văn hóa dân tộc thiểu số và khí hậu mát mẻ quanh năm.",
+      "Thành phố cảng lớn nhất miền Bắc với bãi biển Đồ Sơn, đảo Cát Bà và ẩm thực hải sản phong phú.",
     highlights: [
-      "Ruộng bậc thang Mù Cang Chải",
-      "Đỉnh Fansipan",
-      "Bản Cát Cát",
-      "Thác Bạc",
-      "Chợ tình Sa Pa",
+      "Đảo Cát Bà",
+      "Bãi biển Đồ Sơn",
+      "Nhà hát lớn Hải Phòng",
+      "Chợ Sắt",
+      "Đền Ngọc Sơn",
     ],
     history:
-      "Sa Pa được người Pháp phát hiện vào đầu thế kỷ 20 và phát triển thành khu nghỉ dưỡng cao cấp. Nơi đây là quê hương của nhiều dân tộc thiểu số như H'Mông, Dao, Tày.",
-    openingHours: "Mở cửa: 24/7 (tour theo lịch trình)",
-    price: "Tour 2-3 ngày: 1.5tr - 3tr/người",
-    coordinates: { lat: 22.3363, lng: 103.8438 },
-    images: [
-      "https://images.unsplash.com/photo-1583339793403-3d9b001b6008?auto=format&fit=crop&w=1280&q=80",
-    ],
-    videos: [],
-    audioStory: null,
-    audioGuideScript:
-      "Sa Pa, thiên đường mây trắng của miền Bắc Việt Nam. Nằm ở độ cao một nghìn năm trăm mét so với mực nước biển, Sa Pa được người Pháp phát hiện vào năm một nghìn chín trăm lẻ ba. Nơi đây nhanh chóng trở thành khu nghỉ dưỡng ưa thích của giới quý tộc. Tên Sa Pa trong tiếng H Mông có nghĩa là cát sa, ám chỉ những vùng đất màu mỡ ven suối. Đây là nơi sinh sống của sáu dân tộc thiểu số. Đó là H Mông, Dao, Tày, Giáy, Xa Phó, và Kinh. Mỗi dân tộc có trang phục, ngôn ngữ, và phong tục riêng biệt, tạo nên bức tranh văn hóa đa sắc màu. Ruộng bậc thang Sa Pa được bình chọn là một trong bảy cánh đồng lúa đẹp nhất thế giới. Vào mùa nước đổ, từ tháng tư đến tháng năm, ruộng bậc thang như những tấm gương soi bầu trời. Mùa lúa chín, từ tháng chín đến tháng mười, toàn bộ thung lũng chuyển sang màu vàng óng ánh. Đỉnh Fansipan cao ba nghìn một trăm bốn mươi ba mét, được mệnh danh là nóc nhà Đông Dương. Đây là điểm đến của những người đam mê chinh phục. Từ năm hai nghìn mười sáu, cáp treo Fansipan, cáp treo ba dây dài nhất thế giới, đã giúp du khách dễ dàng chinh phục đỉnh núi này trong mười lăm phút. Chợ tình Sa Pa diễn ra vào tối thứ bảy hàng tuần. Đây là nơi giới trẻ các dân tộc gặp gỡ, làm quen, và tìm hiểu nhau qua các trò chơi dân gian.",
-    faqs: [
-      {
-        q: "Thời điểm đẹp nhất để đến Sa Pa?",
-        a: "Tháng 9-11 (mùa lúa chín) và tháng 3-5 (mùa hoa).",
-      },
-      {
-        q: "Có cần chuẩn bị gì khi đi Sa Pa?",
-        a: "Áo ấm, giày trekking, áo mưa (mùa mưa).",
-      },
-    ],
-    reviews: [
-      {
-        id: 1,
-        author: "Minh",
-        text: "Ruộng bậc thang tuyệt đẹp, không khí trong lành!",
-        rating: 5,
-        images: [],
-      },
-      {
-        id: 2,
-        author: "Hương",
-        text: "Phong cảnh hùng vĩ, trải nghiệm homestay rất thú vị.",
-        rating: 5,
-        images: [],
-      },
-    ],
-  },
-  {
-    id: "dalat",
-    name: "Đà Lạt",
-    region: "Miền Trung",
-    category: "Nature",
-    description:
-      "Thành phố ngàn hoa với khí hậu mát mẻ quanh năm, kiến trúc Pháp cổ và các vườn hoa rực rỡ.",
-    highlights: [
-      "Hồ Xuân Hương",
-      "Thiền viện Trúc Lâm",
-      "Thác Datanla",
-      "Ga Đà Lạt",
-      "Vườn hoa thành phố",
-    ],
-    history:
-      "Đà Lạt được người Pháp xây dựng từ năm 1897 như một thành phố nghỉ dưỡng cao cấp với kiến trúc châu Âu đặc trưng.",
+      "Hải Phòng được thành lập năm 1888, là cảng biển quan trọng và là cửa ngõ ra biển của vùng Đồng bằng sông Hồng.",
     openingHours: "Mở cửa: 24/7 (các điểm tham quan có giờ riêng)",
     price: "Tham quan miễn phí đến 50k/điểm",
-    coordinates: { lat: 11.9404, lng: 108.4583 },
-    images: [
-      "https://images.unsplash.com/photo-1628155361099-c6b0c2b7e428?auto=format&fit=crop&w=1280&q=80",
-    ],
-    videos: [],
+    coordinates: { lat: 20.8449, lng: 106.6881 },
+    images: ["https://deepc.vn/images/location/haiphong/haiphong-01.jpg"],
+    videos: ["https://www.youtube.com/watch?v=r5xQiUSzoK4"],
     audioStory: null,
     audioGuideScript:
-      "Đà Lạt, thành phố ngàn hoa, được mệnh danh là Paris của phương Đông. Năm một nghìn tám trăm chín mươi ba, bác sĩ Alexandre Yersin, người phát hiện ra vi khuẩn dịch hạch, đã lần đầu tiên đặt chân đến vùng đất này. Ông bị mê hoặc bởi khí hậu mát mẻ và không khí trong lành. Ông đã đề xuất với Toàn quyền Đông Dương xây dựng Đà Lạt thành khu nghỉ dưỡng. Từ năm một nghìn tám trăm chín mươi bảy, người Pháp bắt đầu xây dựng những biệt thự kiểu châu Âu. Phong cách kiến trúc độc đáo này còn tồn tại đến ngày nay. Dinh Bảo Đại là nơi vua Bảo Đại nghỉ dưỡng. Ngài là vị vua cuối cùng của triều Nguyễn. Dinh là minh chứng cho sự hòa quyện kiến trúc Pháp và Việt. Hồ Xuân Hương hình trăng khuyết, là trái tim của thành phố. Hồ được đặt tên theo nữ thi sĩ tài danh thế kỷ mười tám. Vào buổi sáng sớm, sương mù bao phủ mặt hồ, tạo nên khung cảnh mơ màng và lãng mạn. Thiền viện Trúc Lâm nằm trên đồi Phượng Hoàng. Đây là ngôi chùa lớn nhất Đà Lạt với kiến trúc Thiền tông hiện đại. Từ đây có thể ngắm toàn cảnh thành phố và hồ Tuyền Lâm xanh biếc. Đà Lạt còn nổi tiếng với các loại hoa, như hoa đà lạt, hoa mimosa, và hoa anh đào. Mỗi mùa mang một sắc hoa khác nhau, khiến thành phố này luôn đầy màu sắc và hương thơm.",
+      "Hải Phòng, thành phố hoa phượng đỏ. Tên Hải Phòng có nghĩa là phòng thủ biển, xuất phát từ vai trò quan trọng của thành phố trong việc bảo vệ cửa biển phía Bắc. Cảng Hải Phòng được xây dựng từ năm một nghìn tám trăm tám mươi tám dưới thời Pháp thuộc. Đây là cảng biển lớn nhất miền Bắc và là cửa ngõ quan trọng cho thương mại quốc tế. Nhà hát lớn Hải Phòng được xây dựng theo kiến trúc Pháp cổ điển từ năm một nghìn chín trăm mười hai. Kiến trúc sang trọng và lộng lẫy của nhà hát là biểu tượng văn hóa của thành phố. Đảo Cát Bà là đảo lớn nhất trong quần đảo Cát Bà thuộc vịnh Lan Hạ. Vườn quốc gia Cát Bà là nơi sinh sống của voọc Cát Bà, loài linh trưởng quý hiếm nhất thế giới với chỉ còn khoảng bảy mươi con. Bãi biển Đồ Sơn nằm cách trung tâm thành phố hai mươi ki lô mét. Đây là bãi biển nổi tiếng với các lễ hội truyền thống như lễ hội đua trâu, diễn ra vào mùng chín tháng tám âm lịch hàng năm.",
     faqs: [
       {
-        q: "Đà Lạt có lạnh không?",
-        a: "Nhiệt độ trung bình 15-24°C, mát mẻ quanh năm.",
+        q: "Hải Phòng có gì đặc biệt?",
+        a: "Đảo Cát Bà, bãi biển Đồ Sơn, ẩm thực hải sản phong phú.",
       },
       {
-        q: "Nên đi Đà Lạt bao nhiêu ngày?",
-        a: "2-3 ngày là hợp lý để khám phá các điểm chính.",
+        q: "Từ Hà Nội đến Hải Phòng bao xa?",
+        a: "Khoảng 120km, đi xe khoảng 2 giờ.",
       },
     ],
     reviews: [
       {
         id: 1,
-        author: "Thu",
-        text: "Thành phố lãng mạn, thích hợp cho couple!",
-        rating: 5,
-        images: [],
-      },
-      {
-        id: 2,
-        author: "Khoa",
-        text: "Nhiều cafe đẹp, view núi rừng tuyệt vời.",
+        author: "Bình",
+        text: "Thành phố năng động, hải sản tươi ngon!",
         rating: 4,
         images: [],
       },
-    ],
-  },
-  {
-    id: "nhatrang",
-    name: "Nha Trang",
-    region: "Miền Trung",
-    category: "Beach",
-    description:
-      "Thành phố biển với bãi tắm đẹp, hoạt động lặn biển và cuộc sống về đêm sôi động.",
-    highlights: [
-      "Bãi biển Nha Trang",
-      "Vinpearl Land",
-      "Tháp Bà Ponagar",
-      "Viện Hải dương học",
-      "Đảo Hòn Mun",
-    ],
-    history:
-      "Nha Trang đã trở thành một trung tâm du lịch biển hàng đầu Việt Nam với bãi biển dài 6km và nhiều resort cao cấp.",
-    openingHours: "Mở cửa: 24/7 (các hoạt động biển từ 7:00-18:00)",
-    price: "Miễn phí biển công cộng, tour đảo 300k-800k/người",
-    coordinates: { lat: 12.2388, lng: 109.1967 },
-    images: [
-      "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=1280&q=80",
-    ],
-    videos: [],
-    audioStory: null,
-    audioGuideScript:
-      "Nha Trang, viên ngọc xanh của biển Đông. Tên Nha Trang xuất phát từ tiếng Chăm, Yakram, có nghĩa là sông tre. Sau đó được Việt hóa thành Nha Trang. Từ thế kỷ thứ hai, đây là một trong những trung tâm quan trọng của Vương quốc Chăm Pa. Tháp Bà Ponagar được xây dựng từ thế kỷ thứ tám, là minh chứng cho nền văn minh Chăm Pa rực rỡ. Trong kiến trúc tháp, người ta vẫn chưa tìm ra công thức kết dính các viên gạch mà người Chăm đã sử dụng. Đây là một bí ẩn kỹ thuật đến nay vẫn chưa được giải mã. Bãi biển Nha Trang dài sáu ki lô mét, với bờ cát trắng mịn và nước biển trong xanh. Bãi biển được tạp chí National Geographic bình chọn là một trong hai mươi chín vịnh đẹp nhất thế giới. Viện Hải dương học Nha Trang được thành lập từ năm một nghìn chín trăm hai mươi ba. Đây là viện nghiên cứu biển đầu tiên ở Đông Nam Á. Tại đây có hơn hai mươi nghìn mẫu vật sinh vật biển. Trong đó nhiều loài độc đáo chỉ có ở vùng biển Việt Nam. Hòn Mun cách Nha Trang mười ki lô mét về phía Đông Nam. Đây là khu bảo tồn biển đầu tiên của Việt Nam, với hơn ba trăm năm mươi loài san hô và một trăm chín mươi loài rong biển. Tắm bùn khoáng nóng Tháp Bà, với dòng nước khoáng nóng từ bốn mươi đến bốn mươi lăm độ C, giàu khoáng chất. Đây đã trở thành trải nghiệm không thể bỏ lỡ khi đến Nha Trang.",
-    faqs: [
-      {
-        q: "Thời điểm đẹp nhất để đi Nha Trang?",
-        a: "Tháng 3-9 là mùa nắng đẹp, biển êm.",
-      },
-      {
-        q: "Nha Trang có hoạt động gì thú vị?",
-        a: "Lặn biển, dù lượn, tour 4 đảo, tắm bùn khoáng.",
-      },
-    ],
-    reviews: [
-      {
-        id: 1,
-        author: "Duy",
-        text: "Biển đẹp, nước trong xanh. Rất nhiều hoạt động!",
-        rating: 5,
-        images: [],
-      },
       {
         id: 2,
-        author: "Linh",
-        text: "Resort đẹp, đồ ăn hải sản tươi ngon.",
-        rating: 4,
-        images: [],
-      },
-    ],
-  },
-  {
-    id: "hoian",
-    name: "Hội An",
-    region: "Miền Trung",
-    category: "Culture",
-    description:
-      "Phố cổ di sản thế giới với kiến trúc cổ kính, đèn lồng rực rỡ và nét văn hóa giao thoa Đông - Tây.",
-    highlights: [
-      "Phố cổ Hội An",
-      "Cầu Nhật Bản",
-      "Chùa Cầu",
-      "Bãi biển An Bàng",
-      "Làng rau Trà Quế",
-    ],
-    history:
-      "Hội An từng là cảng thương mại quốc tế sầm uất từ thế kỷ 16-17, nơi giao lưu văn hóa giữa Nhật Bản, Trung Quốc và phương Tây.",
-    openingHours: "Mở cửa: 24/7 (phố cổ đẹp nhất vào tối)",
-    price: "Vé tham quan phố cổ: 120k/người",
-    coordinates: { lat: 15.8801, lng: 108.338 },
-    images: [
-      "https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=1280&q=80",
-    ],
-    videos: [],
-    audioStory: null,
-    faqs: [
-      {
-        q: "Hội An có gì đặc biệt?",
-        a: "Kiến trúc cổ, đèn lồng đầy màu sắc, ẩm thực độc đáo.",
-      },
-      {
-        q: "Nên dành bao nhiêu ngày cho Hội An?",
-        a: "2-3 ngày để khám phá phố cổ và bãi biển.",
-      },
-    ],
-    reviews: [
-      {
-        id: 1,
-        author: "Mai",
-        text: "Phố cổ cực kỳ đẹp về đêm với đèn lồng!",
-        rating: 5,
-        images: [],
-      },
-      {
-        id: 2,
-        author: "Tuấn",
-        text: "Nơi hoàn hảo để chụp ảnh và thưởng thức ẩm thực.",
+        author: "Lan",
+        text: "Đảo Cát Bà rất đẹp, đáng để khám phá.",
         rating: 5,
         images: [],
       },
     ],
   },
   {
-    id: "phuquoc",
-    name: "Phú Quốc",
+    id: "vungtau",
+    name: "Vũng Tàu",
     region: "Miền Nam",
     category: "Beach",
     description:
-      "Đảo ngọc thiên đường với bãi biển đẹp như tranh vẽ, hoạt động thể thao dưới nước và resort sang trọng.",
+      "Thành phố biển gần Sài Gòn với bãi tắm đẹp, tượng Chúa Kitô và hải sản tươi ngon.",
     highlights: [
-      "Bãi Sao",
-      "Bãi Dài",
-      "VinWonders Phú Quốc",
-      "Chợ đêm Phú Quốc",
-      "Safari Phú Quốc",
-      "Làng chài Hàm Ninh",
+      "Tượng Chúa Kitô",
+      "Bãi Sau",
+      "Bãi Trước",
+      "Hải đăng Vũng Tàu",
+      "Núi Nhỏ",
     ],
     history:
-      "Phú Quốc nổi tiếng với sản xuất nước mắm và tiêu, đã phát triển thành điểm du lịch nghỉ dưỡng hàng đầu Việt Nam.",
-    openingHours: "Mở cửa: 24/7 (tour và khu vui chơi có giờ riêng)",
-    price: "Bãi biển miễn phí, tour từ 500k-1.5tr/người",
-    coordinates: { lat: 10.2899, lng: 103.984 },
+      "Vũng Tàu phát triển từ thế kỷ 17, là điểm dừng chân của các thương thuyền quốc tế và sau này trở thành khu nghỉ dưỡng ven biển.",
+    openingHours: "Mở cửa: 24/7 (các điểm tham quan có giờ riêng)",
+    price: "Bãi biển miễn phí, tham quan 20k-40k/điểm",
+    coordinates: { lat: 10.4113, lng: 107.1362 },
     images: [
-      "https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1280&q=80",
+      "https://www.agoda.com/wp-content/uploads/2024/07/vung-tau-vietnam-featured.jpg",
     ],
-    videos: [],
+    videos: ["https://www.youtube.com/watch?v=bB_mm7cI-6k"],
     audioStory: null,
     audioGuideScript:
-      "Phú Quốc, đảo ngọc thiên đường của Việt Nam. Tên gọi Phú Quốc xuất phát từ chữ phú, có nghĩa là giàu có, và chữ quốc, có nghĩa là đất nước. Tên này ý nói đảo là vùng đất phì nhiêu và giàu có. Trong lịch sử, Phú Quốc từng là nơi ẩn náu của Nguyễn Ánh. Ngài là vị vua sau này lên ngôi với niên hiệu Gia Long, khi chạy trốn loạn Tây Sơn. Tại đây, ngài đã được thương nhân Pháp giúp đỡ, đặt nền móng cho mối quan hệ Việt Pháp sau này. Nước mắm Phú Quốc có lịch sử hơn hai trăm năm. Nước mắm được làm từ cá cơm tươi sống theo phương pháp truyền thống. Năm hai nghìn lẻ một, nước mắm Phú Quốc được công nhận chỉ dẫn địa lý. Đây là loại nước mắm duy nhất của Việt Nam được châu Âu công nhận và nhập khẩu. Rừng nguyên sinh Phú Quốc còn nguyên vẹn hơn năm mươi phần trăm diện tích của đảo. Đây là nơi sinh sống của nhiều loài động thực vật quý hiếm, như chó Phú Quốc, giống chó có lưng gờ duy nhất trên thế giới. Bãi Sao có bãi cát trắng mịn như bột, nước biển trong xanh như ngọc lam. Bãi Sao được bình chọn là một trong những bãi biển đẹp nhất châu Á. Chợ đêm Phú Quốc có hơn một trăm quầy hàng, là thiên đường ẩm thực hải sản tươi sống. Từ ghẹ hấp, mực nướng, đến nhím biển, du khách có thể thưởng thức muôn vàn món ngon của biển cả. Sunset Sanato, với những cây cầu gỗ vươn ra biển, đã trở thành địa điểm check in nổi tiếng nhất Phú Quốc. Đây là nơi mọi người đến để ngắm hoàng hôn tuyệt đẹp.",
+      "Vũng Tàu, thành phố biển xinh đẹp của miền Nam. Tên Vũng Tàu có nghĩa là vũng nước có nhiều dâu, xuất phát từ cây dâu da mọc nhiều ở vùng này. Tượng Chúa Kitô Vũng Tàu cao ba mươi hai mét, được xây dựng từ năm một nghìn chín trăm sáu mươi chín đến một nghìn chín trăm tám mươi bốn. Đây là tượng Chúa cao thứ hai châu Á sau tượng Chúa ở Philippines. Từ đỉnh núi, du khách có thể ngắm toàn cảnh thành phố và biển cả bao la. Bãi Sau dài bảy ki lô mét, là bãi biển đẹp nhất Vũng Tàu với làn nước trong xanh và cát trắng mịn. Đây là nơi lý tưởng để tắm biển, lướt sóng và các hoạt động thể thao nước. Hải đăng Vũng Tàu được xây dựng từ năm một nghìn tám trăm sáu mươi hai bởi người Pháp. Đây là ngọn hải đăng cổ nhất Đông Nam Á vẫn đang hoạt động. Từ đây có thể ngắm toàn cảnh thành phố và bờ biển tuyệt đẹp.",
     faqs: [
       {
-        q: "Phú Quốc có gì hấp dẫn?",
-        a: "Bãi biển đẹp, lặn ngắm san hô, câu cá, sunset sanato.",
+        q: "Vũng Tàu có gì nổi bật?",
+        a: "Tượng Chúa Kitô, bãi biển đẹp, gần Sài Gòn chỉ 2 giờ đi xe.",
       },
       {
-        q: "Mùa nào đẹp nhất để đến Phú Quốc?",
-        a: "Tháng 11 - tháng 3 là mùa khô, biển đẹp nhất.",
+        q: "Mùa nào đi Vũng Tàu đẹp nhất?",
+        a: "Tháng 11 - tháng 4 là mùa khô, thời tiết đẹp.",
       },
     ],
     reviews: [
       {
         id: 1,
-        author: "Hải",
-        text: "Bãi biển tuyệt vời, nước biển trong vắt!",
+        author: "Quân",
+        text: "Gần Sài Gòn, thuận tiện cho chuyến đi cuối tuần!",
+        rating: 4,
+        images: [],
+      },
+      {
+        id: 2,
+        author: "Hồng",
+        text: "Hải sản tươi ngon, view biển đẹp!",
+        rating: 4,
+        images: [],
+      },
+    ],
+  },
+  {
+    id: "cantho",
+    name: "Cần Thơ",
+    region: "Miền Nam",
+    category: "Culture",
+    description:
+      "Thủ phủ miền Tây với chợ nổi Cái Răng, vườn trái cây và ẩm thực sông nước đặc trưng.",
+    highlights: [
+      "Chợ nổi Cái Răng",
+      "Bến Ninh Kiều",
+      "Vườn cò Bằng Lăng",
+      "Nhà cổ Bình Thủy",
+      "Làng hoa Sa Đéc",
+    ],
+    history:
+      "Cần Thơ là trung tâm kinh tế, văn hóa của vùng Đồng bằng sông Cửu Long, nổi tiếng với văn hóa sông nước và chợ nổi.",
+    openingHours: "Mở cửa: 24/7 (chợ nổi từ 5:00-9:00 sáng)",
+    price: "Tham quan miễn phí, tour chợ nổi 150k-300k/người",
+    coordinates: { lat: 10.0452, lng: 105.7469 },
+    images: [
+      "https://image.vietnam.travel/sites/default/files/styles/top_banner/public/2021-05/Can%20Tho%20travel%20guide.jpg?itok=q-ZZl_aD",
+    ],
+    videos: ["https://www.youtube.com/watch?v=NhJrf3F1hCI"],
+    audioStory: null,
+    audioGuideScript:
+      "Cần Thơ, thủ phủ của miền Tây sông nước. Tên Cần Thơ xuất phát từ tiếng Khmer Kan Tho, có nghĩa là rạch dài. Chợ nổi Cái Răng là chợ nổi lớn nhất miền Tây, hoạt động từ bình minh đến khoảng chín giờ sáng. Hàng trăm chiếc ghe thuyền chở đầy trái cây, nông sản tập trung buôn bán tạo nên khung cảnh sôi động và đặc sắc. Mỗi thuyền treo cây bêo với mặt hàng mình bán để khách hàng dễ nhận biết. Bến Ninh Kiều bên bờ sông Hậu là biểu tượng của Cần Thơ. Đây là nơi lý tưởng để dạo bộ buổi tối, ngắm cầu Cần Thơ lung linh ánh đèn và thưởng thức ẩm thực địa phương. Nhà cổ Bình Thủy được xây dựng từ năm một nghìn chín trăm lẻ hai, là kiệt tác kiến trúc Á Âu hòa quyện. Ngôi nhà từng là bối cảnh quay phim Người tình của đạo diễn Jean-Jacques Annaud. Vườn cò Bằng Lăng là nơi sinh sống của hàng nghìn con cò trắng. Vào buổi chiều, cảnh hàng nghìn con cò bay về tổ tạo nên khung cảnh tuyệt đẹp và độc đáo.",
+    faqs: [
+      {
+        q: "Cần Thơ có gì đặc biệt?",
+        a: "Chợ nổi Cái Răng, vườn trái cây, ẩm thực miền Tây.",
+      },
+      {
+        q: "Nên đi chợ nổi vào giờ nào?",
+        a: "Từ 5-7 giờ sáng là sôi động nhất.",
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        author: "Tâm",
+        text: "Chợ nổi rất độc đáo, trải nghiệm tuyệt vời!",
         rating: 5,
         images: [],
       },
       {
         id: 2,
-        author: "Nga",
-        text: "Resort đẳng cấp, dịch vụ tốt. Rất đáng đi!",
+        author: "Đức",
+        text: "Văn hóa sông nước đặc sắc, người dân thân thiện.",
+        rating: 5,
+        images: [],
+      },
+    ],
+  },
+  {
+    id: "quynhon",
+    name: "Quy Nhơn",
+    region: "Miền Trung",
+    category: "Beach",
+    description:
+      "Thành phố biển yên bình với bãi biển hoang sơ, tháp Chàm cổ và ẩm thực hải sản tươi ngon.",
+    highlights: [
+      "Bãi biển Quy Nhơn",
+      "Kỳ Co - Eo Gió",
+      "Tháp Đôi Chàm",
+      "Ghềnh Ráng",
+      "Hòn Khô",
+    ],
+    history:
+      "Quy Nhơn là thành phố cổ của vương quốc Chăm Pa, nổi tiếng với các tháp Chàm và bãi biển đẹp hoang sơ.",
+    openingHours: "Mở cửa: 24/7 (các điểm tham quan có giờ riêng)",
+    price: "Bãi biển miễn phí, tour 200k-500k/người",
+    coordinates: { lat: 13.7829, lng: 109.2196 },
+    images: ["https://cdn.xanhsm.com/2024/12/86f1489e-ky-co-quy-nhon-1.jpg"],
+    videos: ["https://www.youtube.com/watch?v=m-T0rok5Dbo"],
+    audioStory: null,
+    audioGuideScript:
+      "Quy Nhơn, viên ngọc ẩn giấu của miền Trung. Tên Quy Nhơn xuất phát từ tiếng Chăm Kalan, có nghĩa là vương quốc Chăm. Đây từng là trung tâm của vương quốc Chăm Pa hùng mạnh. Tháp Đôi Chàm được xây dựng từ thế kỷ mười hai, là kiệt tác kiến trúc Chăm Pa với những chi tiết chạm khắc tinh xảo. Hai ngọn tháp cao hai mươi mét đứng sừng sững trên đồi Trầm Hương, nhìn ra biển xanh bao la. Kỳ Co được mệnh danh là Maldives của Việt Nam với làn nước biển trong xanh như ngọc lam và những bãi cát trắng mịn. Eo Gió nằm cạnh Kỳ Co, là nơi gió biển thổi mạnh quanh năm, tạo nên cảnh quan hùng vĩ với những vách đá dựng đứng. Ghềnh Ráng là nơi nhà thơ Hàn Mặc Tử từng sống và sáng tác. Khu vực này có những tảng đá hình thù kỳ lạ được sóng biển tạo nên qua hàng triệu năm. Bãi biển Quy Nhơn dài mười bốn ki lô mét, vẫn còn giữ được nét hoang sơ và yên bình, chưa bị du lịch đại trà làm mất đi vẻ đẹp tự nhiên.",
+    faqs: [
+      {
+        q: "Quy Nhơn có gì đặc biệt?",
+        a: "Bãi biển hoang sơ, Kỳ Co - Eo Gió, tháp Chàm cổ.",
+      },
+      {
+        q: "Mùa nào đẹp nhất để đi Quy Nhơn?",
+        a: "Tháng 3-8 là mùa nắng đẹp, biển êm.",
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        author: "Nam",
+        text: "Biển đẹp hoang sơ, ít người, rất thích hợp nghỉ dưỡng!",
+        rating: 5,
+        images: [],
+      },
+      {
+        id: 2,
+        author: "Vy",
+        text: "Kỳ Co tuyệt đẹp như Maldives! Nước trong vắt.",
+        rating: 5,
+        images: [],
+      },
+    ],
+  },
+  {
+    id: "buonmathuot",
+    name: "Buôn Ma Thuột",
+    region: "Miền Trung",
+    category: "Nature",
+    description:
+      "Thủ phủ cà phê Việt Nam với văn hóa Tây Nguyên độc đáo, thác Dray Nur hùng vĩ và hồ Lắk thơ mộng.",
+    highlights: [
+      "Thác Dray Nur",
+      "Hồ Lắk",
+      "Buôn Đôn",
+      "Bảo tàng Cà phê thế giới",
+      "Làng Cồng Chiêng",
+    ],
+    history:
+      "Buôn Ma Thuột là trung tâm văn hóa Tây Nguyên, nổi tiếng với cà phê chồn và không gian văn hóa cồng chiêng được UNESCO công nhận.",
+    openingHours: "Mở cửa: 24/7 (các điểm tham quan có giờ riêng)",
+    price: "Tham quan miễn phí đến 100k/điểm",
+    coordinates: { lat: 12.6667, lng: 108.0497 },
+    images: [
+      "https://file3.qdnd.vn/data/images/0/2021/04/23/nguyenthao/3%20tuong%20dai%20chien%20thang%20buon%20ma%20thuot%20trong%20ngay%20khai%20mac%20le%20hoi%20ca%20phe.jpg",
+    ],
+    videos: ["https://www.youtube.com/watch?v=OEZHIwJXF1E"],
+    audioStory: null,
+    audioGuideScript:
+      "Buôn Ma Thuột, thủ phủ cà phê của Việt Nam. Tên Buôn Ma Thuột trong tiếng Ê Đê có nghĩa là làng của cha Thuột, một thủ lĩnh Ê Đê nổi tiếng. Đây là vùng đất của người Ê Đê, Mnông, Gia Rai và nhiều dân tộc Tây Nguyên khác. Không gian văn hóa cồng chiêng Tây Nguyên được UNESCO công nhận là di sản văn hóa phi vật thể đại diện của nhân loại năm hai nghìn năm. Tiếng cồng chiêng vang lên trong các lễ hội, tế lễ, đám cưới, tạo nên bản giao hưởng độc đáo của núi rừng. Thác Dray Nur hay thác Dray Sáp là hai thác nước hùng vĩ nhất Tây Nguyên. Dray Nur trong tiếng Ê Đê có nghĩa là nước của rừng. Thác cao ba mươi mét, rộng hai trăm năm mươi mét, tạo thành bức tranh thiên nhiên장 tuyệt đẹp. Hồ Lắk nằm trong lòng núi lửa cổ, là hồ nước ngọt tự nhiên lớn nhất Tây Nguyên. Quanh hồ là các buôn làng của người Mnông với nhà dài truyền thống. Du khách có thể trải nghiệm cưỡi voi, chèo thuyền độc mộc và tìm hiểu văn hóa dân tộc. Bảo tàng Cà phê thế giới là bảo tàng duy nhất về cà phê tại Việt Nam. Nơi đây trưng bày hơn mười nghìn hiện vật về lịch sử cà phê từ khắp nơi trên thế giới.",
+    faqs: [
+      {
+        q: "Buôn Ma Thuột có gì đặc biệt?",
+        a: "Cà phê chồn, văn hóa cồng chiêng, thác Dray Nur, hồ Lắk.",
+      },
+      {
+        q: "Mùa nào đẹp nhất để đi Buôn Ma Thuột?",
+        a: "Tháng 11 - tháng 4 là mùa khô, thời tiết dễ chịu.",
+      },
+    ],
+    reviews: [
+      {
+        id: 1,
+        author: "Tùng",
+        text: "Văn hóa Tây Nguyên rất độc đáo, cà phê ngon tuyệt!",
+        rating: 5,
+        images: [],
+      },
+      {
+        id: 2,
+        author: "Mai",
+        text: "Thác Dray Nur hùng vĩ, cưỡi voi ở hồ Lắk rất thú vị!",
         rating: 5,
         images: [],
       },
