@@ -1721,8 +1721,9 @@ export const hotels = [
     priceRange: "1,200,000 - 2,800,000",
     startingPrice: 1200000,
     images: [
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
       "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800",
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+
       "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800",
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800",
     ],
@@ -2929,6 +2930,7 @@ export const hotels = [
     priceRange: "400,000 - 700,000",
     startingPrice: 400000,
     images: [
+      "https://digital.ihg.com/is/image/ihg/voco-da-nang-city-9096373071-2x1",
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
       "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800",
       "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800",
@@ -3201,6 +3203,8 @@ export const hotels = [
     priceRange: "500,000 - 900,000",
     startingPrice: 500000,
     images: [
+      "https://dq5r178u4t83b.cloudfront.net/wp-content/uploads/sites/125/2020/06/15182916/Sofitel-Dubai-Wafi-Luxury-Room-Bedroom-Skyline-View-Image1_WEB.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpbyzXPkFM-oUuldTzI5LlZIVCwlxW_rXIBInPaTaWYvh73bd0hW1nQP3k7LTLJGzwHiA&usqp=CAU",
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
       "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800",
     ],
@@ -3380,6 +3384,8 @@ export const hotels = [
     priceRange: "500,000 - 900,000",
     startingPrice: 500000,
     images: [
+      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/508563186.webp?k=07d9c2ffb6af8c0a9fcc7fb225a6f2fd50ece25de6b9596d0d809fe4cf9f3b23&o=",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaTAWxIaNcDN2mvNZojsd6v5yN4DYVW7pkGNIbdgjOAfRgHrTmF0NcomHZxvGQZp1rm7o&usqp=CAU",
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
       "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800",
     ],
@@ -3824,8 +3830,10 @@ export const hotels = [
     priceRange: "500,000 - 800,000",
     startingPrice: 500000,
     images: [
+      "https://res.klook.com/klook-hotel/image/upload/fl_lossy.progressive,c_fill,f_auto,w_750,q_85/travelapi/30000000/29290000/29282300/29282295/03cf9398_z.jpg",
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
       "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800",
+      "https://images.luxuryhotel.guru/hotelimage.php?p_id=1&code=530ca88e75e930d5807b8dbca2de6e9b&webpage=beach-front-hotels.com&link=https%3A%2F%2Fsubdomain.cloudimg.io%2Fcrop%2F512x384%2Fq70.fcontrast10.fbright0.fsharp5%2Fhttps%3A%2F%2Fq-xx.bstatic.com%2Fxdata%2Fimages%2Fhotel%2Fmax1536%2F276219187.jpg%3Fk%3D8417a100d3685db97836fd785fb4a3f2281c34f00167d9140e96d3ef5a2de8e8%26o%3D",
     ],
     description:
       "Khách sạn view biển Bãi Trước, vị trí đẹp. Phòng hiện đại, giá hợp lý.",
