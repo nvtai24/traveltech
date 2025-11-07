@@ -733,6 +733,7 @@ export const restaurants = [
     images: [
       "https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=800",
       "https://images.unsplash.com/photo-1555126634-323283e090fa?w=800",
+      "https://png.pngtree.com/thumb_back/fh260/background/20240328/pngtree-pho-bo-vietnamese-soup-with-pork-and-rice-noodles-image_15645564.jpg",
       "https://images.unsplash.com/photo-1585032226651-759b368d7246?w=800",
     ],
     description:
@@ -928,7 +929,8 @@ export const restaurants = [
     priceRange: "$$",
     averagePrice: 250000,
     images: [
-      "https://images.unsplash.com/photo-1541417904950-b855846fe074?w=800",
+      "https://pasgo.vn/Upload/anh-chi-tiet/nha-hang-lau-nuong-khong-khoi-sai-gon-slide-8-normal-2186326736757.webp",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb29EroTfisxGSGY7uJcyEZz2TWdhh8eVjtHFFcC83wdNhzQdZnq04LLyicNAzlsg4zDo&usqp=CAU",
       "https://images.unsplash.com/photo-1544025162-d76694265947?w=800",
       "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=800",
     ],
@@ -1601,8 +1603,10 @@ export const restaurants = [
     priceRange: "80,000 - 200,000",
     averagePrice: 140000,
     images: [
+      "https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?cs=srgb&dl=pexels-chanwalrus-941861.jpg&fm=jpg",
       "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
+      "https://img.freepik.com/free-photo/restaurant-with-green-wall-wooden-table-with-row-tables-planter-with-plant-background_188544-37710.jpg?semt=ais_hybrid&w=740&q=80",
     ],
     description:
       "Nhà hàng nổi tiếng tại phố cổ Hội An, chuyên các món ăn truyền thống Việt Nam và đặc sản Hội An. Không gian ấm cúng, menu đa dạng.",
@@ -1698,8 +1702,10 @@ export const restaurants = [
     priceRange: "20,000 - 50,000",
     averagePrice: 35000,
     images: [
+      "https://cdnmedia.baotintuc.vn/Upload/XmrgEWAN1PzjhSWqVO54A/files/2020/03/2303/2403-banhmi.jpg",
       "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800",
-      "https://images.unsplash.com/photo-1558855370-89eec3e80b29?w=800",
+      "https://amaviehouse.vn/wp-content/uploads/2022/12/banh-mi-viet-cua-toi.jpg",
+      "https://media.phunutoday.vn/files/content/2020/02/26/nuoc-sot-banh-mi-kep-thit-1446.jpg",
     ],
     description:
       "Tiệm bánh mì nổi tiếng được Anthony Bourdain ca ngợi. Bánh mì giòn rụm, nhân đầy đặn với giá bình dân.",
@@ -2206,6 +2212,8 @@ export const restaurants = [
     priceRange: "150,000 - 400,000",
     averagePrice: 275000,
     images: [
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ7IUWBD7g12U_eBr17io6QpUPvZ1tDmdTruiJy3yVPTJK2uUo5-vf32oMw2z2GdDE6QI&usqp=CAU",
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000",
       "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?w=800",
       "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
     ],
@@ -2376,6 +2384,8 @@ export const restaurants = [
     images: [
       "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800",
       "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800",
+      "https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg",
+      "https://morsels.com.au/wp-content/uploads/restaurant-food-salat-2.jpg",
     ],
     description:
       "Nhà hàng chuyên ẩm thực cung đình Huế với không gian sang trọng. Phục vụ các món ăn hoàng gia theo công thức truyền thống.",
@@ -2687,6 +2697,8 @@ export const restaurants = [
     priceRange: "150,000 - 400,000",
     averagePrice: 275000,
     images: [
+      "https://png.pngtree.com/thumb_back/fw800/background/20220206/pngtree-generous-platter-of-fresh-raw-seafood-to-savor-and-share-photo-image_35293122.jpg",
+      "https://png.pngtree.com/thumb_back/fw800/background/20250712/pngtree-a-plate-of-assorted-seafood-featuring-lobster-shrimp-and-crab-accompanied-image_17582458.webp",
       "https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?w=800",
       "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
     ],
@@ -3095,6 +3107,8 @@ export const restaurants = [
     priceRange: "40,000 - 80,000",
     averagePrice: 60000,
     images: [
+      "https://i-giadinh.vnecdn.net/2023/02/25/Buoc-12-thanh-pham-12-3879-1677318715.jpg",
+      "https://static.vinwonders.com/production/banh-da-cua-hai-phong-o-ha-noi-banner.jpg",
       "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800",
       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800",
     ],
