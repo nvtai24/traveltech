@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { formatCurrency } from "../../utils/formatCurrency";
 
 const LocalBuddyDashboard = () => {
   const [buddyInfo, setBuddyInfo] = useState({
@@ -249,10 +250,10 @@ const LocalBuddyDashboard = () => {
               Tổng thu nhập
             </h3>
             <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">
-              {stats.totalEarnings.toLocaleString("vi-VN")}₫
+              {formatCurrency(stats.totalEarnings)}
             </p>
             <p className="text-xs sm:text-sm text-gray-500 mt-2">
-              Tháng này: {stats.monthEarnings.toLocaleString("vi-VN")}₫
+              Tháng này: {formatCurrency(stats.monthEarnings)}
             </p>
           </div>
 
@@ -395,7 +396,7 @@ const LocalBuddyDashboard = () => {
                         )}
                         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3">
                           <div className="text-base sm:text-lg font-bold text-primary-600">
-                            {tour.amount.toLocaleString("vi-VN")}₫
+                            {formatCurrency(tour.amount)}
                           </div>
                           <div className="flex flex-wrap gap-2 w-full sm:w-auto">
                             {tour.status === "pending" && (

@@ -12,7 +12,7 @@ export const hotels = [
     },
     rating: 4.8,
     reviewCount: 245,
-    priceRange: "1,500,000 - 5,000,000",
+    priceRange: "1.500.000 VND - 5.000.000 VND",
     startingPrice: 1500000,
     images: [
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
@@ -274,7 +274,7 @@ export const hotels = [
     },
     rating: 4.6,
     reviewCount: 189,
-    priceRange: "800,000 - 2,500,000",
+    priceRange: "800.000 VND - 2.500.000 VND",
     startingPrice: 800000,
     images: [
       "https://images.unsplash.com/photo-1455587734955-081b22074882?w=800",
@@ -452,7 +452,7 @@ export const hotels = [
     },
     rating: 4.5,
     reviewCount: 312,
-    priceRange: "900,000 - 3,000,000",
+    priceRange: "900.000 VND - 3.000.000 VND",
     startingPrice: 900000,
     images: [
       "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800",
@@ -632,7 +632,7 @@ export const hotels = [
     },
     rating: 4.9,
     reviewCount: 178,
-    priceRange: "1,200,000 - 4,000,000",
+    priceRange: "1.200.000 VND - 4.000.000 VND",
     startingPrice: 1200000,
     images: [
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800",
@@ -812,7 +812,7 @@ export const hotels = [
     },
     rating: 4.9,
     reviewCount: 512,
-    priceRange: "2,800,000 - 8,000,000",
+    priceRange: "2.800.000 VND - 8.000.000 VND",
     startingPrice: 2800000,
     images: [
       "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800",
@@ -1171,7 +1171,7 @@ export const hotels = [
     },
     rating: 4.7,
     reviewCount: 234,
-    priceRange: "2,500,000 - 6,000,000",
+    priceRange: "2.500.000 VND - 6.000.000 VND",
     startingPrice: 2500000,
     images: [
       "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800",
@@ -1350,7 +1350,7 @@ export const hotels = [
     },
     rating: 4.9,
     reviewCount: 891,
-    priceRange: "8,000,000 - 25,000,000",
+    priceRange: "8.000.000 VND - 25.000.000 VND",
     startingPrice: 8000000,
     images: [
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800",
@@ -1534,7 +1534,7 @@ export const hotels = [
     },
     rating: 4.8,
     reviewCount: 1245,
-    priceRange: "3,200,000 - 9,500,000",
+    priceRange: "3.200.000 VND - 9.500.000 VND",
     startingPrice: 3200000,
     images: [
       "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800",
@@ -1718,7 +1718,7 @@ export const hotels = [
     },
     rating: 4.6,
     reviewCount: 567,
-    priceRange: "1,200,000 - 2,800,000",
+    priceRange: "1.200.000 VND - 2.800.000 VND",
     startingPrice: 1200000,
     images: [
       "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800",
@@ -1897,7 +1897,7 @@ export const hotels = [
     },
     rating: 4.8,
     reviewCount: 445,
-    priceRange: "1,800,000 - 4,500,000",
+    priceRange: "1.800.000 VND - 4.500.000 VND",
     startingPrice: 1800000,
     images: [
       "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800",
@@ -2080,7 +2080,7 @@ export const hotels = [
     },
     rating: 4.7,
     reviewCount: 389,
-    priceRange: "2,200,000 - 5,500,000",
+    priceRange: "2.200.000 VND - 5.500.000 VND",
     startingPrice: 2200000,
     images: [
       "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800",
@@ -2264,7 +2264,7 @@ export const hotels = [
     },
     rating: 4.5,
     reviewCount: 312,
-    priceRange: "400,000 - 600,000",
+    priceRange: "400.000 VND - 600.000 VND",
     startingPrice: 400000,
     images: [
       "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800",
@@ -2431,7 +2431,7 @@ export const hotels = [
     },
     rating: 4.3,
     reviewCount: 445,
-    priceRange: "500,000 - 800,000",
+    priceRange: "500.000 VND - 800.000 VND",
     startingPrice: 500000,
     images: [
       "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=800",
@@ -2586,7 +2586,7 @@ export const hotels = [
     },
     rating: 4.6,
     reviewCount: 267,
-    priceRange: "350,000 - 550,000",
+    priceRange: "350.000 VND - 550.000 VND",
     startingPrice: 350000,
     images: [
       "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800",
@@ -2753,7 +2753,7 @@ export const hotels = [
     },
     rating: 4.7,
     reviewCount: 189,
-    priceRange: "450,000 - 700,000",
+    priceRange: "450.000 VND - 700.000 VND",
     startingPrice: 450000,
     images: [
       "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800",
@@ -2927,7 +2927,7 @@ export const hotels = [
     },
     rating: 4.5,
     reviewCount: 567,
-    priceRange: "400,000 - 700,000",
+    priceRange: "400.000 VND - 700.000 VND",
     startingPrice: 400000,
     images: [
       "https://digital.ihg.com/is/image/ihg/voco-da-nang-city-9096373071-2x1",
@@ -3025,7 +3025,7 @@ export const hotels = [
     },
     rating: 4.4,
     reviewCount: 423,
-    priceRange: "500,000 - 800,000",
+    priceRange: "500.000 VND - 800.000 VND",
     startingPrice: 500000,
     images: [
       "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800",
@@ -3113,7 +3113,7 @@ export const hotels = [
     },
     rating: 4.3,
     reviewCount: 389,
-    priceRange: "600,000 - 1,000,000",
+    priceRange: "600.000 VND - 1.000.000 VND",
     startingPrice: 600000,
     images: [
       "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800",
@@ -3200,7 +3200,7 @@ export const hotels = [
     },
     rating: 4.5,
     reviewCount: 678,
-    priceRange: "500,000 - 900,000",
+    priceRange: "500.000 VND - 900.000 VND",
     startingPrice: 500000,
     images: [
       "https://dq5r178u4t83b.cloudfront.net/wp-content/uploads/sites/125/2020/06/15182916/Sofitel-Dubai-Wafi-Luxury-Room-Bedroom-Skyline-View-Image1_WEB.jpg",
@@ -3288,7 +3288,7 @@ export const hotels = [
     },
     rating: 4.6,
     reviewCount: 534,
-    priceRange: "700,000 - 1,200,000",
+    priceRange: "700.000 VND - 1.200.000 VND",
     startingPrice: 700000,
     images: [
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800",
@@ -3381,7 +3381,7 @@ export const hotels = [
     },
     rating: 4.4,
     reviewCount: 678,
-    priceRange: "500,000 - 900,000",
+    priceRange: "500.000 VND - 900.000 VND",
     startingPrice: 500000,
     images: [
       "https://cf.bstatic.com/xdata/images/hotel/max1024x768/508563186.webp?k=07d9c2ffb6af8c0a9fcc7fb225a6f2fd50ece25de6b9596d0d809fe4cf9f3b23&o=",
@@ -3469,7 +3469,7 @@ export const hotels = [
     },
     rating: 4.5,
     reviewCount: 534,
-    priceRange: "600,000 - 1,200,000",
+    priceRange: "600.000 VND - 1.200.000 VND",
     startingPrice: 600000,
     images: [
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800",
@@ -3557,7 +3557,7 @@ export const hotels = [
     },
     rating: 4.6,
     reviewCount: 789,
-    priceRange: "500,000 - 900,000",
+    priceRange: "500.000 VND - 900.000 VND",
     startingPrice: 500000,
     images: [
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
@@ -3643,7 +3643,7 @@ export const hotels = [
     },
     rating: 4.7,
     reviewCount: 456,
-    priceRange: "700,000 - 1,200,000",
+    priceRange: "700.000 VND - 1.200.000 VND",
     startingPrice: 700000,
     images: [
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800",
@@ -3740,7 +3740,7 @@ export const hotels = [
     },
     rating: 4.4,
     reviewCount: 567,
-    priceRange: "500,000 - 900,000",
+    priceRange: "500.000 VND - 900.000 VND",
     startingPrice: 500000,
     images: [
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
@@ -3827,7 +3827,7 @@ export const hotels = [
     },
     rating: 4.3,
     reviewCount: 678,
-    priceRange: "500,000 - 800,000",
+    priceRange: "500.000 VND - 800.000 VND",
     startingPrice: 500000,
     images: [
       "https://res.klook.com/klook-hotel/image/upload/fl_lossy.progressive,c_fill,f_auto,w_750,q_85/travelapi/30000000/29290000/29282300/29282295/03cf9398_z.jpg",
@@ -3916,7 +3916,7 @@ export const hotels = [
     },
     rating: 4.5,
     reviewCount: 456,
-    priceRange: "600,000 - 1,000,000",
+    priceRange: "600.000 VND - 1.000.000 VND",
     startingPrice: 600000,
     images: [
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
@@ -4004,7 +4004,7 @@ export const hotels = [
     },
     rating: 4.4,
     reviewCount: 567,
-    priceRange: "500,000 - 900,000",
+    priceRange: "500.000 VND - 900.000 VND",
     startingPrice: 500000,
     images: [
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
@@ -4090,7 +4090,7 @@ export const hotels = [
     },
     rating: 4.3,
     reviewCount: 456,
-    priceRange: "600,000 - 1,000,000",
+    priceRange: "600.000 VND - 1.000.000 VND",
     startingPrice: 600000,
     images: [
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800",
@@ -4182,7 +4182,7 @@ export const hotels = [
     },
     rating: 4.4,
     reviewCount: 345,
-    priceRange: "450,000 - 800,000",
+    priceRange: "450.000 VND - 800.000 VND",
     startingPrice: 450000,
     images: [
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
@@ -4268,7 +4268,7 @@ export const hotels = [
     },
     rating: 4.2,
     reviewCount: 234,
-    priceRange: "500,000 - 900,000",
+    priceRange: "500.000 VND - 900.000 VND",
     startingPrice: 500000,
     images: [
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800",

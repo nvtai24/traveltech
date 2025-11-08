@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getGuideById } from "../data/guides";
+import { formatCurrency } from "../utils/formatCurrency";
 
 const GuideDetail = () => {
   const { guideId } = useParams();
@@ -204,7 +205,7 @@ const GuideDetail = () => {
                       </div>
                       <div className="text-right">
                         <div className="text-2xl font-bold text-primary-600">
-                          {service.price.toLocaleString()}đ
+                          {formatCurrency(service.price)}
                         </div>
                       </div>
                     </div>

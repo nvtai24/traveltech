@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { tours } from "../data/tours";
+import { formatCurrency } from "../utils/formatCurrency";
 
 const TourDetail = () => {
   const { id } = useParams();
@@ -177,7 +178,7 @@ const TourDetail = () => {
                 </div>
                 <div className="text-right">
                   <div className="text-3xl font-bold text-primary-600">
-                    {tour.price.toLocaleString()}₫
+                    {formatCurrency(tour.price)}
                   </div>
                   <div className="text-sm text-gray-500">/người</div>
                 </div>
@@ -423,14 +424,14 @@ const TourDetail = () => {
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-gray-600">Người lớn x{adults}</span>
                   <span className="font-semibold">
-                    {(tour.price * adults).toLocaleString()}₫
+                    {formatCurrency(tour.price * adults)}
                   </span>
                 </div>
                 {children > 0 && (
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-gray-600">Trẻ em x{children}</span>
                     <span className="font-semibold">
-                      {(tour.price * children * 0.7).toLocaleString()}₫
+                      {formatCurrency(tour.price * children * 0.7)}
                     </span>
                   </div>
                 )}

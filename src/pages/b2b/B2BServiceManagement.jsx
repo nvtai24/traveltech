@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { formatCurrency } from "../../utils/formatCurrency";
 
 const B2BServiceManagement = () => {
   const [activeTab, setActiveTab] = useState("all");
@@ -329,7 +330,7 @@ const B2BServiceManagement = () => {
                 <div className="flex items-center justify-between mb-3 sm:mb-4">
                   <div>
                     <div className="text-lg sm:text-xl font-bold text-primary-600">
-                      {service.price.toLocaleString("vi-VN")}₫
+                      {formatCurrency(service.price)}
                     </div>
                     <div className="text-xs text-gray-500">
                       {service.type === "restaurant" ? "/người" : "/tour"}

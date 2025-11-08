@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { formatCurrency } from "../../utils/formatCurrency";
 
 const B2BDashboard = () => {
   const [stats, setStats] = useState({
@@ -165,10 +166,10 @@ const B2BDashboard = () => {
               Tổng doanh thu
             </h3>
             <p className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">
-              {stats.totalRevenue.toLocaleString("vi-VN")}₫
+              {formatCurrency(stats.totalRevenue)}
             </p>
             <p className="text-xs sm:text-sm text-gray-500 mt-2">
-              Tháng này: {stats.monthlyRevenue.toLocaleString("vi-VN")}₫
+              Tháng này: {formatCurrency(stats.monthlyRevenue)}
             </p>
           </div>
 
@@ -442,7 +443,7 @@ const B2BDashboard = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className="text-sm font-semibold text-gray-900">
-                        {booking.amount.toLocaleString("vi-VN")}₫
+                        {formatCurrency(booking.amount)}
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -507,7 +508,7 @@ const B2BDashboard = () => {
                     {new Date(booking.date).toLocaleDateString("vi-VN")}
                   </div>
                   <div className="font-bold text-gray-900">
-                    {booking.amount.toLocaleString("vi-VN")}₫
+                    {formatCurrency(booking.amount)}
                   </div>
                 </div>
                 <button

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { formatCurrency } from "../utils/formatCurrency";
 
 const TourCard = ({ tour }) => {
   const renderStars = (rating) => {
@@ -62,7 +63,7 @@ const TourCard = ({ tour }) => {
         <div className="absolute bottom-3 right-3">
           <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1.5">
             <div className="text-lg font-bold text-primary-600">
-              {tour.price.toLocaleString()}₫
+              {formatCurrency(tour.price)}
             </div>
             <div className="text-xs text-gray-600 text-center">/người</div>
           </div>

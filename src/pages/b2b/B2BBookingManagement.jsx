@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { formatCurrency } from "../../utils/formatCurrency";
 
 const B2BBookingManagement = () => {
   const [activeTab, setActiveTab] = useState("pending");
@@ -364,7 +365,7 @@ const B2BBookingManagement = () => {
                       <div>
                         <span className="text-gray-500">Tổng tiền:</span>
                         <span className="ml-2 font-bold text-primary-600">
-                          {booking.amount.toLocaleString("vi-VN")}₫
+                          {formatCurrency(booking.amount)}
                         </span>
                       </div>
                     </div>

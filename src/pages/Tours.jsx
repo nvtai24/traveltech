@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import TourCard from "../components/TourCard";
 import { tours, tourCategories } from "../data/tours";
+import { formatCurrency } from "../utils/formatCurrency";
 
 const Tours = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -209,7 +210,7 @@ const Tours = () => {
 
                         <div className="flex flex-col sm:flex-col gap-4 items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
                           <div className="text-4xl lg:text-5xl font-bold">
-                            {tour.price.toLocaleString()}₫
+                            {formatCurrency(tour.price)}
                           </div>
 
                           <Link

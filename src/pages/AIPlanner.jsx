@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { restaurants } from "../data/restaurants";
 import { hotels } from "../data/hotels";
+import { formatCurrency } from "../utils/formatCurrency";
 
 const AIPlanner = () => {
   // Map destination values to actual city names in data
@@ -22,6 +23,11 @@ const AIPlanner = () => {
     haiphong: "Hải Phòng",
     quyinhon: "Quy Nhơn",
     mytho: "Mỹ Tho",
+  };
+
+  // Helper function to format currency range
+  const formatCurrencyRange = (min, max) => {
+    return `${formatCurrency(min)} - ${formatCurrency(max)}`;
   };
 
   const [currentStep, setCurrentStep] = useState(1);
@@ -151,19 +157,13 @@ const AIPlanner = () => {
       slug: r.slug,
       name: r.name,
       cuisine: r.cuisine,
-      priceRange: formatPrice(r.averagePrice),
+      priceRange: formatCurrency(r.averagePrice),
       rating: r.rating,
       location: r.location.address.split(",")[0], // Get first part of address
     }));
 
     // If no restaurants found, return empty array (will use defaults in generatePlan)
     return mappedRestaurants.length > 0 ? mappedRestaurants : [];
-  };
-
-  const formatPrice = (price) => {
-    if (price < 100000) return `${Math.floor(price / 1000)}k`;
-    if (price < 1000000) return `${Math.floor(price / 1000)}k`;
-    return `${(price / 1000000).toFixed(1)}tr`;
   };
 
   const getHotelsByDestination = (destination, budgetLevel) => {
@@ -194,7 +194,7 @@ const AIPlanner = () => {
       slug: h.slug,
       name: h.name,
       stars: getCategoryStars(h.category, budgetLevel),
-      pricePerNight: h.priceRange.split(" - ")[0].replace(/,/g, ""),
+      pricePerNight: h.priceRange, // Lấy full range thay vì chỉ giá min
       rating: h.rating,
       amenities: h.amenities
         .filter((a) => a.available)
@@ -224,7 +224,7 @@ const AIPlanner = () => {
           {
             name: "Phở Thìn",
             cuisine: "Phở truyền thống",
-            priceRange: "40-60k",
+            priceRange: formatCurrencyRange(40000, 60000),
             rating: 4.5,
             location: "Lò Đúc",
             slug: "pho-gia-truyen-bat-dan",
@@ -232,7 +232,7 @@ const AIPlanner = () => {
           {
             name: "Bún Chả Đắc Kim",
             cuisine: "Bún chả Hà Nội",
-            priceRange: "50-70k",
+            priceRange: formatCurrencyRange(50000, 70000),
             rating: 4.6,
             location: "Hàng Mành",
             slug: "bun-cha-huong-lien",
@@ -240,7 +240,7 @@ const AIPlanner = () => {
           {
             name: "Bánh Mì 25",
             cuisine: "Bánh mì",
-            priceRange: "25-35k",
+            priceRange: formatCurrencyRange(25000, 35000),
             rating: 4.3,
             location: "Hoàn Kiếm",
             slug: "quan-an-pho-co-hanoi",
@@ -250,21 +250,21 @@ const AIPlanner = () => {
           {
             name: "Nhà Hàng Madame Hiền",
             cuisine: "Việt Nam",
-            priceRange: "150-250k",
+            priceRange: formatCurrencyRange(150000, 250000),
             rating: 4.7,
             location: "Hoàn Kiếm",
           },
           {
             name: "Essence Restaurant",
             cuisine: "Á - Âu",
-            priceRange: "200-350k",
+            priceRange: formatCurrencyRange(200000, 350000),
             rating: 4.5,
             location: "Hai Bà Trưng",
           },
           {
             name: "Chả Cá Lã Vọng",
             cuisine: "Chả cá đặc sản",
-            priceRange: "180-280k",
+            priceRange: formatCurrencyRange(180000, 280000),
             rating: 4.4,
             location: "Hồ Hoàn Kiếm",
           },
@@ -273,21 +273,21 @@ const AIPlanner = () => {
           {
             name: "La Verticale",
             cuisine: "Fine Dining Pháp",
-            priceRange: "500-800k",
+            priceRange: formatCurrencyRange(500000, 800000),
             rating: 4.8,
             location: "Hoàn Kiếm",
           },
           {
             name: "Home Hanoi Restaurant",
             cuisine: "Cao cấp Việt Nam",
-            priceRange: "450-700k",
+            priceRange: formatCurrencyRange(450000, 700000),
             rating: 4.7,
             location: "Tràng Tiền",
           },
           {
             name: "Maison Sen",
             cuisine: "Fusion Á-Âu",
-            priceRange: "600-900k",
+            priceRange: formatCurrencyRange(600000, 900000),
             rating: 4.9,
             location: "Hồ Tây",
           },
@@ -298,21 +298,21 @@ const AIPlanner = () => {
           {
             name: "Hải Sản Bình Dân",
             cuisine: "Hải sản tươi",
-            priceRange: "80-120k",
+            priceRange: formatCurrencyRange(80000, 120000),
             rating: 4.3,
             location: "Bãi Cháy",
           },
           {
             name: "Bánh Đa Cua",
             cuisine: "Đặc sản Hạ Long",
-            priceRange: "50-80k",
+            priceRange: formatCurrencyRange(50000, 80000),
             rating: 4.4,
             location: "Chợ Hạ Long",
           },
           {
             name: "Quán Ốc Sài Gòn",
             cuisine: "Ốc các loại",
-            priceRange: "60-100k",
+            priceRange: formatCurrencyRange(60000, 100000),
             rating: 4.2,
             location: "Hùng Thắng",
           },
@@ -321,21 +321,21 @@ const AIPlanner = () => {
           {
             name: "Quán Nhà Hàng Sapa",
             cuisine: "Hải sản",
-            priceRange: "200-350k",
+            priceRange: formatCurrencyRange(200000, 350000),
             rating: 4.5,
             location: "Bãi Cháy",
           },
           {
             name: "Emeralda Restaurant",
             cuisine: "Á - Âu",
-            priceRange: "250-400k",
+            priceRange: formatCurrencyRange(250000, 400000),
             rating: 4.6,
             location: "Hạ Long",
           },
           {
             name: "Hải Sản Vịnh Hạ Long",
             cuisine: "Hải sản cao cấp",
-            priceRange: "300-500k",
+            priceRange: formatCurrencyRange(300000, 500000),
             rating: 4.7,
             location: "Cảng tàu",
           },
@@ -344,21 +344,21 @@ const AIPlanner = () => {
           {
             name: "Au Lac Legend Cruise",
             cuisine: "Fine Dining",
-            priceRange: "600-1000k",
+            priceRange: formatCurrencyRange(600000, 1000000),
             rating: 4.9,
             location: "Du thuyền 5 sao",
           },
           {
             name: "Paradise Suites Restaurant",
             cuisine: "Fusion Seafood",
-            priceRange: "700-1200k",
+            priceRange: formatCurrencyRange(700000, 1200000),
             rating: 4.8,
             location: "Bãi Cháy",
           },
           {
             name: "Vinpearl Ha Long",
             cuisine: "Cao cấp quốc tế",
-            priceRange: "800-1500k",
+            priceRange: formatCurrencyRange(800000, 1500000),
             rating: 4.9,
             location: "Vinpearl Resort",
           },
@@ -369,21 +369,21 @@ const AIPlanner = () => {
           {
             name: "Cao Lầu Bà Lễ",
             cuisine: "Cao lầu đặc sản",
-            priceRange: "30-50k",
+            priceRange: formatCurrencyRange(30000, 50000),
             rating: 4.5,
             location: "Phố Cổ",
           },
           {
             name: "Bánh Mì Phượng",
             cuisine: "Bánh mì",
-            priceRange: "20-35k",
+            priceRange: formatCurrencyRange(20000, 35000),
             rating: 4.6,
             location: "Hoàng Diệu",
           },
           {
             name: "Mì Quảng Bà Mua",
             cuisine: "Mì Quảng",
-            priceRange: "35-55k",
+            priceRange: formatCurrencyRange(35000, 55000),
             rating: 4.4,
             location: "Trần Cao Vân",
           },
@@ -392,21 +392,21 @@ const AIPlanner = () => {
           {
             name: "Morning Glory",
             cuisine: "Việt Nam",
-            priceRange: "150-250k",
+            priceRange: formatCurrencyRange(150000, 250000),
             rating: 4.7,
             location: "Nguyễn Thái Học",
           },
           {
             name: "Madam Khánh",
             cuisine: "Banh mi & Com ga",
-            priceRange: "100-180k",
+            priceRange: formatCurrencyRange(100000, 180000),
             rating: 4.6,
             location: "Phố cổ",
           },
           {
             name: "Nu Eatery",
             cuisine: "Fusion Việt",
-            priceRange: "200-350k",
+            priceRange: formatCurrencyRange(200000, 350000),
             rating: 4.8,
             location: "Nguyễn Phúc Chu",
           },
@@ -415,21 +415,21 @@ const AIPlanner = () => {
           {
             name: "The Market Restaurant",
             cuisine: "Fine Dining",
-            priceRange: "500-800k",
+            priceRange: formatCurrencyRange(500000, 800000),
             rating: 4.9,
             location: "An Hội",
           },
           {
             name: "Taste of Hoi An",
             cuisine: "Haute Cuisine",
-            priceRange: "600-900k",
+            priceRange: formatCurrencyRange(600000, 900000),
             rating: 4.8,
             location: "Riverside",
           },
           {
             name: "Mango Rooms",
             cuisine: "Fusion Cao cấp",
-            priceRange: "450-700k",
+            priceRange: formatCurrencyRange(450000, 700000),
             rating: 4.7,
             location: "Nguyễn Thái Học",
           },
@@ -440,21 +440,21 @@ const AIPlanner = () => {
           {
             name: "Phở Hùng",
             cuisine: "Phở",
-            priceRange: "35-50k",
+            priceRange: formatCurrencyRange(35000, 50000),
             rating: 4.4,
             location: "Phù Đổng Thiên Vương",
           },
           {
             name: "Bánh Tráng Nướng",
             cuisine: "Đặc sản Đà Lạt",
-            priceRange: "20-40k",
+            priceRange: formatCurrencyRange(20000, 40000),
             rating: 4.5,
             location: "Chợ Đà Lạt",
           },
           {
             name: "Nem Nướng Đà Lạt",
             cuisine: "Nem nướng",
-            priceRange: "40-60k",
+            priceRange: formatCurrencyRange(40000, 60000),
             rating: 4.3,
             location: "Hai Bà Trưng",
           },
@@ -463,21 +463,21 @@ const AIPlanner = () => {
           {
             name: "Gió Restaurant",
             cuisine: "Việt Nam",
-            priceRange: "180-300k",
+            priceRange: formatCurrencyRange(180000, 300000),
             rating: 4.7,
             location: "Trần Phú",
           },
           {
             name: "Le Chalet Dalat",
             cuisine: "Á - Âu",
-            priceRange: "200-350k",
+            priceRange: formatCurrencyRange(200000, 350000),
             rating: 4.6,
             location: "Hồ Xuân Hương",
           },
           {
             name: "Da Quy Restaurant",
             cuisine: "Lẩu & BBQ",
-            priceRange: "150-280k",
+            priceRange: formatCurrencyRange(150000, 280000),
             rating: 4.5,
             location: "Phan Đình Phùng",
           },
@@ -486,21 +486,21 @@ const AIPlanner = () => {
           {
             name: "Le Rabelais",
             cuisine: "Fine Dining Pháp",
-            priceRange: "600-1000k",
+            priceRange: formatCurrencyRange(600000, 1000000),
             rating: 4.9,
             location: "Dalat Palace",
           },
           {
             name: "Artichoke Restaurant",
             cuisine: "Fusion Cao cấp",
-            priceRange: "500-800k",
+            priceRange: formatCurrencyRange(500000, 800000),
             rating: 4.8,
             location: "Hồ Xuân Hương",
           },
           {
             name: "Ana Mandara Restaurant",
             cuisine: "Haute Cuisine",
-            priceRange: "700-1200k",
+            priceRange: formatCurrencyRange(700000, 1200000),
             rating: 4.9,
             location: "Ana Mandara Resort",
           },
@@ -511,21 +511,21 @@ const AIPlanner = () => {
           {
             name: "Quán Hải Sản Lam",
             cuisine: "Hải sản",
-            priceRange: "80-150k",
+            priceRange: formatCurrencyRange(80000, 150000),
             rating: 4.4,
             location: "Bãi Dương",
           },
           {
             name: "Bánh Canh Chả Cá",
             cuisine: "Đặc sản Nha Trang",
-            priceRange: "40-70k",
+            priceRange: formatCurrencyRange(40000, 70000),
             rating: 4.5,
             location: "Nguyễn Thiện Thuật",
           },
           {
             name: "Bún Chả Cá",
             cuisine: "Bún chả cá",
-            priceRange: "50-80k",
+            priceRange: formatCurrencyRange(50000, 80000),
             rating: 4.3,
             location: "Hoàng Hoa Thám",
           },
@@ -534,21 +534,21 @@ const AIPlanner = () => {
           {
             name: "Lanterns Vietnamese",
             cuisine: "Việt Nam",
-            priceRange: "200-350k",
+            priceRange: formatCurrencyRange(200000, 350000),
             rating: 4.7,
             location: "Nguyễn Thiện Thuật",
           },
           {
             name: "Sailing Club",
             cuisine: "Beachfront Dining",
-            priceRange: "250-450k",
+            priceRange: formatCurrencyRange(250000, 450000),
             rating: 4.6,
             location: "Trần Phú",
           },
           {
             name: "Galangal Restaurant",
             cuisine: "Fusion",
-            priceRange: "220-380k",
+            priceRange: formatCurrencyRange(220000, 380000),
             rating: 4.5,
             location: "Bình Lộc",
           },
@@ -557,21 +557,21 @@ const AIPlanner = () => {
           {
             name: "Six Senses Restaurant",
             cuisine: "Fine Dining",
-            priceRange: "800-1500k",
+            priceRange: formatCurrencyRange(800000, 1500000),
             rating: 4.9,
             location: "Six Senses Resort",
           },
           {
             name: "Altitude Rooftop Bar",
             cuisine: "Cao cấp quốc tế",
-            priceRange: "600-1000k",
+            priceRange: formatCurrencyRange(600000, 1000000),
             rating: 4.8,
             location: "Havana Hotel",
           },
           {
             name: "La Plage",
             cuisine: "Fusion Seafood",
-            priceRange: "700-1200k",
+            priceRange: formatCurrencyRange(700000, 1200000),
             rating: 4.9,
             location: "Intercontinental",
           },
@@ -582,21 +582,21 @@ const AIPlanner = () => {
           {
             name: "Chợ Đêm Phú Quốc",
             cuisine: "Hải sản BBQ",
-            priceRange: "100-180k",
+            priceRange: formatCurrencyRange(100000, 180000),
             rating: 4.4,
             location: "Dương Đông",
           },
           {
             name: "Bánh Canh Ghẹ",
             cuisine: "Đặc sản",
-            priceRange: "50-80k",
+            priceRange: formatCurrencyRange(50000, 80000),
             rating: 4.5,
             location: "Chợ Dương Đông",
           },
           {
             name: "Nhà Hàng Năm Phương",
             cuisine: "Hải sản",
-            priceRange: "120-200k",
+            priceRange: formatCurrencyRange(120000, 200000),
             rating: 4.3,
             location: "Long Beach",
           },
@@ -605,21 +605,21 @@ const AIPlanner = () => {
           {
             name: "The Spice House",
             cuisine: "Á - Âu",
-            priceRange: "250-400k",
+            priceRange: formatCurrencyRange(250000, 400000),
             rating: 4.7,
             location: "An Thới",
           },
           {
             name: "Crab House",
             cuisine: "Hải sản cao cấp",
-            priceRange: "300-500k",
+            priceRange: formatCurrencyRange(300000, 500000),
             rating: 4.6,
             location: "Sunset Sanato",
           },
           {
             name: "Rory's Beach Bar",
             cuisine: "Beachfront",
-            priceRange: "200-350k",
+            priceRange: formatCurrencyRange(200000, 350000),
             rating: 4.5,
             location: "Long Beach",
           },
@@ -628,21 +628,21 @@ const AIPlanner = () => {
           {
             name: "Shell & Oyster",
             cuisine: "Fine Dining",
-            priceRange: "700-1200k",
+            priceRange: formatCurrencyRange(700000, 1200000),
             rating: 4.9,
             location: "JW Marriott",
           },
           {
             name: "Red Rum",
             cuisine: "Fusion Seafood",
-            priceRange: "800-1400k",
+            priceRange: formatCurrencyRange(800000, 1400000),
             rating: 4.8,
             location: "Intercontinental",
           },
           {
             name: "Altitude Beach Club",
             cuisine: "Luxury Dining",
-            priceRange: "900-1600k",
+            priceRange: formatCurrencyRange(900000, 1600000),
             rating: 4.9,
             location: "Premier Village",
           },
@@ -653,21 +653,21 @@ const AIPlanner = () => {
           {
             name: "Quán Cơm Nấm",
             cuisine: "Đặc sản Sapa",
-            priceRange: "50-80k",
+            priceRange: formatCurrencyRange(50000, 80000),
             rating: 4.3,
             location: "Chợ Sapa",
           },
           {
             name: "Thắng Cố Sapa",
             cuisine: "Thắng cố",
-            priceRange: "60-100k",
+            priceRange: formatCurrencyRange(60000, 100000),
             rating: 4.4,
             location: "Cầu Mây",
           },
           {
             name: "Bánh Mì BBQ",
             cuisine: "Bánh mì nướng",
-            priceRange: "30-50k",
+            priceRange: formatCurrencyRange(30000, 50000),
             rating: 4.2,
             location: "Trung tâm",
           },
@@ -676,21 +676,21 @@ const AIPlanner = () => {
           {
             name: "Red Dao House",
             cuisine: "Việt Nam",
-            priceRange: "150-250k",
+            priceRange: formatCurrencyRange(150000, 250000),
             rating: 4.6,
             location: "Phan Si Păng",
           },
           {
             name: "Hill Station Deli",
             cuisine: "Fusion",
-            priceRange: "180-300k",
+            priceRange: formatCurrencyRange(180000, 300000),
             rating: 4.7,
             location: "Fansipan",
           },
           {
             name: "Little Sapa Restaurant",
             cuisine: "Á - Âu",
-            priceRange: "200-350k",
+            priceRange: formatCurrencyRange(200000, 350000),
             rating: 4.5,
             location: "Trung tâm",
           },
@@ -699,21 +699,21 @@ const AIPlanner = () => {
           {
             name: "La Terrasse",
             cuisine: "Fine Dining Pháp",
-            priceRange: "500-800k",
+            priceRange: formatCurrencyRange(500000, 800000),
             rating: 4.8,
             location: "Victoria Sapa",
           },
           {
             name: "Noble & Swan",
             cuisine: "Haute Cuisine",
-            priceRange: "600-1000k",
+            priceRange: formatCurrencyRange(600000, 1000000),
             rating: 4.9,
             location: "MGallery Hotel",
           },
           {
             name: "Orchid Restaurant",
             cuisine: "Fusion Cao cấp",
-            priceRange: "550-900k",
+            priceRange: formatCurrencyRange(550000, 900000),
             rating: 4.7,
             location: "Topas Ecolodge",
           },
@@ -731,14 +731,14 @@ const AIPlanner = () => {
           {
             name: "Old Quarter View Hanoi Hostel",
             stars: 2,
-            pricePerNight: "250-350k",
+            pricePerNight: formatCurrencyRange(250000, 350000),
             rating: 4.3,
             amenities: ["WiFi miễn phí", "Ăn sáng", "Gần phố cổ"],
           },
           {
             name: "Hanoi Backpackers Hostel",
             stars: 2,
-            pricePerNight: "200-300k",
+            pricePerNight: formatCurrencyRange(200000, 300000),
             rating: 4.4,
             amenities: ["WiFi", "Rooftop bar", "Tour desk"],
           },
@@ -747,14 +747,14 @@ const AIPlanner = () => {
           {
             name: "Essence Hanoi Hotel",
             stars: 4,
-            pricePerNight: "800-1200k",
+            pricePerNight: formatCurrencyRange(800000, 1200000),
             rating: 4.6,
             amenities: ["Rooftop pool", "Spa", "Nhà hàng", "Gym"],
           },
           {
             name: "La Siesta Premium Hanoi",
             stars: 4,
-            pricePerNight: "900-1400k",
+            pricePerNight: formatCurrencyRange(900000, 1400000),
             rating: 4.7,
             amenities: ["Bể bơi", "Spa", "Free minibar", "Butler service"],
           },
@@ -763,7 +763,7 @@ const AIPlanner = () => {
           {
             name: "Sofitel Legend Metropole",
             stars: 5,
-            pricePerNight: "5000-8000k",
+            pricePerNight: formatCurrencyRange(5000000, 8000000),
             rating: 4.9,
             amenities: [
               "Hồ bơi",
@@ -775,7 +775,7 @@ const AIPlanner = () => {
           {
             name: "Capella Hanoi",
             stars: 5,
-            pricePerNight: "6000-10000k",
+            pricePerNight: formatCurrencyRange(6000000, 10000000),
             rating: 4.9,
             amenities: [
               "Butler 24/7",
@@ -791,14 +791,14 @@ const AIPlanner = () => {
           {
             name: "Halong Boutique Hotel",
             stars: 2,
-            pricePerNight: "300-450k",
+            pricePerNight: formatCurrencyRange(300000, 450000),
             rating: 4.2,
             amenities: ["WiFi", "View vịnh", "Ăn sáng"],
           },
           {
             name: "Cat Ba Central Hotel",
             stars: 2,
-            pricePerNight: "250-400k",
+            pricePerNight: formatCurrencyRange(250000, 400000),
             rating: 4.3,
             amenities: ["Gần bến tàu", "WiFi", "Tour booking"],
           },
@@ -807,14 +807,14 @@ const AIPlanner = () => {
           {
             name: "Halong Pearl Hotel",
             stars: 4,
-            pricePerNight: "1000-1500k",
+            pricePerNight: formatCurrencyRange(1000000, 1500000),
             rating: 4.6,
             amenities: ["Hồ bơi", "Spa", "View vịnh", "Nhà hàng"],
           },
           {
             name: "Wyndham Legend Halong",
             stars: 4,
-            pricePerNight: "1200-1800k",
+            pricePerNight: formatCurrencyRange(1200000, 1800000),
             rating: 4.7,
             amenities: ["Bể bơi vô cực", "Kids club", "3 nhà hàng"],
           },
@@ -823,14 +823,14 @@ const AIPlanner = () => {
           {
             name: "Vinpearl Resort & Spa Ha Long",
             stars: 5,
-            pricePerNight: "3500-6000k",
+            pricePerNight: formatCurrencyRange(3500000, 6000000),
             rating: 4.8,
             amenities: ["Private beach", "Water park", "Golf", "5 nhà hàng"],
           },
           {
             name: "FLC Halong Bay Resort",
             stars: 5,
-            pricePerNight: "4000-7000k",
+            pricePerNight: formatCurrencyRange(4000000, 7000000),
             rating: 4.9,
             amenities: ["18-hole golf", "Private marina", "Casino", "Spa"],
           },
@@ -841,14 +841,14 @@ const AIPlanner = () => {
           {
             name: "Hoi An Backpackers Hostel",
             stars: 2,
-            pricePerNight: "200-350k",
+            pricePerNight: formatCurrencyRange(200000, 350000),
             rating: 4.4,
             amenities: ["Pool", "Bar", "WiFi", "Gần phố cổ"],
           },
           {
             name: "Little Hoi An Central Boutique",
             stars: 3,
-            pricePerNight: "400-600k",
+            pricePerNight: formatCurrencyRange(400000, 600000),
             rating: 4.3,
             amenities: ["Rooftop pool", "Bike rental", "Ăn sáng"],
           },
@@ -857,14 +857,14 @@ const AIPlanner = () => {
           {
             name: "Lasenta Boutique Hotel",
             stars: 4,
-            pricePerNight: "1200-1800k",
+            pricePerNight: formatCurrencyRange(1200000, 1800000),
             rating: 4.7,
             amenities: ["Infinity pool", "Spa", "Riverside", "Free minibar"],
           },
           {
             name: "Allegro Hoi An",
             stars: 4,
-            pricePerNight: "1000-1600k",
+            pricePerNight: formatCurrencyRange(1000000, 1600000),
             rating: 4.6,
             amenities: ["Pool", "Free bikes", "Cooking class", "Beachfront"],
           },
@@ -873,14 +873,14 @@ const AIPlanner = () => {
           {
             name: "Four Seasons Nam Hai",
             stars: 5,
-            pricePerNight: "12000-20000k",
+            pricePerNight: formatCurrencyRange(12000000, 20000000),
             rating: 4.9,
             amenities: ["3 hồ bơi", "Private villas", "Beach club", "The Spa"],
           },
           {
             name: "Anantara Hoi An Resort",
             stars: 5,
-            pricePerNight: "8000-15000k",
+            pricePerNight: formatCurrencyRange(8000000, 15000000),
             rating: 4.9,
             amenities: [
               "Riverside",
@@ -896,14 +896,14 @@ const AIPlanner = () => {
           {
             name: "Dalat Friendly Hostel",
             stars: 2,
-            pricePerNight: "150-250k",
+            pricePerNight: formatCurrencyRange(150000, 250000),
             rating: 4.3,
             amenities: ["Dorm & Private", "Free breakfast", "Tour desk"],
           },
           {
             name: "Cozy Nook Dalat",
             stars: 3,
-            pricePerNight: "350-550k",
+            pricePerNight: formatCurrencyRange(350000, 550000),
             rating: 4.4,
             amenities: ["Central location", "WiFi", "Coffee shop"],
           },
@@ -912,14 +912,14 @@ const AIPlanner = () => {
           {
             name: "Dalat Wonder Resort",
             stars: 4,
-            pricePerNight: "1200-1800k",
+            pricePerNight: formatCurrencyRange(1200000, 1800000),
             rating: 4.6,
             amenities: ["Hồ bơi", "View valley", "Restaurant", "Spa"],
           },
           {
             name: "Swiss-Belresort Tuyen Lam",
             stars: 4,
-            pricePerNight: "1400-2000k",
+            pricePerNight: formatCurrencyRange(1400000, 2000000),
             rating: 4.7,
             amenities: ["Lake view", "Bungalows", "BBQ", "Mountain biking"],
           },
@@ -928,7 +928,7 @@ const AIPlanner = () => {
           {
             name: "Dalat Palace Heritage Hotel",
             stars: 5,
-            pricePerNight: "4000-7000k",
+            pricePerNight: formatCurrencyRange(4000000, 7000000),
             rating: 4.9,
             amenities: [
               "Golf course",
@@ -940,7 +940,7 @@ const AIPlanner = () => {
           {
             name: "Ana Mandara Villas Dalat",
             stars: 5,
-            pricePerNight: "5000-9000k",
+            pricePerNight: formatCurrencyRange(5000000, 9000000),
             rating: 4.8,
             amenities: [
               "French villas",
@@ -956,14 +956,14 @@ const AIPlanner = () => {
           {
             name: "Mojzo Inn Nha Trang",
             stars: 2,
-            pricePerNight: "250-400k",
+            pricePerNight: formatCurrencyRange(250000, 400000),
             rating: 4.3,
             amenities: ["Rooftop pool", "Bar", "Beach 5min", "WiFi"],
           },
           {
             name: "An An Hotel",
             stars: 3,
-            pricePerNight: "400-600k",
+            pricePerNight: formatCurrencyRange(400000, 600000),
             rating: 4.4,
             amenities: ["City view", "Breakfast", "Beach nearby"],
           },
@@ -972,14 +972,14 @@ const AIPlanner = () => {
           {
             name: "Novotel Nha Trang",
             stars: 4,
-            pricePerNight: "1500-2200k",
+            pricePerNight: formatCurrencyRange(1500000, 2200000),
             rating: 4.6,
             amenities: ["Beachfront", "3 pools", "Kids club", "Spa"],
           },
           {
             name: "Mia Resort Nha Trang",
             stars: 4,
-            pricePerNight: "2000-3000k",
+            pricePerNight: formatCurrencyRange(2000000, 3000000),
             rating: 4.7,
             amenities: ["Private beach", "Spa", "Sandals Restaurant", "Villas"],
           },
@@ -988,7 +988,7 @@ const AIPlanner = () => {
           {
             name: "Six Senses Ninh Van Bay",
             stars: 5,
-            pricePerNight: "15000-25000k",
+            pricePerNight: formatCurrencyRange(15000000, 25000000),
             rating: 4.9,
             amenities: [
               "Private villas",
@@ -1000,7 +1000,7 @@ const AIPlanner = () => {
           {
             name: "Anam QT Nha Trang",
             stars: 5,
-            pricePerNight: "8000-14000k",
+            pricePerNight: formatCurrencyRange(8000000, 14000000),
             rating: 4.8,
             amenities: [
               "Indochine style",
@@ -1016,14 +1016,14 @@ const AIPlanner = () => {
           {
             name: "Phú Quốc Backpackers",
             stars: 2,
-            pricePerNight: "300-450k",
+            pricePerNight: formatCurrencyRange(300000, 450000),
             rating: 4.3,
             amenities: ["Pool", "Bar", "Beach access", "Tours"],
           },
           {
             name: "Green Hotel Phu Quoc",
             stars: 3,
-            pricePerNight: "500-700k",
+            pricePerNight: formatCurrencyRange(500000, 700000),
             rating: 4.4,
             amenities: ["Garden view", "Bike rental", "Beach 2min"],
           },
@@ -1032,14 +1032,14 @@ const AIPlanner = () => {
           {
             name: "Salinda Resort Phu Quoc",
             stars: 4,
-            pricePerNight: "2000-3000k",
+            pricePerNight: formatCurrencyRange(2000000, 3000000),
             rating: 4.7,
             amenities: ["Beachfront", "Infinity pool", "Spa", "3 restaurants"],
           },
           {
             name: "La Veranda Resort",
             stars: 4,
-            pricePerNight: "2500-3500k",
+            pricePerNight: formatCurrencyRange(2500000, 3500000),
             rating: 4.6,
             amenities: ["Colonial style", "Beach club", "Spa", "Fine dining"],
           },
@@ -1048,14 +1048,14 @@ const AIPlanner = () => {
           {
             name: "JW Marriott Phu Quoc",
             stars: 5,
-            pricePerNight: "8000-15000k",
+            pricePerNight: formatCurrencyRange(8000000, 15000000),
             rating: 4.9,
             amenities: ["Private beach", "Water park", "6 restaurants", "Spa"],
           },
           {
             name: "Intercontinental Phu Quoc",
             stars: 5,
-            pricePerNight: "10000-18000k",
+            pricePerNight: formatCurrencyRange(10000000, 18000000),
             rating: 4.9,
             amenities: ["Long Beach", "5 pools", "INK 360", "Kids club"],
           },
@@ -1066,14 +1066,14 @@ const AIPlanner = () => {
           {
             name: "Sapa Backpackers",
             stars: 2,
-            pricePerNight: "200-350k",
+            pricePerNight: formatCurrencyRange(200000, 350000),
             rating: 4.2,
             amenities: ["Mountain view", "Bar", "Trekking tours", "WiFi"],
           },
           {
             name: "Little Sapa Hotel",
             stars: 3,
-            pricePerNight: "450-650k",
+            pricePerNight: formatCurrencyRange(450000, 650000),
             rating: 4.3,
             amenities: ["Valley view", "Restaurant", "Tour desk"],
           },
@@ -1082,14 +1082,14 @@ const AIPlanner = () => {
           {
             name: "Amazing Hotel Sapa",
             stars: 4,
-            pricePerNight: "1200-1800k",
+            pricePerNight: formatCurrencyRange(1200000, 1800000),
             rating: 4.6,
             amenities: ["Valley view", "Spa", "Restaurant", "Fireplace rooms"],
           },
           {
             name: "Pao's Sapa Leisure Hotel",
             stars: 4,
-            pricePerNight: "1500-2200k",
+            pricePerNight: formatCurrencyRange(1500000, 2200000),
             rating: 4.7,
             amenities: ["Panoramic view", "Spa", "Heated pool", "Fine dining"],
           },
@@ -1098,14 +1098,14 @@ const AIPlanner = () => {
           {
             name: "Topas Ecolodge",
             stars: 5,
-            pricePerNight: "4000-7000k",
+            pricePerNight: formatCurrencyRange(4000000, 7000000),
             rating: 4.8,
             amenities: ["Mountain villas", "Infinity pool", "Spa", "Trekking"],
           },
           {
             name: "Victoria Sapa Resort",
             stars: 5,
-            pricePerNight: "5000-9000k",
+            pricePerNight: formatCurrencyRange(5000000, 9000000),
             rating: 4.9,
             amenities: [
               "Colonial style",
@@ -1136,9 +1136,10 @@ const AIPlanner = () => {
       freePlan: {
         title: `Kế hoạch cơ bản - ${formData.destination}`,
         budget: "Tiết kiệm",
-        estimatedCost: `${formData.duration * 800}k - ${
-          formData.duration * 1200
-        }k`,
+        estimatedCost: formatCurrencyRange(
+          formData.duration * 800000,
+          formData.duration * 1200000
+        ),
         itinerary: Array.from(
           { length: Math.min(formData.duration, 2) },
           (_, i) => ({
@@ -1158,7 +1159,10 @@ const AIPlanner = () => {
         {
           id: 1,
           name: "Tiết kiệm",
-          budget: `${formData.duration * 800}k - ${formData.duration * 1200}k`,
+          budget: formatCurrencyRange(
+            formData.duration * 800000,
+            formData.duration * 1200000
+          ),
           badge: "💰",
           color: "from-green-400 to-green-600",
           itinerary: Array.from({ length: formData.duration }, (_, i) => ({
@@ -1184,7 +1188,7 @@ const AIPlanner = () => {
             accommodation: "Khách sạn 2-3 sao hoặc Hostel",
             restaurants: getRestaurantsByDestination(destination, "budget"),
             hotels: getHotelsByDestination(destination, "budget"),
-            dayBudget: `${800}k - ${1200}k`,
+            dayBudget: formatCurrencyRange(800000, 1200000),
           })),
           tips: [
             "Đặt phòng trước để có giá tốt",
@@ -1195,7 +1199,10 @@ const AIPlanner = () => {
         {
           id: 2,
           name: "Cân bằng",
-          budget: `${formData.duration * 1500}k - ${formData.duration * 2500}k`,
+          budget: formatCurrencyRange(
+            formData.duration * 1500000,
+            formData.duration * 2500000
+          ),
           badge: "✨",
           color: "from-blue-400 to-blue-600",
           recommended: true,
@@ -1223,7 +1230,7 @@ const AIPlanner = () => {
             accommodation: "Khách sạn 3-4 sao trung tâm",
             restaurants: getRestaurantsByDestination(destination, "balanced"),
             hotels: getHotelsByDestination(destination, "balanced"),
-            dayBudget: `${1500}k - ${2500}k`,
+            dayBudget: formatCurrencyRange(1500000, 2500000),
           })),
           tips: [
             "Kết hợp tham quan và nghỉ ngơi",
@@ -1234,7 +1241,10 @@ const AIPlanner = () => {
         {
           id: 3,
           name: "Cao cấp",
-          budget: `${formData.duration * 3000}k - ${formData.duration * 5000}k`,
+          budget: formatCurrencyRange(
+            formData.duration * 3000000,
+            formData.duration * 5000000
+          ),
           badge: "👑",
           color: "from-purple-400 to-purple-600",
           itinerary: Array.from({ length: formData.duration }, (_, i) => ({
@@ -1262,7 +1272,7 @@ const AIPlanner = () => {
             accommodation: "Resort/Khách sạn 5 sao",
             restaurants: getRestaurantsByDestination(destination, "premium"),
             hotels: getHotelsByDestination(destination, "premium"),
-            dayBudget: `${3000}k - ${5000}k`,
+            dayBudget: formatCurrencyRange(3000000, 5000000),
           })),
           tips: [
             "Dịch vụ concierge 24/7",
@@ -1942,7 +1952,7 @@ const AIPlanner = () => {
                         {plan.name}
                       </h3>
                       <div
-                        className={`text-2xl font-bold ${
+                        className={`text-sm sm:text-base font-semibold leading-tight ${
                           isLocked
                             ? "text-gray-700"
                             : "text-white drop-shadow-md"
@@ -2286,9 +2296,11 @@ const AIPlanner = () => {
 
                             {/* Budget Breakdown */}
                             <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-lg p-4 mb-4">
-                              <h5 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                              <h5 className="font-bold text-gray-900 mb-3 flex items-center gap-2 text-sm sm:text-base">
                                 <i className="fas fa-wallet text-blue-600"></i>
-                                Chi phí dự kiến: {day.budget}
+                                <span className="leading-tight">
+                                  Chi phí dự kiến: {day.budget}
+                                </span>
                               </h5>
                               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                                 <div className="bg-white rounded-lg p-3 text-center shadow-sm">
@@ -2296,12 +2308,12 @@ const AIPlanner = () => {
                                   <div className="text-xs text-gray-600 mb-1">
                                     Ăn uống
                                   </div>
-                                  <div className="font-bold text-gray-900 text-sm">
+                                  <div className="font-semibold text-gray-900 text-xs leading-tight break-words">
                                     {modalPlan.id === "budget"
-                                      ? "150-250k"
+                                      ? formatCurrencyRange(150000, 250000)
                                       : modalPlan.id === "balanced"
-                                      ? "300-500k"
-                                      : "500-800k"}
+                                      ? formatCurrencyRange(300000, 500000)
+                                      : formatCurrencyRange(500000, 800000)}
                                   </div>
                                 </div>
                                 <div className="bg-white rounded-lg p-3 text-center shadow-sm">
@@ -2309,12 +2321,12 @@ const AIPlanner = () => {
                                   <div className="text-xs text-gray-600 mb-1">
                                     Tham quan
                                   </div>
-                                  <div className="font-bold text-gray-900 text-sm">
+                                  <div className="font-semibold text-gray-900 text-xs leading-tight break-words">
                                     {modalPlan.id === "budget"
-                                      ? "100-200k"
+                                      ? formatCurrencyRange(100000, 200000)
                                       : modalPlan.id === "balanced"
-                                      ? "200-400k"
-                                      : "400-700k"}
+                                      ? formatCurrencyRange(200000, 400000)
+                                      : formatCurrencyRange(400000, 700000)}
                                   </div>
                                 </div>
                                 <div className="bg-white rounded-lg p-3 text-center shadow-sm">
@@ -2322,12 +2334,12 @@ const AIPlanner = () => {
                                   <div className="text-xs text-gray-600 mb-1">
                                     Di chuyển
                                   </div>
-                                  <div className="font-bold text-gray-900 text-sm">
+                                  <div className="font-semibold text-gray-900 text-xs leading-tight break-words">
                                     {modalPlan.id === "budget"
-                                      ? "50-100k"
+                                      ? formatCurrencyRange(50000, 100000)
                                       : modalPlan.id === "balanced"
-                                      ? "100-200k"
-                                      : "200-400k"}
+                                      ? formatCurrencyRange(100000, 200000)
+                                      : formatCurrencyRange(200000, 400000)}
                                   </div>
                                 </div>
                                 <div className="bg-white rounded-lg p-3 text-center shadow-sm">
@@ -2335,12 +2347,12 @@ const AIPlanner = () => {
                                   <div className="text-xs text-gray-600 mb-1">
                                     Lưu trú
                                   </div>
-                                  <div className="font-bold text-gray-900 text-sm">
+                                  <div className="font-semibold text-gray-900 text-xs leading-tight break-words">
                                     {modalPlan.id === "budget"
-                                      ? "200-350k"
+                                      ? formatCurrencyRange(200000, 350000)
                                       : modalPlan.id === "balanced"
-                                      ? "400-700k"
-                                      : "800-1.5tr"}
+                                      ? formatCurrencyRange(400000, 700000)
+                                      : formatCurrencyRange(800000, 1500000)}
                                   </div>
                                 </div>
                               </div>
@@ -2409,11 +2421,13 @@ const AIPlanner = () => {
                                         {restaurant.cuisine}
                                       </p>
                                       <div className="flex items-center justify-between text-xs">
-                                        <span className="flex items-center gap-1 text-green-600 font-medium">
-                                          <i className="fas fa-money-bill-wave"></i>
-                                          {restaurant.priceRange}
+                                        <span className="flex items-center gap-1 text-green-600 font-medium leading-tight break-words">
+                                          <i className="fas fa-money-bill-wave flex-shrink-0"></i>
+                                          <span className="text-xs">
+                                            {restaurant.priceRange}
+                                          </span>
                                         </span>
-                                        <span className="flex items-center gap-1 text-yellow-600">
+                                        <span className="flex items-center gap-1 text-yellow-600 flex-shrink-0">
                                           <i className="fas fa-star"></i>
                                           {restaurant.rating}
                                         </span>
@@ -2466,11 +2480,11 @@ const AIPlanner = () => {
                                         </span>
                                       </div>
                                       <div className="flex items-center justify-between mb-2">
-                                        <span className="text-xs text-green-600 font-bold flex items-center gap-1">
-                                          <i className="fas fa-tag"></i>
-                                          {hotel.pricePerNight}/đêm
+                                        <span className="text-xs text-green-600 font-semibold flex items-start gap-1 leading-tight break-words">
+                                          <i className="fas fa-tag flex-shrink-0 mt-0.5"></i>
+                                          <span>{hotel.pricePerNight}/đêm</span>
                                         </span>
-                                        <span className="text-xs text-gray-600 flex items-center gap-1">
+                                        <span className="text-xs text-gray-600 flex items-center gap-1 flex-shrink-0">
                                           <i className="fas fa-star text-yellow-500"></i>
                                           {hotel.rating}
                                         </span>
