@@ -19,7 +19,7 @@ const DemoBanner = () => {
   if (!isVisible) return null;
 
   const message =
-    "👋 Xin chào! Đây chỉ là website demo trình bày giao diện và tính năng. Các chức năng hiện tại chỉ mang tính minh họa và chưa được phát triển hoàn chỉnh. Mọi thông tin và dữ liệu đều là dữ liệu mẫu 😃";
+    "👋 Xin chào! Đây chỉ là website demo trình bày giao diện và tính năng. Các chức năng hiện tại chỉ mang tính minh họa và chưa được phát triển hoàn chỉnh. Mọi thông tin và hình ảnh đều là dữ liệu mẫu. Thân mến!";
 
   return (
     <div className="fixed top-16 lg:top-20 left-0 right-0 z-50 animate-slide-down">
