@@ -5,6 +5,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [isBookingMenuOpen, setIsBookingMenuOpen] = useState(false);
+  const [isManagementMenuOpen, setIsManagementMenuOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState("vi");
   const location = useLocation();
 
@@ -19,11 +20,17 @@ const Header = () => {
       if (isBookingMenuOpen && !event.target.closest(".booking-selector")) {
         setIsBookingMenuOpen(false);
       }
+      if (
+        isManagementMenuOpen &&
+        !event.target.closest(".management-selector")
+      ) {
+        setIsManagementMenuOpen(false);
+      }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isLangMenuOpen, isBookingMenuOpen]);
+  }, [isLangMenuOpen, isBookingMenuOpen, isManagementMenuOpen]);
 
   const languages = [
     {
@@ -77,9 +84,17 @@ const Header = () => {
       path: "/services",
       icon: "fas fa-concierge-bell",
       isDropdown: true,
+      dropdownType: "services",
     },
     // { name: "Tours", path: "/tours", icon: "fas fa-route" },
     { name: "Cộng đồng", path: "/community", icon: "fas fa-users" },
+    {
+      name: "Quản lý",
+      path: "/management",
+      icon: "fas fa-cog",
+      isDropdown: true,
+      dropdownType: "management",
+    },
     { name: "Giới thiệu", path: "/about", icon: "fas fa-info-circle" },
   ];
 
@@ -104,7 +119,7 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200"`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/">
@@ -119,13 +134,30 @@ const Header = () => {
           <nav className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) =>
               item.isDropdown ? (
-                // Dịch Vụ Dropdown
-                <div key={item.path} className="relative booking-selector">
+                // Dropdown items (Dịch Vụ & Quản lý)
+                <div
+                  key={item.path}
+                  className={`relative ${
+                    item.dropdownType === "services"
+                      ? "booking-selector"
+                      : "management-selector"
+                  }`}
+                >
                   <button
-                    onClick={() => setIsBookingMenuOpen(!isBookingMenuOpen)}
+                    onClick={() => {
+                      if (item.dropdownType === "services") {
+                        setIsBookingMenuOpen(!isBookingMenuOpen);
+                      } else if (item.dropdownType === "management") {
+                        setIsManagementMenuOpen(!isManagementMenuOpen);
+                      }
+                    }}
                     className={`flex items-center whitespace-nowrap px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                      location.pathname.startsWith("/booking") ||
-                      location.pathname.startsWith("/local-buddy")
+                      (item.dropdownType === "services" &&
+                        (location.pathname.startsWith("/booking") ||
+                          location.pathname.startsWith("/local-buddy"))) ||
+                      (item.dropdownType === "management" &&
+                        (location.pathname.startsWith("/b2b") ||
+                          location.pathname.startsWith("/buddy/dashboard")))
                         ? "bg-primary-100 text-primary-700 shadow-sm"
                         : "text-gray-500 hover:text-primary-600 hover:bg-primary-50"
                     }`}
@@ -136,13 +168,18 @@ const Header = () => {
                     <span>{item.name}</span>
                     <i
                       className={`fas fa-chevron-down text-xs ml-1.5 transition-transform ${
-                        isBookingMenuOpen ? "rotate-180" : ""
+                        (item.dropdownType === "services" &&
+                          isBookingMenuOpen) ||
+                        (item.dropdownType === "management" &&
+                          isManagementMenuOpen)
+                          ? "rotate-180"
+                          : ""
                       }`}
                     ></i>
                   </button>
 
-                  {/* Dropdown Menu */}
-                  {isBookingMenuOpen && (
+                  {/* Dropdown Menu for Services */}
+                  {item.dropdownType === "services" && isBookingMenuOpen && (
                     <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50">
                       {bookingOptions.map((option) => (
                         <Link
@@ -168,6 +205,44 @@ const Header = () => {
                       ))}
                     </div>
                   )}
+
+                  {/* Dropdown Menu for Management */}
+                  {item.dropdownType === "management" &&
+                    isManagementMenuOpen && (
+                      <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50">
+                        {managementOptions.map((option) => (
+                          <Link
+                            key={option.path}
+                            to={option.path}
+                            onClick={() => setIsManagementMenuOpen(false)}
+                            className={`flex items-start px-4 py-3 transition-colors ${
+                              location.pathname === option.path ||
+                              location.pathname.startsWith(option.path + "/")
+                                ? "bg-primary-50 text-primary-700"
+                                : "text-gray-700 hover:bg-gray-50"
+                            }`}
+                          >
+                            <i
+                              className={`${option.icon} text-base w-5 flex-shrink-0 mr-3 mt-0.5`}
+                            ></i>
+                            <div className="flex-1">
+                              <div className="text-sm font-medium">
+                                {option.name}
+                              </div>
+                              <div className="text-xs text-gray-500 mt-0.5">
+                                {option.description}
+                              </div>
+                            </div>
+                            {(location.pathname === option.path ||
+                              location.pathname.startsWith(
+                                option.path + "/"
+                              )) && (
+                              <i className="fas fa-check text-primary-600 text-sm ml-2 mt-1"></i>
+                            )}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                 </div>
               ) : (
                 // Regular nav item
@@ -191,45 +266,6 @@ const Header = () => {
 
           {/* CTA Button & Language Selector */}
           <div className="hidden lg:flex items-center space-x-3">
-            {/* Management Dropdown */}
-            <div className="relative group">
-              <button className="flex items-center px-3 py-2 rounded-lg text-sm font-medium text-gray-500 hover:text-primary-600 hover:bg-primary-50 transition-all duration-200">
-                <i className="fas fa-cog mr-2"></i>
-                <span>Quản lý</span>
-                <i className="fas fa-chevron-down text-xs ml-1.5 group-hover:rotate-180 transition-transform"></i>
-              </button>
-
-              {/* Management Dropdown Menu */}
-              <div className="absolute top-full right-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                {managementOptions.map((option) => (
-                  <Link
-                    key={option.path}
-                    to={option.path}
-                    className={`flex items-start px-4 py-3 transition-colors ${
-                      location.pathname === option.path ||
-                      location.pathname.startsWith(option.path + "/")
-                        ? "bg-primary-50 text-primary-700"
-                        : "text-gray-700 hover:bg-gray-50"
-                    }`}
-                  >
-                    <i
-                      className={`${option.icon} text-base w-5 flex-shrink-0 mr-3 mt-0.5`}
-                    ></i>
-                    <div className="flex-1">
-                      <div className="text-sm font-medium">{option.name}</div>
-                      <div className="text-xs text-gray-500 mt-0.5">
-                        {option.description}
-                      </div>
-                    </div>
-                    {(location.pathname === option.path ||
-                      location.pathname.startsWith(option.path + "/")) && (
-                      <i className="fas fa-check text-primary-600 text-sm ml-2 mt-1"></i>
-                    )}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
             <Link to="/contact" className="btn btn-primary group">
               <i className="fas fa-envelope mr-2 group-hover:scale-110 transition-transform"></i>
               Liên hệ
