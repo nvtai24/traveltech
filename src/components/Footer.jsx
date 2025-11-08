@@ -1,8 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [showNewsletter, setShowNewsletter] = useState(true);
+
+  // Check localStorage khi component mount - dùng chung key với NewsletterModal
+  useEffect(() => {
+    const subscribed = localStorage.getItem("newsletterSubscribed");
+    if (subscribed === "true") {
+      setShowNewsletter(false);
+      setIsSubscribed(true);
+    }
+  }, []);
+
+  // Xử lý submit email - dùng chung key với NewsletterModal
+  const handleSubscribe = (e) => {
+    e.preventDefault();
+    if (email && email.includes("@")) {
+      // Lưu vào localStorage với key giống NewsletterModal
+      localStorage.setItem("newsletterSubscribed", "true");
+      localStorage.setItem("newsletter_email", email);
+
+      // Cập nhật state
+      setIsSubscribed(true);
+      setShowNewsletter(false);
+      setEmail("");
+
+      // Có thể thêm toast notification ở đây
+      console.log("Đã đăng ký nhận tin thành công!");
+    }
+  };
 
   const footerSections = [
     {
@@ -149,29 +179,40 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* Newsletter Section */}
-        <div className="mt-16 pt-8 border-t border-gray-700">
-          <div className="max-w-2xl mx-auto text-center">
-            <h4 className="text-xl font-semibold mb-4 text-gray-300">
-              Đăng ký nhận tin tức du lịch
-            </h4>
-            <p className="text-gray-300 mb-6">
-              Nhận thông tin về các tour mới, ưu đãi đặc biệt và mẹo du lịch hữu
-              ích
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Nhập email của bạn"
-                className="input flex-1 bg-gray-800 border-gray-600 text-white placeholder-gray-400 focus:ring-primary-500 focus:border-primary-500"
-              />
-              <button className="btn btn-primary whitespace-nowrap">
-                <i className="fas fa-paper-plane mr-2"></i>
-                Đăng ký
-              </button>
+        {/* Newsletter Section - Chỉ hiển thị nếu chưa subscribe */}
+        {showNewsletter && (
+          <div className="mt-16 pt-8 border-t border-gray-700">
+            <div className="max-w-2xl mx-auto text-center">
+              <h4 className="text-xl font-semibold mb-4 text-gray-300">
+                Đăng ký nhận tin tức du lịch
+              </h4>
+              <p className="text-gray-300 mb-6">
+                Nhận thông tin về các tour mới, ưu đãi đặc biệt và mẹo du lịch
+                hữu ích
+              </p>
+              <form
+                onSubmit={handleSubscribe}
+                className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
+              >
+                <input
+                  type="email"
+                  placeholder="Nhập email của bạn"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="input flex-1 bg-gray-800 border-gray-600 text-white placeholder-gray-400 focus:ring-primary-500 focus:border-primary-500"
+                />
+                <button
+                  type="submit"
+                  className="btn btn-primary whitespace-nowrap"
+                >
+                  <i className="fas fa-paper-plane mr-2"></i>
+                  Đăng ký
+                </button>
+              </form>
             </div>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Bottom Footer */}
