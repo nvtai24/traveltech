@@ -101,12 +101,24 @@ export const landmarks = [
         author: "Minh Anh",
         text: "Địa điểm biểu tượng của Hà Nội, rất đẹp vào buổi tối. Phố đi bộ cuối tuần rất vui!",
         rating: 5,
-        images: [],
+        images: [
+          "https://halotravel.vn/wp-content/uploads/2020/11/ho-hoan-kiem-e1606569151656.jpg",
+          "https://www.kkday.com/ja/blog/wp-content/uploads/jpg-2-26.jpg",
+        ],
       },
       {
         id: 2,
         author: "John Smith",
         text: "Beautiful lake in the heart of Hanoi. The temple is amazing!",
+        rating: 5,
+        images: [
+          "https://media.gody.vn/images/ha-noi/ho-hoan-kiem/12-2016/20161201033203-ho-hoan-kiem-gody(6).JPG",
+        ],
+      },
+      {
+        id: 3,
+        author: "Thu Hà",
+        text: "Mình đã đi dạo quanh hồ vào buổi sáng sớm, không khí rất trong lành. Được chụp ảnh với tháp Rùa và đền Ngọc Sơn cực kỳ đẹp. Rất đáng để ghé thăm!",
         rating: 5,
         images: [],
       },
@@ -358,7 +370,25 @@ export const landmarks = [
         a: "Mỗi tháng vào đêm 14 âm lịch (rằm), phố cổ tắt đèn điện, chỉ thắp đèn lồng.",
       },
     ],
-    reviews: [],
+    reviews: [
+      {
+        id: 1,
+        author: "Hương Giang",
+        text: "Phố cổ Hội An đẹp như tranh vẽ! Tôi đã may áo dài ở đây và chụp ảnh cực kỳ đẹp. Đèn lồng về đêm lung linh lắm. Ai đến Hội An nhất định phải ở qua đêm để trải nghiệm.",
+        rating: 5,
+        images: [
+          "https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800",
+          "https://ik.imagekit.io/tvlk/blog/2022/10/pho-co-hoi-an-3.jpg",
+        ],
+      },
+      {
+        id: 2,
+        author: "David Lee",
+        text: "Amazing old town with beautiful lanterns at night. The food is incredible and the people are so friendly!",
+        rating: 5,
+        images: [],
+      },
+    ],
   },
   {
     id: "chua-tran-quoc",
