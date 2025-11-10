@@ -555,6 +555,10 @@ const DestinationDetail = () => {
                 <i className="fas fa-info-circle mr-2"></i>
                 Nghe câu chuyện về lịch sử và văn hóa của {loc.name}
               </div>
+              <div className="mb-3 text-xs text-amber-600 bg-amber-50 px-3 py-2 rounded-lg flex items-center">
+                <i className="fas fa-language mr-2"></i>
+                <span>Hiện tại tính năng này chỉ hỗ trợ tiếng Việt</span>
+              </div>
               <VoicePlayer
                 text={
                   loc.audioGuideScript ||
