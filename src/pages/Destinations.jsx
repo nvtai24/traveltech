@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { locations, regions as regionsData } from "../data/location";
+import { landmarks } from "../data/landmarks";
+
+// Sử dụng landmarks làm data chính
+const destinations = landmarks;
+
+// Lấy danh sách vùng miền từ landmarks
+const regionsData = [
+  { id: "mien-bac", name: "Miền Bắc" },
+  { id: "mien-trung", name: "Miền Trung" },
+  { id: "mien-nam", name: "Miền Nam" },
+];
 
 const getCategoryIcon = (category) => {
   switch ((category || "").toLowerCase()) {
@@ -35,23 +45,27 @@ const getCategoryColor = (category) => {
 const Destinations = () => {
   const [selectedRegion, setSelectedRegion] = useState("all");
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCity, setSelectedCity] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [viewMode, setViewMode] = useState("grid"); // grid or list
   const [currentPage, setCurrentPage] = useState(1);
   const destinationsPerPage = 9; // 9 destinations per page (3x3 grid)
 
-  const filteredDestinations = locations.filter((dest) => {
+  const filteredDestinations = destinations.filter((dest) => {
     const matchesRegion =
       selectedRegion === "all" || dest.region === selectedRegion;
     const destCategoryNormalized = dest.category || "Khác";
     const matchesCategory =
       selectedCategory === "all" || destCategoryNormalized === selectedCategory;
+    const matchesCity =
+      selectedCity === "all" || dest.location === selectedCity;
     const q = searchTerm.trim().toLowerCase();
     const matchesSearch =
       q === "" ||
       (dest.name || "").toLowerCase().includes(q) ||
+      (dest.location || "").toLowerCase().includes(q) ||
       (dest.description || "").toLowerCase().includes(q);
-    return matchesRegion && matchesCategory && matchesSearch;
+    return matchesRegion && matchesCategory && matchesCity && matchesSearch;
   });
 
   // Pagination logic
@@ -65,11 +79,18 @@ const Destinations = () => {
   // Reset to page 1 when filters change
   React.useEffect(() => {
     setCurrentPage(1);
-  }, [selectedRegion, selectedCategory, searchTerm]);
+  }, [selectedRegion, selectedCategory, selectedCity, searchTerm]);
 
   const uniqueCategories = Array.from(
-    new Set(locations.map((l) => l.category || "Khác"))
+    new Set(destinations.map((l) => l.category || "Khác"))
   );
+
+  // Lấy danh sách các thành phố duy nhất
+  const uniqueCities = Array.from(
+    new Set(
+      destinations.map((l) => l.location).filter((location) => location) // Loại bỏ undefined/null
+    )
+  ).sort();
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -122,7 +143,7 @@ const Destinations = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-primary-600 mb-2">
-                {locations.length}+
+                {destinations.length}+
               </div>
               <div className="text-gray-600 font-medium">Điểm đến</div>
             </div>
@@ -152,7 +173,7 @@ const Destinations = () => {
         {/* Filters Section */}
         <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
           <div className="flex flex-col lg:flex-row gap-4 items-center">
-            <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+            <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
               {/* Region Filter */}
               <div className="relative">
                 <i className="fas fa-map-marked-alt absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
@@ -161,10 +182,27 @@ const Destinations = () => {
                   onChange={(e) => setSelectedRegion(e.target.value)}
                   className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent appearance-none bg-white cursor-pointer"
                 >
-                  <option value="all">🌏 Tất cả vùng</option>
+                  <option value="all">Tất cả vùng</option>
                   {regionsData.map((r) => (
                     <option key={r.id} value={r.name}>
                       {r.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* City Filter */}
+              <div className="relative">
+                <i className="fas fa-city absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                <select
+                  value={selectedCity}
+                  onChange={(e) => setSelectedCity(e.target.value)}
+                  className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent appearance-none bg-white cursor-pointer"
+                >
+                  <option value="all">Tất cả tỉnh/thành phố</option>
+                  {uniqueCities.map((city) => (
+                    <option key={city} value={city}>
+                      {city}
                     </option>
                   ))}
                 </select>
@@ -178,7 +216,7 @@ const Destinations = () => {
                   onChange={(e) => setSelectedCategory(e.target.value)}
                   className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent appearance-none bg-white cursor-pointer"
                 >
-                  <option value="all">📋 Tất cả danh mục</option>
+                  <option value="all">Tất cả danh mục</option>
                   {uniqueCategories.map((c) => (
                     <option key={c} value={c}>
                       {c}
@@ -296,11 +334,13 @@ const Destinations = () => {
               <Link
                 key={destination.id}
                 to={`/destinations/${destination.id}`}
-                className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full"
               >
-                <div className="relative h-64 overflow-hidden">
+                {/* Ảnh với chiều cao cố định */}
+                <div className="relative h-56 overflow-hidden flex-shrink-0">
                   <img
                     src={
+                      destination.thumbnail ||
                       destination.images?.[0] ||
                       "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800"
                     }
@@ -324,43 +364,52 @@ const Destinations = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
 
-                <div className="p-6">
-                  <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
+                {/* Nội dung với chiều cao linh hoạt */}
+                <div className="p-6 flex flex-col flex-grow">
+                  {/* Tiêu đề với chiều cao cố định */}
+                  <div className="mb-1">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-2 min-h-[3.5rem]">
                       {destination.name}
                     </h3>
                   </div>
 
-                  <p className="text-gray-600 mb-4 line-clamp-2 text-sm leading-relaxed">
+                  {/* Mô tả với số dòng cố định */}
+                  <p className="text-gray-600 mb-4 line-clamp-3 text-sm leading-relaxed min-h-[4rem]">
                     {destination.description}
                   </p>
 
-                  {destination.highlights &&
-                    destination.highlights.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {destination.highlights
-                          .slice(0, 3)
-                          .map((highlight, idx) => (
-                            <span
-                              key={idx}
-                              className="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full"
-                            >
-                              {highlight}
+                  {/* Highlights với chiều cao tối thiểu */}
+                  <div className="mb-4 min-h-[2.5rem]">
+                    {destination.highlights &&
+                      destination.highlights.length > 0 && (
+                        <div className="flex flex-wrap gap-2">
+                          {destination.highlights
+                            .slice(0, 2)
+                            .map((highlight, idx) => (
+                              <span
+                                key={idx}
+                                className="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full line-clamp-1"
+                              >
+                                {highlight}
+                              </span>
+                            ))}
+                          {destination.highlights.length > 2 && (
+                            <span className="text-xs bg-primary-100 text-primary-700 px-3 py-1 rounded-full font-medium">
+                              +{destination.highlights.length - 2}
                             </span>
-                          ))}
-                        {destination.highlights.length > 3 && (
-                          <span className="text-xs bg-primary-100 text-primary-700 px-3 py-1 rounded-full font-medium">
-                            +{destination.highlights.length - 3} thêm
-                          </span>
-                        )}
-                      </div>
-                    )}
+                          )}
+                        </div>
+                      )}
+                  </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                    <span className="text-sm text-gray-500">
-                      <i className="fas fa-map-marker-alt text-primary-500 mr-1"></i>
-                      {destination.region}
-                    </span>
+                  {/* Footer luôn ở dưới cùng */}
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
+                    {destination.location && (
+                      <p className="text-sm text-gray-500 mt-1">
+                        <i className="fas fa-map-marker-alt text-primary-500 mr-2"></i>
+                        {destination.location}
+                      </p>
+                    )}
                     <span className="text-primary-600 font-semibold group-hover:translate-x-2 transition-transform inline-flex items-center">
                       Khám phá
                       <i className="fas fa-arrow-right ml-2"></i>
@@ -376,11 +425,13 @@ const Destinations = () => {
               <Link
                 key={destination.id}
                 to={`/destinations/${destination.id}`}
-                className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col md:flex-row"
+                className="group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col md:flex-row h-auto md:h-80"
               >
-                <div className="relative md:w-1/3 h-64 md:h-auto overflow-hidden">
+                {/* Ảnh với tỷ lệ cố định */}
+                <div className="relative md:w-2/5 h-64 md:h-full overflow-hidden flex-shrink-0">
                   <img
                     src={
+                      destination.thumbnail ||
                       destination.images?.[0] ||
                       "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800"
                     }
@@ -403,38 +454,58 @@ const Destinations = () => {
                   </div>
                 </div>
 
-                <div className="flex-1 p-6 flex flex-col">
-                  <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors">
-                      {destination.name}
-                    </h3>
+                {/* Nội dung với padding cố định */}
+                <div className="flex-1 p-6 flex flex-col justify-between">
+                  <div>
+                    {/* Header */}
+                    <div className="mb-3">
+                      <h3 className="text-2xl font-bold text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-1">
+                        {destination.name}
+                      </h3>
+                      {destination.location && (
+                        <p className="text-sm text-gray-500 mt-1">
+                          <i className="fas fa-map-marker-alt text-primary-500 mr-1"></i>
+                          {destination.location}
+                        </p>
+                      )}
+                    </div>
+
+                    {/* Mô tả với số dòng cố định */}
+                    <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3">
+                      {destination.description}
+                    </p>
+
+                    {/* Highlights */}
+                    {destination.highlights &&
+                      destination.highlights.length > 0 && (
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {destination.highlights
+                            .slice(0, 4)
+                            .map((highlight, idx) => (
+                              <span
+                                key={idx}
+                                className="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full"
+                              >
+                                {highlight}
+                              </span>
+                            ))}
+                          {destination.highlights.length > 4 && (
+                            <span className="text-xs bg-primary-100 text-primary-700 px-3 py-1 rounded-full font-medium">
+                              +{destination.highlights.length - 4}
+                            </span>
+                          )}
+                        </div>
+                      )}
                   </div>
 
-                  <p className="text-gray-600 mb-4 leading-relaxed">
-                    {destination.description}
-                  </p>
-
-                  {destination.highlights &&
-                    destination.highlights.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {destination.highlights.map((highlight, idx) => (
-                          <span
-                            key={idx}
-                            className="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full"
-                          >
-                            {highlight}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-
-                  <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
+                  {/* Footer */}
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                     <span className="text-sm text-gray-500">
-                      <i className="fas fa-map-marker-alt text-primary-500 mr-2"></i>
+                      <i className="fas fa-location-dot text-primary-500 mr-2"></i>
                       {destination.region}
                     </span>
-                    <span className="btn btn-primary group-hover:translate-x-2 transition-transform inline-flex items-center">
-                      Khám phá ngay
+                    <span className="text-primary-600 font-semibold group-hover:translate-x-2 transition-transform inline-flex items-center">
+                      Khám phá
                       <i className="fas fa-arrow-right ml-2"></i>
                     </span>
                   </div>
