@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { locations } from "../data/location";
+import { landmarks } from "../data/landmarks";
 import MediaGallery from "../components/MediaGallery";
 import VoicePlayer from "../components/VoicePlayer";
 import ReviewsList from "../components/ReviewsList";
@@ -9,7 +9,8 @@ import FAQList from "../components/FAQList";
 const DestinationDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const loc = locations.find((l) => l.id === id);
+  // Chỉ lấy từ landmarks
+  const loc = landmarks.find((l) => l.id === id);
   const [weather, setWeather] = useState(null);
   const [weatherLoading, setWeatherLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("overview");
@@ -428,6 +429,29 @@ const DestinationDetail = () => {
           </div>
 
           <aside className="space-y-6">
+            {/* Voice Player */}
+            <div className="bg-white rounded-xl shadow-sm p-6">
+              <h4 className="font-bold text-lg mb-4 flex items-center text-gray-900">
+                <i className="fas fa-headphones text-primary-600 mr-2"></i>
+                Audio Guide
+              </h4>
+              <div className="mb-3 text-sm text-gray-600">
+                <i className="fas fa-info-circle mr-2"></i>
+                Nghe câu chuyện về lịch sử và văn hóa của {loc.name}
+              </div>
+              <div className="mb-3 text-xs text-amber-600 bg-amber-50 px-3 py-2 rounded-lg flex items-center">
+                <i className="fas fa-language mr-2"></i>
+                <span>Hiện tại tính năng này chỉ hỗ trợ tiếng Việt</span>
+              </div>
+              <VoicePlayer
+                text={
+                  loc.audioGuideScript ||
+                  `${loc.name}. ${loc.history}. ${loc.description}`
+                }
+                audioUrl={loc.audioStory}
+              />
+            </div>
+
             {/* Weather Widget */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
               <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-4">
@@ -461,13 +485,13 @@ const DestinationDetail = () => {
                               : "bg-gray-50 hover:bg-gray-100 border border-gray-200"
                           }`}
                         >
-                          {isToday && (
+                          {/* {isToday && (
                             <div className="absolute top-2 right-2">
                               <span className="bg-blue-500 text-white text-xs px-2 py-1 rounded-full font-semibold">
                                 Hôm nay
                               </span>
                             </div>
-                          )}
+                          )} */}
 
                           <div className="flex items-center justify-between mb-3">
                             <div>
@@ -543,29 +567,6 @@ const DestinationDetail = () => {
                   </p>
                 </div>
               )}
-            </div>
-
-            {/* Voice Player */}
-            <div className="bg-white rounded-xl shadow-sm p-6">
-              <h4 className="font-bold text-lg mb-4 flex items-center text-gray-900">
-                <i className="fas fa-headphones text-primary-600 mr-2"></i>
-                Audio Guide
-              </h4>
-              <div className="mb-3 text-sm text-gray-600">
-                <i className="fas fa-info-circle mr-2"></i>
-                Nghe câu chuyện về lịch sử và văn hóa của {loc.name}
-              </div>
-              <div className="mb-3 text-xs text-amber-600 bg-amber-50 px-3 py-2 rounded-lg flex items-center">
-                <i className="fas fa-language mr-2"></i>
-                <span>Hiện tại tính năng này chỉ hỗ trợ tiếng Việt</span>
-              </div>
-              <VoicePlayer
-                text={
-                  loc.audioGuideScript ||
-                  `${loc.name}. ${loc.history}. ${loc.description}`
-                }
-                audioUrl={loc.audioStory}
-              />
             </div>
 
             {/* Quick Actions */}

@@ -72,7 +72,7 @@ const MediaGallery = ({ images = [], videos = [] }) => {
           >
             <button
               onClick={close}
-              className="absolute -top-3 -right-3 bg-white rounded-full p-2 shadow-lg z-50"
+              className="absolute -top-3 -right-3 bg-white rounded-full p-2 shadow-lg z-50 w-10 h-10"
               aria-label="Đóng"
             >
               <i className="fas fa-times"></i>

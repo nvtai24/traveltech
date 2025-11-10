@@ -1177,7 +1177,6 @@ export const locations = [
 ];
 
 export const regions = [
-  { id: "all", name: "Tất cả" },
   { id: "Miền Bắc", name: "Miền Bắc" },
   { id: "Miền Trung", name: "Miền Trung" },
   { id: "Miền Nam", name: "Miền Nam" },
