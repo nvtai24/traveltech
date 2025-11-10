@@ -150,7 +150,8 @@ const DestinationDetail = () => {
                     icon: "fa-info-circle",
                   },
                   { id: "media", label: "Hình ảnh & Video", icon: "fa-images" },
-                  { id: "reviews", label: "Đánh giá", icon: "fa-star" },
+                  // { id: "reviews", label: "Đánh giá", icon: "fa-star" },
+                  { id: "reviews", label: "Chia sẻ", icon: "fa-share-nodes" },
                   { id: "faq", label: "FAQ", icon: "fa-question-circle" },
                 ].map((tab) => (
                   <button
@@ -377,10 +378,10 @@ const DestinationDetail = () => {
                   <div>
                     <div className="flex items-center justify-between mb-4">
                       <h2 className="text-2xl font-bold text-gray-900">
-                        Đánh giá từ cộng đồng
+                        Chia sẻ từ cộng đồng
                       </h2>
                       <div className="text-sm text-gray-600">
-                        {loc.reviews?.length || 0} đánh giá
+                        {loc.reviews?.length || 0} chia sẻ
                       </div>
                     </div>
                     <ReviewsList reviews={loc.reviews} />
