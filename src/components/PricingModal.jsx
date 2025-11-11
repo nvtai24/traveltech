@@ -85,18 +85,27 @@ const PricingModal = ({ isOpen, onClose }) => {
       premium: { status: "yes", details: [] },
     },
     {
-      name: "Cộng đồng và bảng xếp hạng",
-      icon: "fa-trophy",
+      name: "Voucher và ưu đãi",
+      icon: "fa-ticket-alt",
       free: {
         status: "limited",
         details: ["Số lượng và giá trị của voucher giới hạn"],
       },
       premium: {
         status: "yes",
-        details: [
-          "Nhận nhiều voucher với giá trị cao",
-          "Tham gia bảng xếp hạng cuối năm",
-        ],
+        details: ["Nhận nhiều voucher với giá trị cao"],
+      },
+    },
+    {
+      name: "Cộng đồng và bảng xếp hạng",
+      icon: "fa-trophy",
+      free: {
+        status: "yes",
+        details: [],
+      },
+      premium: {
+        status: "yes",
+        details: ["Top Bảng xếp hạng sẽ được nhận quà và vinh danh cuối năm"],
       },
     },
   ];
