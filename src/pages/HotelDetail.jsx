@@ -18,6 +18,7 @@ const HotelDetail = () => {
   const [selectedRoom, setSelectedRoom] = useState(null);
   const [activeTab, setActiveTab] = useState("overview"); // overview, rooms, reviews, amenities
   const [currentRoomPage, setCurrentRoomPage] = useState(1);
+  const [showChatDevModal, setShowChatDevModal] = useState(false);
   const roomsPerPage = 5;
 
   if (!hotel) {
@@ -663,37 +664,48 @@ const HotelDetail = () => {
                 </div>
               </div>
 
-              {/* Contact Info */}
+              {/* Chat Button */}
               <div className="border-t mt-6 pt-6">
-                <h3 className="text-sm font-semibold text-gray-900 mb-4">
-                  Liên hệ
-                </h3>
-                <div className="space-y-3">
-                  <a
-                    href={`tel:${hotel.contact.phone}`}
-                    className="flex items-center space-x-3 text-gray-600 hover:text-primary-600 transition-colors"
-                  >
-                    <i className="fas fa-phone w-5"></i>
-                    <span className="text-sm">{hotel.contact.phone}</span>
-                  </a>
-                  <a
-                    href={`mailto:${hotel.contact.email}`}
-                    className="flex items-center space-x-3 text-gray-600 hover:text-primary-600 transition-colors"
-                  >
-                    <i className="fas fa-envelope w-5"></i>
-                    <span className="text-sm">{hotel.contact.email}</span>
-                  </a>
-                  <a
-                    href={`https://${hotel.contact.website}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-3 text-gray-600 hover:text-primary-600 transition-colors"
-                  >
-                    <i className="fas fa-globe w-5"></i>
-                    <span className="text-sm">{hotel.contact.website}</span>
-                  </a>
-                </div>
+                <button
+                  onClick={() => setShowChatDevModal(true)}
+                  className="w-full py-3 px-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all duration-300 flex items-center justify-center gap-2 font-medium shadow-md hover:shadow-lg"
+                >
+                  <i className="fas fa-comments"></i>
+                  <span>Chat với chủ khách sạn</span>
+                </button>
               </div>
+
+              {/* Chat Development Modal */}
+              {showChatDevModal && (
+                <div
+                  className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+                  onClick={() => setShowChatDevModal(false)}
+                >
+                  <div
+                    className="bg-white rounded-2xl shadow-2xl p-8 max-w-md mx-4 transform transition-all"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <div className="text-center">
+                      <div className="mb-4">
+                        <i className="fas fa-tools text-5xl text-primary-500"></i>
+                      </div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                        Chức năng đang phát triển
+                      </h3>
+                      <p className="text-gray-600 mb-6">
+                        Tính năng chat với chủ khách sạn đang được phát triển và
+                        sẽ sớm ra mắt.
+                      </p>
+                      <button
+                        onClick={() => setShowChatDevModal(false)}
+                        className="px-6 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors"
+                      >
+                        Đóng
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
