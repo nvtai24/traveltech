@@ -3,6 +3,7 @@ import { motion as Motion, AnimatePresence } from "framer-motion";
 
 const PricingModal = ({ isOpen, onClose }) => {
   const [billingCycle, setBillingCycle] = React.useState("monthly"); // 'monthly' or 'yearly'
+  const [showScrollIndicator, setShowScrollIndicator] = React.useState(true);
 
   if (!isOpen) return null;
 
@@ -145,6 +146,15 @@ const PricingModal = ({ isOpen, onClose }) => {
     }
   };
 
+  // Handle scroll to hide indicator
+  const handleScroll = (e) => {
+    if (e.target.scrollTop > 50) {
+      setShowScrollIndicator(false);
+    } else {
+      setShowScrollIndicator(true);
+    }
+  };
+
   return (
     <AnimatePresence>
       <Motion.div
@@ -159,8 +169,9 @@ const PricingModal = ({ isOpen, onClose }) => {
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.95, opacity: 0, y: 20 }}
           transition={{ type: "spring", duration: 0.5 }}
-          className="bg-white rounded-2xl shadow-2xl max-w-5xl w-full max-h-[85vh] overflow-y-auto flex flex-col [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          className="bg-white rounded-2xl shadow-2xl max-w-5xl w-full max-h-[85vh] overflow-y-auto flex flex-col [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] relative"
           onClick={(e) => e.stopPropagation()}
+          onScroll={handleScroll}
         >
           {/* Compact Header with Background Image */}
           <div className="sticky top-0 z-50 relative px-6 py-5 rounded-t-2xl bg-white shadow-md">
@@ -351,6 +362,29 @@ const PricingModal = ({ isOpen, onClose }) => {
               </p>
             </div>
           </div>
+
+          {/* Scroll Indicator */}
+          {showScrollIndicator && (
+            <Motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-40 pointer-events-none"
+            >
+              <div className="flex flex-col items-center gap-2">
+                <span className="text-xs text-gray-500 font-medium bg-white/90 px-3 py-1 rounded-full shadow-md">
+                  Cuộn xuống để xem thêm
+                </span>
+                <Motion.div
+                  animate={{ y: [0, 8, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  className="text-primary-500"
+                >
+                  <i className="fas fa-chevron-down text-xl"></i>
+                </Motion.div>
+              </div>
+            </Motion.div>
+          )}
         </Motion.div>
       </Motion.div>
     </AnimatePresence>
