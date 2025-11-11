@@ -30,8 +30,8 @@ const PricingModal = ({ isOpen, onClose }) => {
         status: "yes",
         details: [
           "Không giới hạn lượt dùng",
-          "Truy cập đầy đủ tùy chọn lập kế hoạch",
-          "Chia sẻ + tải về + lưu kế hoạch",
+          "Truy cập đầy đủ các lựa chọn kế hoạch",
+          "Chia sẻ,lưu và tải về kế hoạch",
           "Đề xuất nhiều lựa chọn nhà hàng/khách sạn",
         ],
       },
