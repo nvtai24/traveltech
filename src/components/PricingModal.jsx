@@ -20,9 +20,8 @@ const PricingModal = ({ isOpen, onClose }) => {
       free: {
         status: "limited",
         details: [
-          "Hạn chế 3 lượt dùng/năm",
-          "Hạn chế 1 lựa chọn kế hoạch",
-          "Hạn chế tính năng chia sẻ + tải về + lưu kế hoạch",
+          "3 lượt dùng/năm",
+          "1 lựa chọn kế hoạch",
           "Đề xuất 1 lựa chọn nhà hàng/khách sạn",
         ],
       },
@@ -90,8 +89,7 @@ const PricingModal = ({ isOpen, onClose }) => {
       free: {
         status: "limited",
         details: [
-          "Hạn chế số lượng và giá trị của voucher",
-          "Không được tham gia bảng xếp hạng cuối năm",
+          "Số lượng và giá trị của voucher giới hạn"
         ],
       },
       premium: {
