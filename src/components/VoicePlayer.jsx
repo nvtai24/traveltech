@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 
-const VoicePlayer = ({ text, audioUrl = null }) => {
+const VoicePlayer = ({ text, textEn, audioUrl = null }) => {
   const [playing, setPlaying] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   const [voices, setVoices] = useState([]);
   const [selectedVoice, setSelectedVoice] = useState(null);
-  const [rate, setRate] = useState(1.1); // Tốc độ: 0.5 - 2 (tăng lên 1.1 để trôi chảy hơn)
-  const [pitch, setPitch] = useState(1); // Cao độ: 0 - 2
-  const [naturalSpeech, setNaturalSpeech] = useState(true); // Chế độ nói tự nhiên
+  const [language, setLanguage] = useState("vi"); // Ngôn ngữ: "vi" hoặc "en"
+  const rate = 1.1; // Tốc độ cố định
+  const pitch = 1; // Cao độ cố định
+  const naturalSpeech = true; // Chế độ nói tự nhiên luôn bật
   const shouldStopRef = useRef(false); // Dùng ref để kiểm tra ngay lập tức
   const timeoutIdsRef = useRef([]); // Lưu trữ timeout IDs để hủy
 
@@ -17,14 +18,30 @@ const VoicePlayer = ({ text, audioUrl = null }) => {
       const availableVoices = window.speechSynthesis.getVoices();
       setVoices(availableVoices);
 
-      // Ưu tiên chọn giọng nữ người Việt Nam
-      // Thứ tự ưu tiên:
-      // 1. Giọng nữ Việt Nam (có chứa "female", "woman", "nữ", "cô" trong tên)
-      // 2. Bất kỳ giọng Việt Nam nào (vi-VN, vi)
-      // 3. Giọng đầu tiên trong danh sách
+      // Chọn giọng dựa trên ngôn ngữ đã chọn
+      selectVoiceByLanguage(language, availableVoices);
+    };
 
-      let selectedVoice = null;
+    loadVoices();
+    window.speechSynthesis.onvoiceschanged = loadVoices;
 
+    return () => {
+      window.speechSynthesis.onvoiceschanged = null;
+    };
+  }, []);
+
+  // Update voice when language changes
+  useEffect(() => {
+    if (voices.length > 0) {
+      selectVoiceByLanguage(language, voices);
+    }
+  }, [language, voices]);
+
+  // Function to select voice based on language
+  const selectVoiceByLanguage = (lang, availableVoices) => {
+    let selectedVoice = null;
+
+    if (lang === "vi") {
       // Tìm giọng nữ Việt Nam
       const femaleViVoices = availableVoices.filter((v) => {
         const isVietnamese = v.lang.includes("vi") || v.lang === "vi-VN";
@@ -32,10 +49,7 @@ const VoicePlayer = ({ text, audioUrl = null }) => {
           v.name.toLowerCase().includes("female") ||
           v.name.toLowerCase().includes("woman") ||
           v.name.toLowerCase().includes("nữ") ||
-          v.name.toLowerCase().includes("cô") ||
-          v.name.toLowerCase().includes("linh") ||
-          v.name.toLowerCase().includes("hà") ||
-          v.name.toLowerCase().includes("mai");
+          v.name.toLowerCase().includes("cô");
         return isVietnamese && isFemale;
       });
 
@@ -46,39 +60,21 @@ const VoicePlayer = ({ text, audioUrl = null }) => {
         const viVoices = availableVoices.filter(
           (v) => v.lang.includes("vi") || v.lang === "vi-VN"
         );
-        if (viVoices.length > 0) {
-          selectedVoice = viVoices[0];
-        } else {
-          selectedVoice = availableVoices[0];
-        }
+        selectedVoice = viVoices.length > 0 ? viVoices[0] : availableVoices[0];
       }
-
-      setSelectedVoice(selectedVoice);
-
-      // Log để debug
-      console.log(
-        "Available Vietnamese voices:",
-        availableVoices
-          .filter((v) => v.lang.includes("vi"))
-          .map((v) => ({
-            name: v.name,
-            lang: v.lang,
-            gender:
-              v.name.toLowerCase().includes("female") ||
-              v.name.toLowerCase().includes("woman")
-                ? "Female"
-                : "Unknown",
-          }))
+    } else if (lang === "en") {
+      // Tìm giọng tiếng Anh (US hoặc UK)
+      const enVoices = availableVoices.filter(
+        (v) =>
+          v.lang.includes("en-US") ||
+          v.lang.includes("en-GB") ||
+          v.lang.includes("en")
       );
-    };
+      selectedVoice = enVoices.length > 0 ? enVoices[0] : availableVoices[0];
+    }
 
-    loadVoices();
-    window.speechSynthesis.onvoiceschanged = loadVoices;
-
-    return () => {
-      window.speechSynthesis.onvoiceschanged = null;
-    };
-  }, []);
+    setSelectedVoice(selectedVoice);
+  };
 
   // Hàm xử lý văn bản để nói tự nhiên hơn
   const processTextForNaturalSpeech = (inputText) => {
@@ -97,7 +93,7 @@ const VoicePlayer = ({ text, audioUrl = null }) => {
   };
 
   // Hàm chia văn bản thành các đoạn (paragraphs) để đọc trôi chảy hơn
-  const speakWithVariation = (inputText) => {
+  const speakWithVariation = (inputText, langCode) => {
     // Chia thành các đoạn lớn hơn (2-3 câu) thay vì từng câu nhỏ
     // Chia theo dấu chấm + khoảng trắng, nhưng gộp lại thành chunks
     const allSentences = inputText
@@ -137,7 +133,7 @@ const VoicePlayer = ({ text, audioUrl = null }) => {
       }
 
       const utter = new SpeechSynthesisUtterance(chunk);
-      utter.lang = "vi-VN";
+      utter.lang = langCode;
       utter.rate = rate;
       utter.pitch = pitch;
 
@@ -182,6 +178,10 @@ const VoicePlayer = ({ text, audioUrl = null }) => {
     timeoutIdsRef.current.forEach(clearTimeout);
     timeoutIdsRef.current = [];
 
+    // Chọn text dựa trên ngôn ngữ
+    const currentText = language === "en" ? textEn || text : text;
+    const langCode = language === "en" ? "en-US" : "vi-VN";
+
     if (audioUrl) {
       // play audio URL
       const audio = new Audio(audioUrl);
@@ -194,12 +194,12 @@ const VoicePlayer = ({ text, audioUrl = null }) => {
 
       if (naturalSpeech) {
         // Chế độ nói tự nhiên với biến đổi âm điệu
-        const processedText = processTextForNaturalSpeech(text || "");
-        speakWithVariation(processedText);
+        const processedText = processTextForNaturalSpeech(currentText || "");
+        speakWithVariation(processedText, langCode);
       } else {
         // Chế độ nói đơn giản
-        const utter = new SpeechSynthesisUtterance(text || "");
-        utter.lang = "vi-VN";
+        const utter = new SpeechSynthesisUtterance(currentText || "");
+        utter.lang = langCode;
         utter.rate = rate;
         utter.pitch = pitch;
         if (selectedVoice) {
@@ -260,10 +260,10 @@ const VoicePlayer = ({ text, audioUrl = null }) => {
       {/* Settings Panel */}
       {showSettings && (
         <div className="absolute top-full left-0 mt-2 bg-white rounded-xl shadow-xl border border-gray-200 p-4 w-80 z-50">
-          <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center justify-between mb-4">
             <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-              <i className="fas fa-sliders-h text-primary-600"></i>
-              Cài đặt giọng đọc
+              <i className="fas fa-language text-primary-600"></i>
+              Cài đặt ngôn ngữ
             </h4>
             <button
               onClick={() => setShowSettings(false)}
@@ -273,212 +273,74 @@ const VoicePlayer = ({ text, audioUrl = null }) => {
             </button>
           </div>
 
-          {/* Info Banner */}
-          <div className="mb-4 p-3 bg-gradient-to-r from-pink-50 to-purple-50 rounded-lg border border-pink-200">
-            <div className="flex items-start gap-2">
-              <i className="fas fa-sparkles text-pink-500 mt-0.5"></i>
-              <div className="text-xs text-gray-700">
-                <div className="font-semibold text-pink-700 mb-1">
-                  👩 Giọng nữ Việt Nam được đề xuất
-                </div>
-                <div>
-                  Trải nghiệm nghe tốt nhất với giọng nữ người Việt. Nếu không
-                  có sẵn, vui lòng cài đặt giọng Việt trong hệ thống.
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Voice Selection */}
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              <i className="fas fa-user mr-2 text-primary-600"></i>
-              Giọng đọc
+          {/* Language Selection */}
+          <div className="space-y-3">
+            <label className="block text-sm font-medium text-gray-700 mb-3">
+              Chọn ngôn ngữ giọng đọc:
             </label>
-            <select
-              value={selectedVoice?.name || ""}
-              onChange={(e) => {
-                const voice = voices.find((v) => v.name === e.target.value);
-                setSelectedVoice(voice);
-              }}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-sm"
+
+            {/* Vietnamese Option */}
+            <button
+              onClick={() => setLanguage("vi")}
+              className={`w-full p-4 rounded-lg border-2 transition-all ${
+                language === "vi"
+                  ? "border-primary-600 bg-primary-50"
+                  : "border-gray-200 hover:border-gray-300"
+              }`}
             >
-              {voices.filter((v) => v.lang.includes("vi")).length === 0 && (
-                <option disabled>Không tìm thấy giọng Việt Nam</option>
-              )}
-
-              {/* Ưu tiên hiển thị giọng Việt Nam trước */}
-              {voices
-                .filter((v) => v.lang.includes("vi"))
-                .map((voice) => {
-                  const isFemale =
-                    voice.name.toLowerCase().includes("female") ||
-                    voice.name.toLowerCase().includes("woman") ||
-                    voice.name.toLowerCase().includes("nữ");
-                  return (
-                    <option key={voice.name} value={voice.name}>
-                      {isFemale ? "👩 " : ""}
-                      {voice.name} ({voice.lang}){isFemale ? " - Giọng nữ" : ""}
-                    </option>
-                  );
-                })}
-
-              {/* Các giọng khác */}
-              {voices.filter((v) => !v.lang.includes("vi")).length > 0 && (
-                <optgroup label="Giọng ngôn ngữ khác">
-                  {voices
-                    .filter((v) => !v.lang.includes("vi"))
-                    .map((voice) => (
-                      <option key={voice.name} value={voice.name}>
-                        {voice.name} ({voice.lang})
-                      </option>
-                    ))}
-                </optgroup>
-              )}
-            </select>
-            {selectedVoice && (
-              <div className="mt-2 text-xs text-gray-600 flex items-center gap-2">
-                <i className="fas fa-info-circle text-blue-500"></i>
-                <span>
-                  Đang dùng: <strong>{selectedVoice.name}</strong>
-                  {selectedVoice.name.toLowerCase().includes("female") ||
-                  selectedVoice.name.toLowerCase().includes("woman")
-                    ? " (Giọng nữ)"
-                    : ""}
-                </span>
-              </div>
-            )}
-
-            {/* Hướng dẫn cài đặt nếu không có giọng Việt */}
-            {voices.filter((v) => v.lang.includes("vi")).length === 0 && (
-              <div className="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
-                <div className="flex items-start gap-2">
-                  <i className="fas fa-exclamation-triangle text-yellow-600 mt-0.5"></i>
-                  <div className="text-xs text-gray-700">
-                    <div className="font-semibold text-yellow-800 mb-1">
-                      Chưa có giọng tiếng Việt
-                    </div>
-                    <div className="mb-2">
-                      Để có trải nghiệm tốt nhất, vui lòng cài đặt giọng đọc
-                      tiếng Việt:
-                    </div>
-                    <ul className="list-disc list-inside space-y-1 text-gray-600">
-                      <li>
-                        Windows: Settings → Time & Language → Speech → Add
-                        voices
-                      </li>
-                      <li>
-                        MacOS: System Preferences → Accessibility → Spoken
-                        Content
-                      </li>
-                      <li>Chrome: Cài extension "Google Text-to-Speech"</li>
-                    </ul>
+              <div className="flex items-center gap-3">
+                <div
+                  className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                    language === "vi" ? "border-primary-600" : "border-gray-300"
+                  }`}
+                >
+                  {language === "vi" && (
+                    <div className="w-3 h-3 rounded-full bg-primary-600"></div>
+                  )}
+                </div>
+                <div className="flex-1 text-left">
+                  <div className="flex items-center gap-2">
+                    <span className="font-semibold text-gray-900">
+                      Tiếng Việt
+                    </span>
+                  </div>
+                  <div className="text-xs text-gray-600 mt-1">
+                    Vietnamese voice narration
                   </div>
                 </div>
               </div>
-            )}
-          </div>
+            </button>
 
-          {/* Rate Control */}
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              <i className="fas fa-tachometer-alt mr-2 text-primary-600"></i>
-              Tốc độ: {rate.toFixed(1)}x
-            </label>
-            <input
-              type="range"
-              min="0.5"
-              max="2"
-              step="0.1"
-              value={rate}
-              onChange={(e) => setRate(parseFloat(e.target.value))}
-              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary-600"
-            />
-            <div className="flex justify-between text-xs text-gray-500 mt-1">
-              <span>0.5x (Chậm)</span>
-              <span>1.0x (Bình thường)</span>
-              <span>2.0x (Nhanh)</span>
-            </div>
-          </div>
-
-          {/* Pitch Control */}
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              <i className="fas fa-music mr-2 text-primary-600"></i>
-              Cao độ: {pitch.toFixed(1)}
-            </label>
-            <input
-              type="range"
-              min="0"
-              max="2"
-              step="0.1"
-              value={pitch}
-              onChange={(e) => setPitch(parseFloat(e.target.value))}
-              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary-600"
-            />
-            <div className="flex justify-between text-xs text-gray-500 mt-1">
-              <span>0 (Thấp)</span>
-              <span>1 (Bình thường)</span>
-              <span>2 (Cao)</span>
-            </div>
-          </div>
-
-          {/* Natural Speech Toggle */}
-          <div className="mb-4 p-3 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200">
-            <label className="flex items-center justify-between cursor-pointer">
-              <div className="flex items-center gap-2">
-                <i className="fas fa-waveform-lines text-blue-600"></i>
-                <div>
-                  <div className="text-sm font-medium text-gray-900">
-                    Giọng nói tự nhiên
+            {/* English Option */}
+            <button
+              onClick={() => setLanguage("en")}
+              className={`w-full p-4 rounded-lg border-2 transition-all ${
+                language === "en"
+                  ? "border-primary-600 bg-primary-50"
+                  : "border-gray-200 hover:border-gray-300"
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <div
+                  className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+                    language === "en" ? "border-primary-600" : "border-gray-300"
+                  }`}
+                >
+                  {language === "en" && (
+                    <div className="w-3 h-3 rounded-full bg-primary-600"></div>
+                  )}
+                </div>
+                <div className="flex-1 text-left">
+                  <div className="flex items-center gap-2">
+                    <span className="font-semibold text-gray-900">English</span>
                   </div>
-                  <div className="text-xs text-gray-600">
-                    Biến đổi âm điệu, ngắt nghỉ như người thật
+                  <div className="text-xs text-gray-600 mt-1">
+                    English voice narration
                   </div>
                 </div>
               </div>
-              <div className="relative">
-                <input
-                  type="checkbox"
-                  checked={naturalSpeech}
-                  onChange={(e) => setNaturalSpeech(e.target.checked)}
-                  className="sr-only peer"
-                />
-                <div className="w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-              </div>
-            </label>
+            </button>
           </div>
-
-          {/* Reset Button */}
-          <button
-            onClick={() => {
-              setRate(1);
-              setPitch(1);
-              setNaturalSpeech(true);
-
-              // Tìm giọng nữ Việt Nam
-              const femaleViVoices = voices.filter((v) => {
-                const isVietnamese =
-                  v.lang.includes("vi") || v.lang === "vi-VN";
-                const isFemale =
-                  v.name.toLowerCase().includes("female") ||
-                  v.name.toLowerCase().includes("woman") ||
-                  v.name.toLowerCase().includes("nữ");
-                return isVietnamese && isFemale;
-              });
-
-              if (femaleViVoices.length > 0) {
-                setSelectedVoice(femaleViVoices[0]);
-              } else {
-                const viVoice = voices.find((v) => v.lang.includes("vi"));
-                setSelectedVoice(viVoice || voices[0]);
-              }
-            }}
-            className="w-full px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-sm font-medium transition-colors"
-          >
-            <i className="fas fa-undo mr-2"></i>
-            Đặt lại mặc định (Giọng nữ Việt)
-          </button>
         </div>
       )}
     </div>

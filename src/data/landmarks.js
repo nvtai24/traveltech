@@ -75,6 +75,8 @@ export const landmarks = [
     audioStory: null,
     audioGuideScript:
       "Chào mừng bạn đến với Hồ Hoàn Kiếm, trái tim của thủ đô Hà Nội. Hồ này gắn liền với truyền thuyết thanh kiếm thần của vua Lê Lợi. Vào thế kỷ mười lăm, khi đánh giặc Minh, vua Lê Lợi được Long Vương ban cho thanh kiếm thần. Sau khi thắng trận, vua đi thuyền trên hồ này thì một con rùa vàng khổng lồ nổi lên, đòi lại thanh kiếm. Vua liền trả lại và từ đó hồ được gọi là Hồ Hoàn Kiếm. Giữa hồ có tháp Rùa, còn trên đảo Ngọc có đền Ngọc Sơn, được nối với bờ bằng cầu Thê Húc màu đỏ tươi. Hãy dạo quanh hồ để cảm nhận nhịp sống của người Hà Nội.",
+    audioGuideScriptEn:
+      "Welcome to Hoan Kiem Lake, the heart of Hanoi capital. This lake is associated with the legend of King Le Loi's magic sword. In the fifteenth century, during the war against the Ming invaders, King Le Loi received a magical sword from the Dragon King. After his victory, while boating on this lake, a giant golden turtle emerged and asked for the sword back. The king returned it, and since then, the lake has been called Hoan Kiem, meaning 'Lake of the Returned Sword'. In the middle of the lake stands Turtle Tower, while on Ngoc Island sits Ngoc Son Temple, connected to the shore by the bright red The Huc Bridge. Take a stroll around the lake to experience the rhythm of Hanoi's daily life.",
     tips: [
       "Nên đi vào buổi sáng sớm để tránh đông người",
       "Cuối tuần có phố đi bộ từ 19h thứ 7 đến 24h Chủ nhật",
@@ -183,6 +185,10 @@ export const landmarks = [
       "https://live.staticflickr.com/65535/639854037_b38abd6bd2_b.jpg",
     ],
     videos: [],
+    audioGuideScript:
+      "Chào mừng bạn đến với Văn Miếu Quốc Tử Giám, ngôi trường đại học đầu tiên của Việt Nam, được xây dựng từ năm một nghìn không trăm bảy mươi. Ban đầu, Văn Miếu là nơi thờ Khổng Tử và các bậc hiền tài. Năm một nghìn không trăm tám mươi bảy, Quốc Tử Giám được thành lập ở đây để đào tạo con em quý tộc và quan lại. Điểm nổi bật nhất là tám mươi hai tấm bia tiến sĩ, được UNESCO công nhận là di sản tư liệu thế giới. Mỗi tấm bia ghi tên và quê quán của các tiến sĩ đã đỗ từ thế kỷ mười lăm đến thế kỷ mười tám. Kiến trúc Văn Miếu gồm năm khu vực theo trục Bắc Nam, với Văn Miếu Môn, Đại Trung Môn, Khue Văn Các, và Đại Thành. Đây là biểu tượng của nền giáo dục truyền thống Việt Nam.",
+    audioGuideScriptEn:
+      "Welcome to the Temple of Literature, Vietnam's first university, built in ten seventy. Initially, the Temple of Literature was a place to worship Confucius and learned scholars. In ten eighty-seven, the Imperial Academy was established here to train children of nobles and mandarins. The most notable feature is the eighty-two doctoral steles, recognized by UNESCO as a documentary heritage of the world. Each stele records the names and hometowns of doctorate holders from the fifteenth to eighteenth centuries. The Temple's architecture consists of five areas along the North-South axis, with the Van Mieu Gate, Dai Trung Gate, Khue Van Pavilion, and Dai Thanh Sanctuary. This is a symbol of Vietnam's traditional education system.",
     tips: [
       "Mặc trang phục lịch sự, không quá hở hang",
       "Thuê hướng dẫn viên để hiểu rõ hơn về lịch sử",
@@ -265,7 +271,10 @@ export const landmarks = [
       "https://images2.thanhnien.vn/528068263637045248/2023/6/24/img4099-16875776586881216884140.jpg",
     ],
     videos: [],
-    audioGuideScript: "",
+    audioGuideScript:
+      "Vịnh Hạ Long, một trong những kỳ quan thiên nhiên thế giới, được UNESCO công nhận hai lần là Di sản Thiên nhiên Thế giới. Tên Hạ Long có nghĩa là rồng hạ xuống, xuất phát từ truyền thuyết về gia đình rồng xuống vịnh giúp người Việt chống giặc. Những con rồng nhả ra ngọc và ngà, biến thành hàng nghìn hòn đảo đá vôi, tạo thành hàng rào thiên nhiên bảo vệ đất nước. Vịnh có hơn một nghìn sáu trăm hòn đảo với nhiều hang động tuyệt đẹp như Hang Sửng Sốt, Hang Đầu Gỗ, Động Thiên Cung. Du thuyền qua đêm trên vịnh, chèo kayak khám phá hang động, ngắm hoàng hôn là những trải nghiệm không thể bỏ qua.",
+    audioGuideScriptEn:
+      "Ha Long Bay, one of the world's natural wonders, has been recognized twice by UNESCO as a World Natural Heritage Site. The name Ha Long means descending dragon, derived from the legend of a dragon family descending to the bay to help Vietnamese people fight invaders. The dragons spat out jewels and jade, which turned into thousands of limestone islands, forming a natural barrier to protect the country. The bay has more than sixteen hundred islands with many beautiful caves such as Sung Sot Cave, Dau Go Cave, and Thien Cung Grotto. Cruising overnight on the bay, kayaking to explore caves, and watching the sunset are unforgettable experiences.",
     tips: [
       "Đặt tour trước 1-2 tuần vào mùa cao điểm",
       "Mang theo thuốc say sóng nếu cần",
@@ -353,6 +362,10 @@ export const landmarks = [
       "https://thumbs.dreamstime.com/b/hoi-ancient-town-central-vieatnam-landmark-popular-tourist-attractions-vietnam-november-264866144.jpg",
     ],
     videos: [],
+    audioGuideScript:
+      "Phố cổ Hội An, thành phố cổ được UNESCO công nhận là Di sản Văn hóa Thế giới năm một nghìn chín trăm chín mươi chín. Từ thế kỷ mười sáu đến thế kỷ mười tám, Hội An là cảng thương mại quốc tế sầm uất nhất Đông Nam Á, nơi giao thương của thương nhân Nhật Bản, Trung Quốc, Hà Lan, và Bồ Đào Nha. Chùa Cầu là biểu tượng của Hội An, được xây dựng bởi người Nhật vào năm một nghìn năm trăm chín mươi ba. Những ngôi nhà cổ mang dấu ấn kiến trúc Việt, Trung, và Nhật hòa quyện độc đáo. Mỗi tháng vào ngày rằm, phố cổ tắt hết đèn điện, thắp lên hàng nghìn chiếc đèn lồng rực rỡ, tái hiện không khí thời xưa.",
+    audioGuideScriptEn:
+      "Hoi An Ancient Town, recognized by UNESCO as a World Cultural Heritage Site in nineteen ninety-nine. From the sixteenth to the eighteenth century, Hoi An was the busiest international trading port in Southeast Asia, a trading place for merchants from Japan, China, the Netherlands, and Portugal. The Japanese Covered Bridge is the symbol of Hoi An, built by the Japanese in fifteen ninety-three. The ancient houses bear unique architectural imprints of Vietnam, China, and Japan blended together. Every lunar month on the full moon day, the ancient town turns off all electric lights and lights up thousands of brilliant lanterns, recreating the atmosphere of old times.",
     tips: [
       "Thuê xe đạp để dạo phố (50.000 VND/ngày)",
       "Nên ở qua đêm để trải nghiệm phố cổ về đêm",
@@ -444,6 +457,10 @@ export const landmarks = [
     thumbnail: "https://statics.vinpearl.com/chua-tran-quoc-8_1685970745.jpg",
     images: ["https://statics.vinpearl.com/chua-tran-quoc-5_1685970788.jpg"],
     videos: [],
+    audioGuideScript:
+      "Chào mừng bạn đến với Chùa Trấn Quốc, ngôi chùa cổ nhất Thăng Long Hà Nội. Chùa được xây dựng từ thời Lý Nam Đế, năm năm trăm bốn mươi mốt đến năm trăm bốn mươi bảy, ban đầu mang tên Khai Quốc. Chùa nằm trên một hòn đảo nhỏ giữa Hồ Tây, tạo nên khung cảnh thanh tịnh, yên bình. Điểm nổi bật nhất là tháp Bảo Tháp cao mười lăm tầng, được xây dựng năm một nghìn chín trăm chín mươi tám. Trong chùa còn có cây Bồ Đề thiêng được tặng từ Ấn Độ năm một nghìn chín trăm năm mươi chín, là nhánh từ cây Bồ Đề mà Đức Phật Thích Ca đạt đạo. Khung cảnh chùa bên Hồ Tây vào lúc hoàng hôn vô cùng thơ mộng.",
+    audioGuideScriptEn:
+      "Welcome to Tran Quoc Pagoda, the oldest pagoda in Thang Long Hanoi. The pagoda was built during the reign of Ly Nam De, from five forty-one to five forty-seven, originally named Khai Quoc. The pagoda sits on a small island in the middle of West Lake, creating a peaceful and serene landscape. The most prominent feature is the fifteen-story Bao Thap Tower, built in nineteen ninety-eight. Inside the pagoda is a sacred Bodhi tree gifted from India in nineteen fifty-nine, a branch from the Bodhi tree under which Buddha Shakyamuni attained enlightenment. The view of the pagoda beside West Lake at sunset is incredibly poetic.",
     tips: [
       "Mặc trang phục lịch sự, không hở hang",
       "Tắt tiếng điện thoại khi vào chùa",
@@ -522,6 +539,10 @@ export const landmarks = [
       "https://tse4.mm.bing.net/th/id/OIP.LCw3RCa4WAwauvToqTcxGQHaE8?cb=ucfimg2ucfimg=1&w=960&h=640&rs=1&pid=ImgDetMain&o=7&rm=3",
     ],
     videos: [],
+    audioGuideScript:
+      "Vườn Quốc gia Phong Nha Kẻ Bàng, vương quốc hang động của thế giới. Được UNESCO công nhận là Di sản Thiên nhiên Thế giới năm hai nghìn lẻ ba, và được mở rộng năm hai nghìn mười lăm. Đây là khu vực có hệ thống hang động karst lớn nhất và đẹp nhất hành tinh. Hang Sơn Đoòng được thám hiểm lần đầu vào năm hai nghìn lẻ chín. Đây là hang động tự nhiên lớn nhất thế giới, rộng tới hai trăm mét, cao một trăm năm mươi mét, và dài hơn năm ki lô mét. Bên trong hang có cả một hệ sinh thái riêng, với rừng cây nguyên sinh, sông suối, và những mây trời lơ lửng.",
+    audioGuideScriptEn:
+      "Phong Nha Ke Bang National Park, the kingdom of caves in the world. Recognized by UNESCO as a World Natural Heritage Site in two thousand and three, and expanded in two thousand and fifteen. This is the area with the largest and most beautiful karst cave system on the planet. Son Doong Cave was first explored in two thousand and nine. This is the largest known natural cave in the world, up to two hundred meters wide, one hundred and fifty meters high, and more than five kilometers long. Inside the cave is a separate ecosystem, with primary forests, streams, and floating clouds.",
     tips: [
       "Đặt tour trước nhiều tháng, đặc biệt tour Sơn Đoòng",
       "Chuẩn bị thể lực tốt cho các tour thám hiểm",
@@ -599,6 +620,11 @@ export const landmarks = [
     images: [
       "https://dulichkhampha24.com/wp-content/uploads/2018/09/Bai-bien-doc-let-nha-trang-5.jpg",
     ],
+    videos: [],
+    audioGuideScript:
+      "Chào mừng bạn đến với Nha Trang, thành phố biển xinh đẹp của Việt Nam. Bãi biển Nha Trang trải dài bảy ki lô mét với bãi cát trắng mịn và nước biển trong xanh. Nha Trang từng là khu nghỉ dưỡng của hoàng gia Việt Nam và quý tộc Pháp từ đầu thế kỷ hai mươi. Vào những năm một nghìn chín trăm hai mươi, người Pháp đã xây dựng nhiều biệt thự và khách sạn dọc bờ biển. Hòn Mun là khu bảo tồn biển đầu tiên của Việt Nam, nơi có hệ sinh thái san hô phong phú với hơn ba trăm loài san hô và hai nghìn loài sinh vật biển. Đây là thiên đường cho những người yêu thích lặn biển và khám phá thế giới dưới nước.",
+    audioGuideScriptEn:
+      "Welcome to Nha Trang, Vietnam's beautiful coastal city. Nha Trang Beach stretches seven kilometers with fine white sand and crystal-clear blue water. Nha Trang was once a resort of Vietnamese royalty and French nobility from the early twentieth century. In the nineteen twenties, the French built many villas and hotels along the coastline. Hon Mun is Vietnam's first marine protected area, home to a rich coral reef ecosystem with over three hundred species of coral and two thousand marine species. This is a paradise for those who love diving and exploring the underwater world.",
     tips: [
       "Đặt khách sạn gần bãi biển Trần Phú",
       "Đi tour 4 đảo vào buổi sáng để tránh nắng gắt",
@@ -672,6 +698,11 @@ export const landmarks = [
     images: [
       "https://th.bing.com/th/id/R.870d0375ffa522d3411fd2f9a980008a?rik=lgvfVFqVquP2yw&riu=http%3a%2f%2fsungetawaystravel.com%2fwp-content%2fuploads%2f2023%2f06%2fHinh-anh-dao-ngoc-Phu-Quoc-1024x602.jpg&ehk=3pj0OsLwf9BAMf3K5%2f36LzgK%2bnjMRCOeL%2bA1w%2bErjo8%3d&risl=&pid=ImgRaw&r=0",
     ],
+    videos: [],
+    audioGuideScript:
+      "Chào mừng bạn đến với Phú Quốc, hòn đảo ngọc lớn nhất Việt Nam. Lịch sử Phú Quốc gắn liền với nước mắm truyền thống, được sản xuất từ thế kỷ mười tám. Trong chiến tranh chống Pháp và chống Mỹ, Phú Quốc là nơi giam giữ tù binh với nhà tù Phú Quốc khét tiếng. Sau chiến tranh, đảo chuyển sang phát triển du lịch và trở thành thiên đường nghỉ dưỡng. Bãi Sao với bãi cát trắng mịn như bột, nước biển trong xanh ngắt là một trong những bãi biển đẹp nhất châu Á. Hòn Thơm là đảo nhỏ được nối với đảo chính bằng cáp treo vượt biển dài nhất thế giới. Phú Quốc còn nổi tiếng với rừng nguyên sinh, vườn tiêu đen, và hải sản phong phú.",
+    audioGuideScriptEn:
+      "Welcome to Phu Quoc, Vietnam's largest pearl island. Phu Quoc's history is closely tied to traditional fish sauce, produced since the eighteenth century. During the wars against France and America, Phu Quoc was a prisoner-of-war detention site with the notorious Phu Quoc Prison. After the war, the island shifted to tourism development and became a resort paradise. Sao Beach, with its powder-fine white sand and crystal-clear blue water, is one of the most beautiful beaches in Asia. Hon Thom is a small island connected to the main island by the world's longest sea-crossing cable car. Phu Quoc is also famous for its pristine forests, black pepper gardens, and abundant seafood.",
     tips: [
       "Thuê xe máy để tự do khám phá đảo",
       "Thử hải sản tươi sống tại chợ đêm",
@@ -746,6 +777,11 @@ export const landmarks = [
     images: [
       "https://static.toiimg.com/photo/msid-100795741,width-96,height-65.cms",
     ],
+    videos: [],
+    audioGuideScript:
+      "Chào mừng bạn đến với Sapa, thị trấn miền núi nằm ở độ cao một nghìn sáu trăm mét so với mực nước biển. Sapa được mệnh danh là Đà Lạt của miền Bắc với khí hậu mát mẻ quanh năm. Ruộng bậc thang Sapa là một trong những cảnh quan đẹp nhất Việt Nam, đặc biệt vào mùa lúa chín khi cả thung lũng chuyển sang màu vàng óng. Những thửa ruộng này được các dân tộc thiểu số như H'Mông, Dao, Tày tạo dựng qua hàng thế kỷ. Fansipan cao ba nghìn một trăm bốn mươi ba mét, được gọi là nóc nhà Đông Dương. Giờ đây, du khách có thể lên đỉnh bằng hệ thống cáp treo hiện đại chỉ trong mười lăm phút.",
+    audioGuideScriptEn:
+      "Welcome to Sapa, a mountain town located at an altitude of sixteen hundred meters above sea level. Sapa is called the Dalat of the North with cool weather year-round. Sapa's terraced rice fields are one of Vietnam's most beautiful landscapes, especially during the harvest season when the entire valley turns golden. These rice terraces were created by ethnic minorities such as H'Mong, Dao, and Tay over centuries. Fansipan, at three thousand one hundred forty-three meters, is called the roof of Indochina. Now, visitors can reach the summit by modern cable car in just fifteen minutes.",
     tips: [
       "Mang theo áo ấm, Sa Pa lạnh quanh năm",
       "Đi vào mùa lúa chín để ngắm ruộng bậc thang đẹp nhất",
@@ -820,6 +856,11 @@ export const landmarks = [
     images: [
       "https://th.bing.com/th/id/R.9bd25a8a13dc710518e5b16a32206827?rik=inJpr8HqTTI1fw&pid=ImgRaw&r=0",
     ],
+    videos: [],
+    audioGuideScript:
+      "Chào mừng bạn đến với Đà Lạt, thành phố ngàn hoa nằm trên cao nguyên Lâm Viên ở độ cao một nghìn năm trăm mét. Khí hậu ôn đới quanh năm với nhiệt độ trung bình mười tám đến hai mươi bốn độ C. Từng là khu nghỉ dưỡng của thực dân Pháp, Đà Lạt giữ được nhiều công trình kiến trúc Pháp đẹp như nhà ga và biệt thự cổ. Thành phố nổi tiếng với các thác nước đẹp như Datanla, Pongour, hồ Xuân Hương thơ mộng, và đồi chè Cầu Đất. Du khách có thể tham quan làng hoa Vạn Thành, đạp xe quanh hồ, chơi canyoning, hoặc thưởng thức ẩm thực độc đáo như bánh tráng nướng và sữa đậu nành.",
+    audioGuideScriptEn:
+      "Welcome to Dalat, the city of thousands of flowers located on the Lam Vien plateau at an altitude of fifteen hundred meters. The temperate climate year-round with average temperatures of eighteen to twenty-four degrees Celsius. Once a resort of French colonists, Dalat has preserved many beautiful French architectural works such as the railway station and old villas. The city is famous for beautiful waterfalls like Datanla and Pongour, the poetic Xuan Huong Lake, and the green Cau Dat tea hills. Visitors can visit Van Thanh flower village, cycle around the lake, try canyoning, or enjoy unique cuisine like grilled rice paper and soy milk.",
     tips: [
       "Mang áo khoác vì Đà Lạt mát vào buổi sáng và tối",
       "Thử cà phê Mê Linh hoặc cà phê chồn",
@@ -894,6 +935,11 @@ export const landmarks = [
     images: [
       "https://katana.bdatrip.com/image/w=0/https://images.bdatrip.com/2023/11/cke/cua-hang.jpg",
     ],
+    videos: [],
+    audioGuideScript:
+      "Chào mừng bạn đến với Chợ Bến Thành, biểu tượng văn hóa của Sài Gòn. Chợ được xây dựng lần đầu vào năm một nghìn nhưng khá lăm, nhưng tòa nhà hiện tại được hoàn thành năm một nghìn chín trăm mười bốn dưới thời Pháp thuộc. Kiến trúc chợ mang phong cách Đông Dương với chiếc đồng hồ biểu tượng trên cổng chính. Trong chiến tranh Việt Nam, Chợ Bến Thành là nơi diễn ra nhiều hoạt động mua bán và cũng là địa điểm bí mật của phong trào kháng chiến. Ngày nay, chợ có hơn ba nghìn gian hàng bán đủ loại hàng hóa từ đồ lưu niệm, thủ công mỹ nghệ, đến ẩm thực đường phố. Chợ đêm Bến Thành mở cửa từ sáu giờ tối, thu hút hàng nghìn du khách mỗi đêm.",
+    audioGuideScriptEn:
+      "Welcome to Ben Thanh Market, the cultural symbol of Saigon. The market was first built in eighteen fifty-four, but the current building was completed in nineteen fourteen during French colonial rule. The market's architecture features Indochinese style with an iconic clock tower at the main gate. During the Vietnam War, Ben Thanh Market was a place of bustling trade and also a secret location for resistance movement activities. Today, the market has over three thousand stalls selling everything from souvenirs and handicrafts to street food. Ben Thanh Night Market opens from six in the evening, attracting thousands of visitors every night.",
     tips: [
       "Mặc cả giá khi mua đồ",
       "Cẩn thận túi xách trong chợ đông người",
@@ -966,6 +1012,11 @@ export const landmarks = [
     thumbnail:
       "https://static.vinwonders.com/production/ha-noi-36-pho-phuong-4.jpg",
     images: ["https://statics.vinpearl.com/36-pho-phuong-3_1688917141.jpg"],
+    videos: [],
+    audioGuideScript:
+      "Chào mừng bạn đến với Phố Cổ ba mươi sáu phố phường, trái tim của Hà Nội cổ. Khu phố này có lịch sử hơn một nghìn năm, hình thành từ thế kỷ mười một dưới triều đại nhà Lý. Mỗi phố phường được đặt tên theo nghề nghiệp truyền thống, như phố Hàng Bạc bán bạc, phố Hàng Đào bán lụa đào, phố Hàng Gà bán đồ gà. Kiến trúc nhà ống đặc trưng với mặt tiền hẹp và chiều sâu dài được hình thành do chế độ thuế đất thời xưa tính theo chiều rộng mặt tiền. Trong kháng chiến chống Pháp, nhiều ngôi nhà ở đây là nơi ẩn náu của chiến sĩ cách mạng. Ngày nay, phố cổ vẫn giữ được nét văn hóa truyền thống với các nghề thủ công, ẩm thực đường phố, và nhịp sống đặc trưng của người Hà Nội.",
+    audioGuideScriptEn:
+      "Welcome to the Old Quarter of Thirty-Six Streets, the heart of ancient Hanoi. This area has over a thousand years of history, formed in the eleventh century under the Ly dynasty. Each street is named after a traditional craft, such as Hang Bac selling silver, Hang Dao selling silk, and Hang Ga selling chicken products. The characteristic tube house architecture with narrow frontage and long depth was formed due to the old land tax system that calculated based on frontage width. During the resistance against France, many houses here were hideouts for revolutionary fighters. Today, the Old Quarter still retains its traditional culture with handicrafts, street food, and the distinctive rhythm of Hanoian life.",
     tips: [
       "Đi bộ hoặc thuê xe đạp để dễ di chuyển",
       "Thử bún chả, phở, cà phê trứng",
@@ -1040,6 +1091,11 @@ export const landmarks = [
     images: [
       "https://dulichconvoi.com/wp-content/uploads/2023/04/Banahill-D-1-1-scaled.jpg",
     ],
+    videos: [],
+    audioGuideScript:
+      "Chào mừng bạn đến với Bà Nà Hills, khu du lịch núi nổi tiếng ở Đà Nẵng. Bà Nà được người Pháp phát hiện và xây dựng thành khu nghỉ dưỡng từ năm một nghìn chín trăm mười chín. Trong thời Pháp thuộc, hơn hai trăm biệt thự và khách sạn được xây dựng ở đây để quý tộc Pháp tránh nóng. Sau khi Pháp rời đi, Bà Nà bị bỏ hoang trong nhiều thập kỷ. Năm hai nghìn, khu du lịch được phục hồi với hệ thống cáp treo hiện đại. Cầu Vàng được khánh thành năm hai nghìn mười tám, với thiết kế độc đáo như hai bàn tay khổng lồ nâng đỡ cầu, nhanh chóng trở thành biểu tượng du lịch mới của Việt Nam. Bà Nà Hills giờ đây là khu phức hợp giải trí với làng Pháp, vườn hoa, và công viên giải trí Fantasy Park.",
+    audioGuideScriptEn:
+      "Welcome to Ba Na Hills, the famous mountain resort in Da Nang. Ba Na was discovered by the French and developed as a resort from nineteen nineteen. During French colonial rule, over two hundred villas and hotels were built here for French nobility to escape the heat. After the French left, Ba Na was abandoned for many decades. In two thousand, the resort was revitalized with a modern cable car system. The Golden Bridge was inaugurated in two thousand eighteen, with a unique design of two giant hands supporting the bridge, quickly becoming Vietnam's new tourism icon. Ba Na Hills is now an entertainment complex with a French village, flower gardens, and Fantasy Park amusement park.",
     tips: [
       "Đi sớm để tránh đông (7h-8h)",
       "Mang áo khoác vì trên núi lạnh",
@@ -1114,6 +1170,11 @@ export const landmarks = [
     images: [
       "https://wanderlusttips.asia/wp-content/uploads/2023/04/Cung-Centara-Mirage-Resort-Mui-Ne-nang-tam-nghi-duong-voi-hang-phong-moi-Premier-Pool-Access-1.jpg",
     ],
+    videos: [],
+    audioGuideScript:
+      "Chào mừng bạn đến với Mũi Né, thiên đường của những đồi cát và gió biển. Mũi Né từng là làng chài nghèo của người Chăm từ thế kỷ mười bảy. Tên Mũi Né có nghĩa là nơi trốn tránh, theo truyền thuyết, công chúa Chiêm Thành đã trốn chạy đến đây để tránh hôn nhân bắt buộc. Đồi cát đỏ và đồi cát trắng là di tích của hoạt động sa mạc hóa cổ đại, tạo nên cảnh quan độc đáo hiếm có ở Việt Nam. Suối Tiên là dòng suối chảy qua cát đỏ, tạo nên khung cảnh kỳ ảo. Từ những năm hai nghìn, Mũi Né trở thành thiên đường của môn lướt ván diều với gió đông bắc thổi mạnh từ tháng mười một đến tháng ba. Ngày nay, Mũi Né là điểm đến yêu thích của du khách muốn trải nghiệm sa mạc và biển trong một chuyến đi.",
+    audioGuideScriptEn:
+      "Welcome to Mui Ne, a paradise of sand dunes and ocean breezes. Mui Ne was once a poor Cham fishing village from the seventeenth century. The name Mui Ne means place of refuge; according to legend, a Champa princess fled here to escape an arranged marriage. The red sand dunes and white sand dunes are relics of ancient desertification, creating a unique landscape rare in Vietnam. Fairy Stream is a creek flowing through red sand, creating a magical scene. Since the two thousands, Mui Ne has become a kitesurfing paradise with strong northeast winds blowing from November to March. Today, Mui Ne is a favorite destination for travelers seeking to experience both desert and sea in one trip.",
     tips: [
       "Thuê xe máy để tự do di chuyển",
       "Xem bình minh ở Hòn Rơm rất đẹp",

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import NewsletterModal from "../components/NewsletterModal";
+import PricingButton from "../components/PricingButton";
 
 const Home = () => {
   const features = [
@@ -582,6 +583,9 @@ const Home = () => {
 
       {/* Newsletter Modal */}
       <NewsletterModal />
+
+      {/* Pricing Button */}
+      <PricingButton />
     </div>
   );
 };

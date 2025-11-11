@@ -434,7 +434,7 @@ const DestinationDetail = () => {
             <div className="bg-white rounded-xl shadow-sm p-6">
               <h4 className="font-bold text-lg mb-4 flex items-center text-gray-900">
                 <i className="fas fa-headphones text-primary-600 mr-2"></i>
-                Audio Guide
+                Story Voice
               </h4>
               <div className="mb-3 text-sm text-gray-600">
                 <i className="fas fa-info-circle mr-2"></i>
@@ -442,11 +442,17 @@ const DestinationDetail = () => {
               </div>
               <div className="mb-3 text-xs text-amber-600 bg-amber-50 px-3 py-2 rounded-lg flex items-center">
                 <i className="fas fa-language mr-2"></i>
-                <span>Hiện tại tính năng này chỉ hỗ trợ tiếng Việt</span>
+                <span>
+                  Hiện tại tính năng này chỉ hỗ trợ Tiếng Việt và Tiếng Anh
+                </span>
               </div>
               <VoicePlayer
                 text={
                   loc.audioGuideScript ||
+                  `${loc.name}. ${loc.history}. ${loc.description}`
+                }
+                textEn={
+                  loc.audioGuideScriptEn ||
                   `${loc.name}. ${loc.history}. ${loc.description}`
                 }
                 audioUrl={loc.audioStory}
