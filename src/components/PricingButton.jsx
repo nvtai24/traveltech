@@ -43,7 +43,7 @@ const PricingButton = () => {
       <Motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: isHovered ? 1 : 0, x: isHovered ? 0 : -20 }}
-        className="fixed bottom-24 left-24 z-40 bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg whitespace-nowrap pointer-events-none"
+        className="fixed bottom-10 left-28 z-40 bg-gray-900 text-white px-4 py-2 rounded-lg shadow-lg whitespace-nowrap pointer-events-none"
       >
         <div className="flex items-center gap-2">
           <i className="fas fa-star text-yellow-400"></i>
