@@ -18,7 +18,7 @@ const PricingButton = () => {
         onClick={() => setIsOpen(true)}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        className="fixed bottom-24 left-6 z-40 bg-gradient-to-r from-amber-500 to-orange-600 text-white p-4 rounded-full shadow-2xl hover:shadow-amber-500/50 transition-all duration-300"
+        className="fixed bottom-8 w-16 h-16 left-6 z-40 bg-gradient-to-r from-amber-500 to-orange-600 text-white p-4 rounded-full shadow-2xl hover:shadow-amber-500/50 transition-all duration-300"
         aria-label="Xem gói Premium"
       >
         <Motion.div

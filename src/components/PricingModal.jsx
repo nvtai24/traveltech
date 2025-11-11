@@ -131,18 +131,19 @@ const PricingModal = ({ isOpen, onClose }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
         onClick={onClose}
       >
         <Motion.div
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.9, opacity: 0 }}
-          className="bg-white rounded-2xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto"
+          initial={{ scale: 0.95, opacity: 0, y: 20 }}
+          animate={{ scale: 1, opacity: 1, y: 0 }}
+          exit={{ scale: 0.95, opacity: 0, y: 20 }}
+          transition={{ type: "spring", duration: 0.5 }}
+          className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col"
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Header */}
-          <div className="sticky top-0 relative px-8 py-6 rounded-t-2xl overflow-hidden">
+          {/* Compact Header with Background Image */}
+          <div className="relative px-6 py-5 overflow-hidden">
             {/* Background Image */}
             <div
               className="absolute inset-0 bg-cover bg-center"
@@ -152,125 +153,124 @@ const PricingModal = ({ isOpen, onClose }) => {
               }}
             ></div>
             {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black/60"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/60"></div>
 
-            <div className="relative flex justify-between items-center">
-              <div>
-                <h2 className="text-white text-3xl font-extrabold mb-2 drop-shadow-lg">
-                  Chọn gói phù hợp với bạn
-                </h2>
-                <p className="text-white font-semibold drop-shadow-md">
-                  Trải nghiệm đầy đủ tính năng với gói Premium
-                </p>
-              </div>
+            {/* Content */}
+            <div className="relative">
               <button
                 onClick={onClose}
-                className="text-white hover:bg-white hover:bg-opacity-20 rounded-full p-2 transition-colors"
+                className="absolute top-0 right-0 w-8 h-8 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors"
               >
-                <i className="fas fa-times text-2xl"></i>
+                <i className="fas fa-times text-sm"></i>
               </button>
-            </div>
 
-            {/* Billing Toggle */}
-            <div className="relative mt-6 flex items-center justify-center gap-4">
-              <span
-                className={`text-sm ${
-                  billingCycle === "monthly"
-                    ? "text-white font-semibold"
-                    : "text-white/70"
-                }`}
-              >
-                Thanh toán theo tháng
-              </span>
-              <button
-                onClick={() =>
-                  setBillingCycle(
-                    billingCycle === "monthly" ? "yearly" : "monthly"
-                  )
-                }
-                className="relative w-14 h-7 bg-white bg-opacity-30 rounded-full transition-colors"
-              >
-                <Motion.div
-                  animate={{ x: billingCycle === "monthly" ? 2 : 30 }}
-                  className="absolute top-1 w-5 h-5 bg-white rounded-full shadow-md"
-                />
-              </button>
-              <span
-                className={`text-sm ${
-                  billingCycle === "yearly"
-                    ? "text-white font-semibold"
-                    : "text-white/70"
-                }`}
-              >
-                Thanh toán theo năm
-                <span className="ml-2 bg-green-400 text-green-900 text-xs px-2 py-1 rounded-full font-bold">
-                  Tiết kiệm 23%
+              <div className="max-w-2xl">
+                <h2 className="text-white text-2xl font-bold mb-1 drop-shadow-lg">
+                  Chọn gói phù hợp
+                </h2>
+                <p className="text-white/90 text-sm drop-shadow-md">
+                  Trải nghiệm đầy đủ tính năng với Premium
+                </p>
+              </div>
+
+              {/* Compact Billing Toggle */}
+              <div className="mt-4 flex items-center gap-3">
+                <span
+                  className={`text-xs font-medium drop-shadow-md ${
+                    billingCycle === "monthly" ? "text-white" : "text-white/60"
+                  }`}
+                >
+                  Tháng
                 </span>
-              </span>
+                <button
+                  onClick={() =>
+                    setBillingCycle(
+                      billingCycle === "monthly" ? "yearly" : "monthly"
+                    )
+                  }
+                  className="relative w-12 h-6 bg-white/20 rounded-full transition-colors hover:bg-white/30"
+                >
+                  <Motion.div
+                    animate={{ x: billingCycle === "monthly" ? 2 : 26 }}
+                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    className="absolute top-1 w-4 h-4 bg-white rounded-full shadow-md"
+                  />
+                </button>
+                <div className="flex items-center gap-2">
+                  <span
+                    className={`text-xs font-medium drop-shadow-md ${
+                      billingCycle === "yearly" ? "text-white" : "text-white/60"
+                    }`}
+                  >
+                    Năm
+                  </span>
+                  <span className="bg-green-400 text-green-900 text-[10px] px-2 py-0.5 rounded-full font-bold shadow-sm">
+                    -23%
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Pricing Cards */}
-          <div className="px-8 py-8">
-            <div className="grid md:grid-cols-2 gap-6">
+          {/* Scrollable Content */}
+          <div className="flex-1 overflow-y-auto px-6 py-6">
+            <div className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
               {plans.map((plan, index) => (
                 <Motion.div
                   key={plan.name}
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 }}
-                  className={`relative rounded-xl border-2 p-6 flex flex-col ${
+                  className={`relative rounded-xl border-2 p-5 flex flex-col transition-all ${
                     plan.popular
-                      ? "border-primary-500 shadow-xl scale-105"
-                      : "border-gray-200"
+                      ? "border-primary-500 shadow-lg bg-gradient-to-br from-primary-50/50 to-blue-50/30"
+                      : "border-gray-200 hover:border-gray-300"
                   }`}
                 >
                   {plan.popular && (
-                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <span className="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
-                        🔥 Phổ biến nhất
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                      <span className="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-md">
+                        🔥 Hot
                       </span>
                     </div>
                   )}
 
-                  {/* Plan Header */}
-                  <div className="text-center mb-6">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                  {/* Compact Plan Header */}
+                  <div className="mb-4">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">
                       {plan.name}
                     </h3>
-                    <div className="flex items-baseline justify-center gap-1">
-                      <span className="text-4xl font-bold text-gray-900">
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-3xl font-bold text-gray-900">
                         {plan.name === "Premium" && billingCycle === "yearly"
                           ? plan.priceYearly
                           : plan.price}
                       </span>
-                      <span className="text-xl text-gray-600">VNĐ</span>
-                      <span className="text-gray-500 ml-1">
+                      <span className="text-sm text-gray-500">đ</span>
+                      <span className="text-sm text-gray-500">
                         {plan.name === "Premium" && billingCycle === "yearly"
                           ? plan.periodYearly
                           : plan.period}
                       </span>
                     </div>
                     {plan.name === "Premium" && billingCycle === "yearly" && (
-                      <p className="text-sm text-green-600 mt-2">
-                        Chỉ 37.500 VNĐ/tháng
+                      <p className="text-xs text-green-600 mt-1 font-medium">
+                        ≈ 37.500đ/tháng
                       </p>
                     )}
                   </div>
 
-                  {/* Features */}
-                  <ul className="space-y-3 mb-6 flex-grow">
+                  {/* Compact Features */}
+                  <ul className="space-y-2 mb-5 flex-grow">
                     {plan.features.map((feature, i) => (
                       <li
                         key={i}
-                        className={`flex items-start gap-3 ${
-                          feature.included
-                            ? "text-gray-700"
-                            : "text-gray-400 line-through"
+                        className={`flex items-start gap-2 text-xs ${
+                          feature.included ? "text-gray-700" : "text-gray-400"
                         }`}
                       >
                         <span
-                          className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold ${
+                          className={`flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center text-[10px] font-bold mt-0.5 ${
                             feature.included
                               ? feature.highlight
                                 ? "bg-primary-500 text-white"
@@ -280,20 +280,26 @@ const PricingModal = ({ isOpen, onClose }) => {
                         >
                           {feature.icon}
                         </span>
-                        <span className="text-sm flex-1">{feature.text}</span>
+                        <span
+                          className={`flex-1 leading-relaxed ${
+                            !feature.included ? "line-through" : ""
+                          }`}
+                        >
+                          {feature.text}
+                        </span>
                       </li>
                     ))}
                   </ul>
 
-                  {/* CTA Button */}
+                  {/* Compact CTA Button */}
                   <button
                     disabled={plan.buttonDisabled}
-                    className={`w-full py-3 px-6 rounded-lg font-semibold transition-all ${
+                    className={`w-full py-2.5 px-4 rounded-lg text-sm font-semibold transition-all ${
                       plan.buttonDisabled
                         ? "bg-gray-100 text-gray-400 cursor-not-allowed"
                         : plan.popular
-                        ? "bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:from-primary-600 hover:to-primary-700 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-                        : "bg-gray-800 text-white hover:bg-gray-900"
+                        ? "bg-gradient-to-r from-primary-500 to-primary-600 text-white hover:from-primary-600 hover:to-primary-700 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                        : "bg-gray-800 text-white hover:bg-gray-900 shadow-sm"
                     }`}
                   >
                     {plan.buttonText}
@@ -302,11 +308,11 @@ const PricingModal = ({ isOpen, onClose }) => {
               ))}
             </div>
 
-            {/* Additional Info */}
-            <div className="mt-8 text-center text-sm text-gray-600">
-              <p>
-                <i className="fas fa-shield-alt text-primary-500 mr-2"></i>
-                Thanh toán an toàn và bảo mật
+            {/* Compact Footer Info */}
+            <div className="mt-5 text-center">
+              <p className="text-xs text-gray-500">
+                <i className="fas fa-shield-alt text-primary-500 mr-1"></i>
+                Thanh toán an toàn & bảo mật
               </p>
             </div>
           </div>
