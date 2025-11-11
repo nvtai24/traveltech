@@ -88,9 +88,7 @@ const PricingModal = ({ isOpen, onClose }) => {
       icon: "fa-trophy",
       free: {
         status: "limited",
-        details: [
-          "Số lượng và giá trị của voucher giới hạn"
-        ],
+        details: ["Số lượng và giá trị của voucher giới hạn"],
       },
       premium: {
         status: "yes",
@@ -106,16 +104,15 @@ const PricingModal = ({ isOpen, onClose }) => {
   const FeatureStatus = ({ status, details }) => {
     if (status === "yes") {
       return (
-        <div className="text-center">
+        <div className="flex justify-center">
           {details.length === 0 ? (
             <i className="fas fa-check-circle text-2xl text-green-500"></i>
           ) : (
-            <div className="text-left">
-              <i className="fas fa-check-circle text-xl text-green-500 mb-2 block text-center"></i>
-              <ul className="text-xs text-gray-700 space-y-1">
+            <div className="flex flex-col items-start">
+              <i className="fas fa-check-circle text-2xl text-green-500 mb-2 self-center"></i>
+              <ul className="text-xs text-gray-700 space-y-1 text-left">
                 {details.map((detail, idx) => (
-                  <li key={idx} className="flex items-start">
-                    <span className="text-green-500 mr-1.5">•</span>
+                  <li key={idx}>
                     <span className="leading-relaxed">{detail}</span>
                   </li>
                 ))}
@@ -126,21 +123,22 @@ const PricingModal = ({ isOpen, onClose }) => {
       );
     } else if (status === "limited") {
       return (
-        <div className="text-left">
-          <i className="fas fa-exclamation-circle text-xl text-amber-500 mb-2 block text-center"></i>
-          <ul className="text-xs text-gray-600 space-y-1">
-            {details.map((detail, idx) => (
-              <li key={idx} className="flex items-start">
-                <span className="text-amber-500 mr-1.5">•</span>
-                <span className="leading-relaxed">{detail}</span>
-              </li>
-            ))}
-          </ul>
+        <div className="flex justify-center">
+          <div className="flex flex-col items-start">
+            <i className="fas fa-exclamation-circle text-2xl text-amber-500 mb-2 self-center"></i>
+            <ul className="text-xs text-gray-600 space-y-1 text-left">
+              {details.map((detail, idx) => (
+                <li key={idx}>
+                  <span className="leading-relaxed">{detail}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       );
     } else {
       return (
-        <div className="text-center">
+        <div className="flex items-center justify-center">
           <i className="fas fa-times-circle text-2xl text-gray-300"></i>
         </div>
       );
@@ -161,7 +159,7 @@ const PricingModal = ({ isOpen, onClose }) => {
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.95, opacity: 0, y: 20 }}
           transition={{ type: "spring", duration: 0.5 }}
-          className="bg-white rounded-2xl shadow-2xl max-w-7xl w-full max-h-[85vh] overflow-y-auto scrollbar-thin scrollbar-webkit flex flex-col"
+          className="bg-white rounded-2xl shadow-2xl max-w-5xl w-full max-h-[85vh] overflow-y-auto scrollbar-thin scrollbar-webkit flex flex-col"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Compact Header with Background Image */}
@@ -297,7 +295,7 @@ const PricingModal = ({ isOpen, onClose }) => {
                         index % 2 === 0 ? "bg-white" : "bg-gray-50/50"
                       }`}
                     >
-                      <td className="py-4 px-4">
+                      <td className="py-4 px-4 align-top">
                         <div className="flex items-center gap-3">
                           <i
                             className={`fas ${feature.icon} text-primary-500 text-lg`}
@@ -307,13 +305,13 @@ const PricingModal = ({ isOpen, onClose }) => {
                           </span>
                         </div>
                       </td>
-                      <td className="py-4 px-4">
+                      <td className="py-4 px-4 align-top">
                         <FeatureStatus
                           status={feature.free.status}
                           details={feature.free.details}
                         />
                       </td>
-                      <td className="py-4 px-4 bg-primary-50/30">
+                      <td className="py-4 px-4 bg-primary-50/30 align-top">
                         <FeatureStatus
                           status={feature.premium.status}
                           details={feature.premium.details}
