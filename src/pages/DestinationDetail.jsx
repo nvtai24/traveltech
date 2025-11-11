@@ -434,7 +434,7 @@ const DestinationDetail = () => {
             <div className="bg-white rounded-xl shadow-sm p-6">
               <h4 className="font-bold text-lg mb-4 flex items-center text-gray-900">
                 <i className="fas fa-headphones text-primary-600 mr-2"></i>
-                Story Voice
+                AI Voice Assistant
               </h4>
               <div className="mb-3 text-sm text-gray-600">
                 <i className="fas fa-info-circle mr-2"></i>
