@@ -7,13 +7,17 @@ const NewsletterModal = () => {
   const [showSuccess, setShowSuccess] = useState(false);
 
   useEffect(() => {
-    // Check if user has already subscribed
+    // Check if modal has already been shown in this session
+    const hasShownModal = sessionStorage.getItem("newsletterModalShown");
     const hasSubscribed = localStorage.getItem("newsletterSubscribed");
 
-    if (!hasSubscribed) {
+    // Only show if modal hasn't been shown this session AND user hasn't subscribed
+    if (!hasShownModal && !hasSubscribed) {
       // Show modal after 2 seconds delay
       const timer = setTimeout(() => {
         setIsOpen(true);
+        // Mark modal as shown for this session
+        sessionStorage.setItem("newsletterModalShown", "true");
       }, 2000);
 
       return () => clearTimeout(timer);
@@ -22,7 +26,6 @@ const NewsletterModal = () => {
 
   const handleClose = () => {
     setIsOpen(false);
-    // Don't save to localStorage when closing - only save after successful submission
   };
 
   const handleSubmit = async (e) => {
@@ -81,7 +84,7 @@ const NewsletterModal = () => {
           <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
             <i className="fas fa-envelope-open-text text-3xl"></i>
           </div>
-          <h2 className="text-2xl font-bold text-center mb-2">
+          <h2 className="text-2xl font-bold text-center mb-2 text-white">
             Đăng ký nhận tin tức du lịch
           </h2>
           <p className="text-blue-100 text-center text-sm">
